@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated study."
+title: "CRAV Sequential Vignettes"
+type: software
+
+authors:
+  - family-names: "Bickley"
+    given-names: "Steve J."
+    email: "s.bickley@qut.edu.au"
+    affiliation: "Queensland University of Technology"
+  - family-names: "Chan"
+    given-names: "Ho Fai"
+    affiliation: "Queensland University of Technology"
+  - family-names: "Stadelmann"
+    given-names: "David"
+    affiliation: "University of Bayreuth"
+  - family-names: "Tani"
+    given-names: "Massimiliano"
+    affiliation: "University of New South Wales"
+  - family-names: "Torgler"
+    given-names: "Benno"
+    affiliation: "Queensland University of Technology"
+
+abstract: >-
+  Reproducibility materials for Contextual Resource Allocation Vignettes
+  (CRAV), a sequential vignette framework for examining how artificial agents
+  revise resource-allocation decisions as additional contextual information
+  about a recipient is progressively revealed.
+
+keywords:
+  - "large language models"
+  - "artificial agents"
+  - "resource allocation"
+  - "fairness"
+  - "deservingness"
+  - "moral updating"
+  - "behavioural audit"
+  - "sequential vignettes"
+
+license: "MIT"
+
+preferred-citation:
+  type: unpublished
+  title: "Context-Sensitive Resource Allocation: Evidence from Sequential Vignettes Using Artificial Agents"
+  authors:
+    - family-names: "Bickley"
+      given-names: "Steve J."
+    - family-names: "Chan"
+      given-names: "Ho Fai"
+    - family-names: "Stadelmann"
+      given-names: "David"
+    - family-names: "Tani"
+      given-names: "Massimiliano"
+    - family-names: "Torgler"
+      given-names: "Benno"
+  year: 2026

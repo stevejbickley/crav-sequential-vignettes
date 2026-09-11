@@ -1,0 +1,26 @@
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Temporary / backup files
+*.tmp
+*.bak
+*.swp
+
+# Logs
+*.log

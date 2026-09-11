@@ -1,0 +1,34 @@
+{
+  "input_files": [
+    "crav_vignette_01_raw.csv",
+    "crav_vignette_02_raw.csv",
+    "crav_vignette_03_raw.csv",
+    "crav_vignette_04_raw.csv",
+    "crav_vignette_05_raw.csv",
+    "crav_vignette_06_raw.csv",
+    "crav_vignette_07_raw.csv",
+    "crav_vignette_08_raw.csv",
+    "crav_vignette_09_raw.csv",
+    "crav_vignette_10_raw.csv"
+  ],
+  "n_rows": 2500,
+  "n_agents": 50,
+  "n_scenarios": 10,
+  "n_levels": 5,
+  "models": [
+    "gpt-4o"
+  ],
+  "personas": [
+    "You are a person"
+  ],
+  "temperatures": [
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "created_min_utc": "2025-02-12 04:28:08+00:00",
+  "created_max_utc": "2025-02-12 05:06:43+00:00",
+  "total_budget_usd": 1000.0,
+  "analysis_random_seed": 20260901
+}

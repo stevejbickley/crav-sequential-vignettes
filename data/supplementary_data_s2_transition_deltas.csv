@@ -1,0 +1,2001 @@
+agent,scenario,from_level,to_level,transition,new_information,delta_B_pp
+1,1,1,2,L1→L2,Criminal activity,-10.0
+2,1,1,2,L1→L2,Criminal activity,-10.0
+3,1,1,2,L1→L2,Criminal activity,-10.0
+4,1,1,2,L1→L2,Criminal activity,-10.0
+5,1,1,2,L1→L2,Criminal activity,-10.0
+6,1,1,2,L1→L2,Criminal activity,-10.0
+7,1,1,2,L1→L2,Criminal activity,-10.0
+8,1,1,2,L1→L2,Criminal activity,-10.0
+9,1,1,2,L1→L2,Criminal activity,-10.0
+10,1,1,2,L1→L2,Criminal activity,-10.0
+11,1,1,2,L1→L2,Criminal activity,-10.0
+12,1,1,2,L1→L2,Criminal activity,-10.0
+13,1,1,2,L1→L2,Criminal activity,-10.0
+14,1,1,2,L1→L2,Criminal activity,-10.0
+15,1,1,2,L1→L2,Criminal activity,-10.0
+16,1,1,2,L1→L2,Criminal activity,-10.0
+17,1,1,2,L1→L2,Criminal activity,-10.0
+18,1,1,2,L1→L2,Criminal activity,-10.0
+19,1,1,2,L1→L2,Criminal activity,-10.0
+20,1,1,2,L1→L2,Criminal activity,-10.0
+21,1,1,2,L1→L2,Criminal activity,-10.0
+22,1,1,2,L1→L2,Criminal activity,-10.0
+23,1,1,2,L1→L2,Criminal activity,-10.0
+24,1,1,2,L1→L2,Criminal activity,-10.0
+25,1,1,2,L1→L2,Criminal activity,-10.0
+26,1,1,2,L1→L2,Criminal activity,-10.0
+27,1,1,2,L1→L2,Criminal activity,-10.0
+28,1,1,2,L1→L2,Criminal activity,-10.0
+29,1,1,2,L1→L2,Criminal activity,-10.0
+30,1,1,2,L1→L2,Criminal activity,-10.0
+31,1,1,2,L1→L2,Criminal activity,-4.999999999999993
+32,1,1,2,L1→L2,Criminal activity,-10.0
+33,1,1,2,L1→L2,Criminal activity,-10.0
+34,1,1,2,L1→L2,Criminal activity,-10.0
+35,1,1,2,L1→L2,Criminal activity,-10.0
+36,1,1,2,L1→L2,Criminal activity,-10.0
+37,1,1,2,L1→L2,Criminal activity,-10.0
+38,1,1,2,L1→L2,Criminal activity,-10.0
+39,1,1,2,L1→L2,Criminal activity,-10.0
+40,1,1,2,L1→L2,Criminal activity,-10.0
+41,1,1,2,L1→L2,Criminal activity,-10.0
+42,1,1,2,L1→L2,Criminal activity,-10.0
+43,1,1,2,L1→L2,Criminal activity,-10.0
+44,1,1,2,L1→L2,Criminal activity,-10.0
+45,1,1,2,L1→L2,Criminal activity,-10.0
+46,1,1,2,L1→L2,Criminal activity,-10.0
+47,1,1,2,L1→L2,Criminal activity,-10.0
+48,1,1,2,L1→L2,Criminal activity,-10.0
+49,1,1,2,L1→L2,Criminal activity,-4.999999999999993
+50,1,1,2,L1→L2,Criminal activity,-10.0
+1,1,2,3,L2→L3,Forced gang membership,10.0
+2,1,2,3,L2→L3,Forced gang membership,10.0
+3,1,2,3,L2→L3,Forced gang membership,10.0
+4,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+5,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+6,1,2,3,L2→L3,Forced gang membership,10.0
+7,1,2,3,L2→L3,Forced gang membership,10.0
+8,1,2,3,L2→L3,Forced gang membership,10.0
+9,1,2,3,L2→L3,Forced gang membership,10.0
+10,1,2,3,L2→L3,Forced gang membership,-10.0
+11,1,2,3,L2→L3,Forced gang membership,10.0
+12,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+13,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+14,1,2,3,L2→L3,Forced gang membership,10.0
+15,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+16,1,2,3,L2→L3,Forced gang membership,10.0
+17,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+18,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+19,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+20,1,2,3,L2→L3,Forced gang membership,10.0
+21,1,2,3,L2→L3,Forced gang membership,10.0
+22,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+23,1,2,3,L2→L3,Forced gang membership,10.0
+24,1,2,3,L2→L3,Forced gang membership,10.0
+25,1,2,3,L2→L3,Forced gang membership,10.0
+26,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+27,1,2,3,L2→L3,Forced gang membership,10.0
+28,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+29,1,2,3,L2→L3,Forced gang membership,-10.0
+30,1,2,3,L2→L3,Forced gang membership,10.0
+31,1,2,3,L2→L3,Forced gang membership,-3.000000000000007
+32,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+33,1,2,3,L2→L3,Forced gang membership,10.0
+34,1,2,3,L2→L3,Forced gang membership,10.0
+35,1,2,3,L2→L3,Forced gang membership,10.0
+36,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+37,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+38,1,2,3,L2→L3,Forced gang membership,10.0
+39,1,2,3,L2→L3,Forced gang membership,10.0
+40,1,2,3,L2→L3,Forced gang membership,10.0
+41,1,2,3,L2→L3,Forced gang membership,10.0
+42,1,2,3,L2→L3,Forced gang membership,10.0
+43,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+44,1,2,3,L2→L3,Forced gang membership,10.0
+45,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+46,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+47,1,2,3,L2→L3,Forced gang membership,5.000000000000007
+48,1,2,3,L2→L3,Forced gang membership,10.0
+49,1,2,3,L2→L3,Forced gang membership,-3.000000000000007
+50,1,2,3,L2→L3,Forced gang membership,10.0
+1,1,3,4,L3→L4,Illegal gambling debts,10.0
+2,1,3,4,L3→L4,Illegal gambling debts,10.0
+3,1,3,4,L3→L4,Illegal gambling debts,0.0
+4,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+5,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+6,1,3,4,L3→L4,Illegal gambling debts,10.0
+7,1,3,4,L3→L4,Illegal gambling debts,0.0
+8,1,3,4,L3→L4,Illegal gambling debts,10.0
+9,1,3,4,L3→L4,Illegal gambling debts,10.0
+10,1,3,4,L3→L4,Illegal gambling debts,10.0
+11,1,3,4,L3→L4,Illegal gambling debts,10.0
+12,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+13,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+14,1,3,4,L3→L4,Illegal gambling debts,10.0
+15,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+16,1,3,4,L3→L4,Illegal gambling debts,10.0
+17,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+18,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+19,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+20,1,3,4,L3→L4,Illegal gambling debts,5.0
+21,1,3,4,L3→L4,Illegal gambling debts,5.0
+22,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+23,1,3,4,L3→L4,Illegal gambling debts,10.0
+24,1,3,4,L3→L4,Illegal gambling debts,10.0
+25,1,3,4,L3→L4,Illegal gambling debts,0.0
+26,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+27,1,3,4,L3→L4,Illegal gambling debts,10.0
+28,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+29,1,3,4,L3→L4,Illegal gambling debts,-10.0
+30,1,3,4,L3→L4,Illegal gambling debts,5.0
+31,1,3,4,L3→L4,Illegal gambling debts,-1.0
+32,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+33,1,3,4,L3→L4,Illegal gambling debts,5.0
+34,1,3,4,L3→L4,Illegal gambling debts,10.0
+35,1,3,4,L3→L4,Illegal gambling debts,10.0
+36,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+37,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+38,1,3,4,L3→L4,Illegal gambling debts,-4.999999999999993
+39,1,3,4,L3→L4,Illegal gambling debts,0.0
+40,1,3,4,L3→L4,Illegal gambling debts,5.0
+41,1,3,4,L3→L4,Illegal gambling debts,0.0
+42,1,3,4,L3→L4,Illegal gambling debts,0.0
+43,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+44,1,3,4,L3→L4,Illegal gambling debts,0.0
+45,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+46,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+47,1,3,4,L3→L4,Illegal gambling debts,4.999999999999993
+48,1,3,4,L3→L4,Illegal gambling debts,10.0
+49,1,3,4,L3→L4,Illegal gambling debts,-2.0
+50,1,3,4,L3→L4,Illegal gambling debts,5.0
+1,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+2,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+3,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+4,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+5,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+6,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+7,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+8,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+9,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+10,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+11,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+12,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+13,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+14,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+15,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+16,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+17,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+18,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+19,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+20,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+21,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+22,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+23,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+24,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+25,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+26,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+27,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+28,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+29,1,4,5,L4→L5,Gambling for child's cancer care,40.0
+30,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+31,1,4,5,L4→L5,Gambling for child's cancer care,-1.0
+32,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+33,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+34,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+35,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+36,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+37,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+38,1,4,5,L4→L5,Gambling for child's cancer care,9.999999999999993
+39,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+40,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+41,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+42,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+43,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+44,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+45,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+46,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+47,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+48,1,4,5,L4→L5,Gambling for child's cancer care,10.0
+49,1,4,5,L4→L5,Gambling for child's cancer care,20.0
+50,1,4,5,L4→L5,Gambling for child's cancer care,5.0
+1,2,1,2,L1→L2,Pregnancy loss,10.0
+2,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+3,2,1,2,L1→L2,Pregnancy loss,10.0
+4,2,1,2,L1→L2,Pregnancy loss,10.0
+5,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+6,2,1,2,L1→L2,Pregnancy loss,10.0
+7,2,1,2,L1→L2,Pregnancy loss,10.0
+8,2,1,2,L1→L2,Pregnancy loss,10.0
+9,2,1,2,L1→L2,Pregnancy loss,10.0
+10,2,1,2,L1→L2,Pregnancy loss,10.0
+11,2,1,2,L1→L2,Pregnancy loss,10.0
+12,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+13,2,1,2,L1→L2,Pregnancy loss,10.0
+14,2,1,2,L1→L2,Pregnancy loss,10.0
+15,2,1,2,L1→L2,Pregnancy loss,10.0
+16,2,1,2,L1→L2,Pregnancy loss,10.0
+17,2,1,2,L1→L2,Pregnancy loss,10.0
+18,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+19,2,1,2,L1→L2,Pregnancy loss,10.0
+20,2,1,2,L1→L2,Pregnancy loss,10.0
+21,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+22,2,1,2,L1→L2,Pregnancy loss,10.0
+23,2,1,2,L1→L2,Pregnancy loss,10.0
+24,2,1,2,L1→L2,Pregnancy loss,10.0
+25,2,1,2,L1→L2,Pregnancy loss,10.0
+26,2,1,2,L1→L2,Pregnancy loss,10.0
+27,2,1,2,L1→L2,Pregnancy loss,10.0
+28,2,1,2,L1→L2,Pregnancy loss,10.0
+29,2,1,2,L1→L2,Pregnancy loss,10.0
+30,2,1,2,L1→L2,Pregnancy loss,10.0
+31,2,1,2,L1→L2,Pregnancy loss,10.0
+32,2,1,2,L1→L2,Pregnancy loss,10.0
+33,2,1,2,L1→L2,Pregnancy loss,10.0
+34,2,1,2,L1→L2,Pregnancy loss,10.0
+35,2,1,2,L1→L2,Pregnancy loss,5.000000000000007
+36,2,1,2,L1→L2,Pregnancy loss,10.0
+37,2,1,2,L1→L2,Pregnancy loss,10.0
+38,2,1,2,L1→L2,Pregnancy loss,10.0
+39,2,1,2,L1→L2,Pregnancy loss,10.0
+40,2,1,2,L1→L2,Pregnancy loss,10.0
+41,2,1,2,L1→L2,Pregnancy loss,10.0
+42,2,1,2,L1→L2,Pregnancy loss,10.0
+43,2,1,2,L1→L2,Pregnancy loss,10.0
+44,2,1,2,L1→L2,Pregnancy loss,10.0
+45,2,1,2,L1→L2,Pregnancy loss,10.0
+46,2,1,2,L1→L2,Pregnancy loss,10.0
+47,2,1,2,L1→L2,Pregnancy loss,10.0
+48,2,1,2,L1→L2,Pregnancy loss,10.0
+49,2,1,2,L1→L2,Pregnancy loss,10.0
+50,2,1,2,L1→L2,Pregnancy loss,10.0
+1,2,2,3,L2→L3,Abortion,-5.0
+2,2,2,3,L2→L3,Abortion,0.0
+3,2,2,3,L2→L3,Abortion,-5.0
+4,2,2,3,L2→L3,Abortion,-10.0
+5,2,2,3,L2→L3,Abortion,0.0
+6,2,2,3,L2→L3,Abortion,-4.999999999999993
+7,2,2,3,L2→L3,Abortion,-10.0
+8,2,2,3,L2→L3,Abortion,-10.0
+9,2,2,3,L2→L3,Abortion,-5.0
+10,2,2,3,L2→L3,Abortion,0.0
+11,2,2,3,L2→L3,Abortion,0.0
+12,2,2,3,L2→L3,Abortion,0.0
+13,2,2,3,L2→L3,Abortion,-4.999999999999993
+14,2,2,3,L2→L3,Abortion,-4.999999999999993
+15,2,2,3,L2→L3,Abortion,0.0
+16,2,2,3,L2→L3,Abortion,-4.999999999999993
+17,2,2,3,L2→L3,Abortion,-10.0
+18,2,2,3,L2→L3,Abortion,0.0
+19,2,2,3,L2→L3,Abortion,-10.0
+20,2,2,3,L2→L3,Abortion,-10.0
+21,2,2,3,L2→L3,Abortion,-5.000000000000007
+22,2,2,3,L2→L3,Abortion,0.0
+23,2,2,3,L2→L3,Abortion,0.0
+24,2,2,3,L2→L3,Abortion,-4.999999999999993
+25,2,2,3,L2→L3,Abortion,-5.0
+26,2,2,3,L2→L3,Abortion,-4.999999999999993
+27,2,2,3,L2→L3,Abortion,-4.999999999999993
+28,2,2,3,L2→L3,Abortion,-4.999999999999993
+29,2,2,3,L2→L3,Abortion,-4.999999999999993
+30,2,2,3,L2→L3,Abortion,0.0
+31,2,2,3,L2→L3,Abortion,0.0
+32,2,2,3,L2→L3,Abortion,-4.999999999999993
+33,2,2,3,L2→L3,Abortion,0.0
+34,2,2,3,L2→L3,Abortion,10.0
+35,2,2,3,L2→L3,Abortion,0.0
+36,2,2,3,L2→L3,Abortion,0.0
+37,2,2,3,L2→L3,Abortion,0.0
+38,2,2,3,L2→L3,Abortion,-10.0
+39,2,2,3,L2→L3,Abortion,-5.0
+40,2,2,3,L2→L3,Abortion,-5.0
+41,2,2,3,L2→L3,Abortion,-5.0
+42,2,2,3,L2→L3,Abortion,-5.0
+43,2,2,3,L2→L3,Abortion,-5.0
+44,2,2,3,L2→L3,Abortion,-10.0
+45,2,2,3,L2→L3,Abortion,-10.0
+46,2,2,3,L2→L3,Abortion,-10.0
+47,2,2,3,L2→L3,Abortion,-10.0
+48,2,2,3,L2→L3,Abortion,-10.0
+49,2,2,3,L2→L3,Abortion,-10.0
+50,2,2,3,L2→L3,Abortion,-10.0
+1,2,3,4,L3→L4,Life-saving medical abortion,5.0
+2,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+3,2,3,4,L3→L4,Life-saving medical abortion,5.0
+4,2,3,4,L3→L4,Life-saving medical abortion,10.0
+5,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+6,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+7,2,3,4,L3→L4,Life-saving medical abortion,10.0
+8,2,3,4,L3→L4,Life-saving medical abortion,10.0
+9,2,3,4,L3→L4,Life-saving medical abortion,5.0
+10,2,3,4,L3→L4,Life-saving medical abortion,10.0
+11,2,3,4,L3→L4,Life-saving medical abortion,0.0
+12,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+13,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+14,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+15,2,3,4,L3→L4,Life-saving medical abortion,10.0
+16,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+17,2,3,4,L3→L4,Life-saving medical abortion,10.0
+18,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+19,2,3,4,L3→L4,Life-saving medical abortion,10.0
+20,2,3,4,L3→L4,Life-saving medical abortion,10.0
+21,2,3,4,L3→L4,Life-saving medical abortion,10.0
+22,2,3,4,L3→L4,Life-saving medical abortion,10.0
+23,2,3,4,L3→L4,Life-saving medical abortion,10.0
+24,2,3,4,L3→L4,Life-saving medical abortion,14.999999999999993
+25,2,3,4,L3→L4,Life-saving medical abortion,5.0
+26,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+27,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+28,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+29,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+30,2,3,4,L3→L4,Life-saving medical abortion,10.0
+31,2,3,4,L3→L4,Life-saving medical abortion,10.0
+32,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+33,2,3,4,L3→L4,Life-saving medical abortion,10.0
+34,2,3,4,L3→L4,Life-saving medical abortion,20.0
+35,2,3,4,L3→L4,Life-saving medical abortion,4.999999999999993
+36,2,3,4,L3→L4,Life-saving medical abortion,10.0
+37,2,3,4,L3→L4,Life-saving medical abortion,10.0
+38,2,3,4,L3→L4,Life-saving medical abortion,10.0
+39,2,3,4,L3→L4,Life-saving medical abortion,5.0
+40,2,3,4,L3→L4,Life-saving medical abortion,5.0
+41,2,3,4,L3→L4,Life-saving medical abortion,5.0
+42,2,3,4,L3→L4,Life-saving medical abortion,5.0
+43,2,3,4,L3→L4,Life-saving medical abortion,5.0
+44,2,3,4,L3→L4,Life-saving medical abortion,10.0
+45,2,3,4,L3→L4,Life-saving medical abortion,10.0
+46,2,3,4,L3→L4,Life-saving medical abortion,10.0
+47,2,3,4,L3→L4,Life-saving medical abortion,10.0
+48,2,3,4,L3→L4,Life-saving medical abortion,10.0
+49,2,3,4,L3→L4,Life-saving medical abortion,10.0
+50,2,3,4,L3→L4,Life-saving medical abortion,10.0
+1,2,4,5,L4→L5,Incest complications,10.0
+2,2,4,5,L4→L5,Incest complications,10.0
+3,2,4,5,L4→L5,Incest complications,5.000000000000007
+4,2,4,5,L4→L5,Incest complications,10.0
+5,2,4,5,L4→L5,Incest complications,10.0
+6,2,4,5,L4→L5,Incest complications,10.0
+7,2,4,5,L4→L5,Incest complications,10.0
+8,2,4,5,L4→L5,Incest complications,10.0
+9,2,4,5,L4→L5,Incest complications,10.0
+10,2,4,5,L4→L5,Incest complications,10.0
+11,2,4,5,L4→L5,Incest complications,10.0
+12,2,4,5,L4→L5,Incest complications,10.0
+13,2,4,5,L4→L5,Incest complications,10.0
+14,2,4,5,L4→L5,Incest complications,5.0
+15,2,4,5,L4→L5,Incest complications,10.0
+16,2,4,5,L4→L5,Incest complications,10.0
+17,2,4,5,L4→L5,Incest complications,10.0
+18,2,4,5,L4→L5,Incest complications,5.0
+19,2,4,5,L4→L5,Incest complications,10.0
+20,2,4,5,L4→L5,Incest complications,10.0
+21,2,4,5,L4→L5,Incest complications,10.0
+22,2,4,5,L4→L5,Incest complications,10.0
+23,2,4,5,L4→L5,Incest complications,10.0
+24,2,4,5,L4→L5,Incest complications,10.0
+25,2,4,5,L4→L5,Incest complications,10.0
+26,2,4,5,L4→L5,Incest complications,10.0
+27,2,4,5,L4→L5,Incest complications,10.0
+28,2,4,5,L4→L5,Incest complications,10.0
+29,2,4,5,L4→L5,Incest complications,10.0
+30,2,4,5,L4→L5,Incest complications,10.0
+31,2,4,5,L4→L5,Incest complications,10.0
+32,2,4,5,L4→L5,Incest complications,10.0
+33,2,4,5,L4→L5,Incest complications,10.0
+34,2,4,5,L4→L5,Incest complications,5.0
+35,2,4,5,L4→L5,Incest complications,10.0
+36,2,4,5,L4→L5,Incest complications,10.0
+37,2,4,5,L4→L5,Incest complications,10.0
+38,2,4,5,L4→L5,Incest complications,10.0
+39,2,4,5,L4→L5,Incest complications,10.0
+40,2,4,5,L4→L5,Incest complications,10.0
+41,2,4,5,L4→L5,Incest complications,10.0
+42,2,4,5,L4→L5,Incest complications,10.0
+43,2,4,5,L4→L5,Incest complications,10.0
+44,2,4,5,L4→L5,Incest complications,10.0
+45,2,4,5,L4→L5,Incest complications,10.0
+46,2,4,5,L4→L5,Incest complications,10.0
+47,2,4,5,L4→L5,Incest complications,10.0
+48,2,4,5,L4→L5,Incest complications,10.0
+49,2,4,5,L4→L5,Incest complications,10.0
+50,2,4,5,L4→L5,Incest complications,10.0
+1,3,1,2,L1→L2,Trauma,5.0
+2,3,1,2,L1→L2,Trauma,5.0
+3,3,1,2,L1→L2,Trauma,5.0
+4,3,1,2,L1→L2,Trauma,5.0
+5,3,1,2,L1→L2,Trauma,10.0
+6,3,1,2,L1→L2,Trauma,5.0
+7,3,1,2,L1→L2,Trauma,5.0
+8,3,1,2,L1→L2,Trauma,5.0
+9,3,1,2,L1→L2,Trauma,5.0
+10,3,1,2,L1→L2,Trauma,5.0
+11,3,1,2,L1→L2,Trauma,5.0
+12,3,1,2,L1→L2,Trauma,5.0
+13,3,1,2,L1→L2,Trauma,5.0
+14,3,1,2,L1→L2,Trauma,5.0
+15,3,1,2,L1→L2,Trauma,5.0
+16,3,1,2,L1→L2,Trauma,5.0
+17,3,1,2,L1→L2,Trauma,5.0
+18,3,1,2,L1→L2,Trauma,5.0
+19,3,1,2,L1→L2,Trauma,10.0
+20,3,1,2,L1→L2,Trauma,5.0
+21,3,1,2,L1→L2,Trauma,5.0
+22,3,1,2,L1→L2,Trauma,5.0
+23,3,1,2,L1→L2,Trauma,10.0
+24,3,1,2,L1→L2,Trauma,5.0
+25,3,1,2,L1→L2,Trauma,5.0
+26,3,1,2,L1→L2,Trauma,5.0
+27,3,1,2,L1→L2,Trauma,10.0
+28,3,1,2,L1→L2,Trauma,5.0
+29,3,1,2,L1→L2,Trauma,5.0
+30,3,1,2,L1→L2,Trauma,5.0
+31,3,1,2,L1→L2,Trauma,5.0
+32,3,1,2,L1→L2,Trauma,5.0
+33,3,1,2,L1→L2,Trauma,5.0
+34,3,1,2,L1→L2,Trauma,5.0
+35,3,1,2,L1→L2,Trauma,5.0
+36,3,1,2,L1→L2,Trauma,5.0
+37,3,1,2,L1→L2,Trauma,10.0
+38,3,1,2,L1→L2,Trauma,5.0
+39,3,1,2,L1→L2,Trauma,10.0
+40,3,1,2,L1→L2,Trauma,5.0
+41,3,1,2,L1→L2,Trauma,5.0
+42,3,1,2,L1→L2,Trauma,5.0
+43,3,1,2,L1→L2,Trauma,10.0
+44,3,1,2,L1→L2,Trauma,5.0
+45,3,1,2,L1→L2,Trauma,5.0
+46,3,1,2,L1→L2,Trauma,5.0
+47,3,1,2,L1→L2,Trauma,10.0
+48,3,1,2,L1→L2,Trauma,5.0
+49,3,1,2,L1→L2,Trauma,10.0
+50,3,1,2,L1→L2,Trauma,5.0
+1,3,2,3,L2→L3,Trauma as insurgent,5.0
+2,3,2,3,L2→L3,Trauma as insurgent,5.0
+3,3,2,3,L2→L3,Trauma as insurgent,5.0
+4,3,2,3,L2→L3,Trauma as insurgent,5.0
+5,3,2,3,L2→L3,Trauma as insurgent,5.0
+6,3,2,3,L2→L3,Trauma as insurgent,5.0
+7,3,2,3,L2→L3,Trauma as insurgent,5.0
+8,3,2,3,L2→L3,Trauma as insurgent,5.0
+9,3,2,3,L2→L3,Trauma as insurgent,5.0
+10,3,2,3,L2→L3,Trauma as insurgent,5.0
+11,3,2,3,L2→L3,Trauma as insurgent,5.0
+12,3,2,3,L2→L3,Trauma as insurgent,5.0
+13,3,2,3,L2→L3,Trauma as insurgent,5.0
+14,3,2,3,L2→L3,Trauma as insurgent,5.0
+15,3,2,3,L2→L3,Trauma as insurgent,5.0
+16,3,2,3,L2→L3,Trauma as insurgent,5.0
+17,3,2,3,L2→L3,Trauma as insurgent,5.0
+18,3,2,3,L2→L3,Trauma as insurgent,5.0
+19,3,2,3,L2→L3,Trauma as insurgent,5.0
+20,3,2,3,L2→L3,Trauma as insurgent,5.0
+21,3,2,3,L2→L3,Trauma as insurgent,5.0
+22,3,2,3,L2→L3,Trauma as insurgent,5.0
+23,3,2,3,L2→L3,Trauma as insurgent,5.0
+24,3,2,3,L2→L3,Trauma as insurgent,5.0
+25,3,2,3,L2→L3,Trauma as insurgent,5.0
+26,3,2,3,L2→L3,Trauma as insurgent,5.0
+27,3,2,3,L2→L3,Trauma as insurgent,5.0
+28,3,2,3,L2→L3,Trauma as insurgent,5.0
+29,3,2,3,L2→L3,Trauma as insurgent,5.0
+30,3,2,3,L2→L3,Trauma as insurgent,5.0
+31,3,2,3,L2→L3,Trauma as insurgent,5.0
+32,3,2,3,L2→L3,Trauma as insurgent,5.0
+33,3,2,3,L2→L3,Trauma as insurgent,5.0
+34,3,2,3,L2→L3,Trauma as insurgent,5.0
+35,3,2,3,L2→L3,Trauma as insurgent,5.0
+36,3,2,3,L2→L3,Trauma as insurgent,5.0
+37,3,2,3,L2→L3,Trauma as insurgent,5.0
+38,3,2,3,L2→L3,Trauma as insurgent,5.0
+39,3,2,3,L2→L3,Trauma as insurgent,5.0
+40,3,2,3,L2→L3,Trauma as insurgent,5.0
+41,3,2,3,L2→L3,Trauma as insurgent,5.0
+42,3,2,3,L2→L3,Trauma as insurgent,5.0
+43,3,2,3,L2→L3,Trauma as insurgent,5.0
+44,3,2,3,L2→L3,Trauma as insurgent,5.0
+45,3,2,3,L2→L3,Trauma as insurgent,5.0
+46,3,2,3,L2→L3,Trauma as insurgent,5.0
+47,3,2,3,L2→L3,Trauma as insurgent,5.0
+48,3,2,3,L2→L3,Trauma as insurgent,5.0
+49,3,2,3,L2→L3,Trauma as insurgent,10.0
+50,3,2,3,L2→L3,Trauma as insurgent,5.0
+1,3,3,4,L3→L4,Family killed in drone bombing,5.0
+2,3,3,4,L3→L4,Family killed in drone bombing,5.0
+3,3,3,4,L3→L4,Family killed in drone bombing,5.0
+4,3,3,4,L3→L4,Family killed in drone bombing,5.0
+5,3,3,4,L3→L4,Family killed in drone bombing,5.0
+6,3,3,4,L3→L4,Family killed in drone bombing,5.0
+7,3,3,4,L3→L4,Family killed in drone bombing,5.0
+8,3,3,4,L3→L4,Family killed in drone bombing,5.0
+9,3,3,4,L3→L4,Family killed in drone bombing,5.0
+10,3,3,4,L3→L4,Family killed in drone bombing,5.0
+11,3,3,4,L3→L4,Family killed in drone bombing,5.0
+12,3,3,4,L3→L4,Family killed in drone bombing,5.0
+13,3,3,4,L3→L4,Family killed in drone bombing,5.0
+14,3,3,4,L3→L4,Family killed in drone bombing,5.0
+15,3,3,4,L3→L4,Family killed in drone bombing,5.0
+16,3,3,4,L3→L4,Family killed in drone bombing,5.0
+17,3,3,4,L3→L4,Family killed in drone bombing,5.0
+18,3,3,4,L3→L4,Family killed in drone bombing,5.0
+19,3,3,4,L3→L4,Family killed in drone bombing,5.0
+20,3,3,4,L3→L4,Family killed in drone bombing,5.0
+21,3,3,4,L3→L4,Family killed in drone bombing,5.0
+22,3,3,4,L3→L4,Family killed in drone bombing,5.0
+23,3,3,4,L3→L4,Family killed in drone bombing,5.0
+24,3,3,4,L3→L4,Family killed in drone bombing,5.0
+25,3,3,4,L3→L4,Family killed in drone bombing,5.0
+26,3,3,4,L3→L4,Family killed in drone bombing,5.0
+27,3,3,4,L3→L4,Family killed in drone bombing,5.0
+28,3,3,4,L3→L4,Family killed in drone bombing,5.0
+29,3,3,4,L3→L4,Family killed in drone bombing,5.0
+30,3,3,4,L3→L4,Family killed in drone bombing,5.0
+31,3,3,4,L3→L4,Family killed in drone bombing,5.0
+32,3,3,4,L3→L4,Family killed in drone bombing,5.0
+33,3,3,4,L3→L4,Family killed in drone bombing,5.0
+34,3,3,4,L3→L4,Family killed in drone bombing,5.0
+35,3,3,4,L3→L4,Family killed in drone bombing,5.0
+36,3,3,4,L3→L4,Family killed in drone bombing,5.0
+37,3,3,4,L3→L4,Family killed in drone bombing,5.0
+38,3,3,4,L3→L4,Family killed in drone bombing,5.0
+39,3,3,4,L3→L4,Family killed in drone bombing,5.0
+40,3,3,4,L3→L4,Family killed in drone bombing,5.0
+41,3,3,4,L3→L4,Family killed in drone bombing,5.0
+42,3,3,4,L3→L4,Family killed in drone bombing,5.0
+43,3,3,4,L3→L4,Family killed in drone bombing,5.0
+44,3,3,4,L3→L4,Family killed in drone bombing,5.0
+45,3,3,4,L3→L4,Family killed in drone bombing,5.0
+46,3,3,4,L3→L4,Family killed in drone bombing,5.0
+47,3,3,4,L3→L4,Family killed in drone bombing,5.0
+48,3,3,4,L3→L4,Family killed in drone bombing,5.0
+49,3,3,4,L3→L4,Family killed in drone bombing,10.0
+50,3,3,4,L3→L4,Family killed in drone bombing,5.0
+1,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+2,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+3,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+4,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+5,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+6,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+7,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+8,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+9,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+10,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+11,3,4,5,L4→L5,Family in insurgency leadership,0.0
+12,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+13,3,4,5,L4→L5,Family in insurgency leadership,-15.0
+14,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+15,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+16,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+17,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+18,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+19,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+20,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+21,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+22,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+23,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+24,3,4,5,L4→L5,Family in insurgency leadership,-2.5
+25,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+26,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+27,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+28,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+29,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+30,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+31,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+32,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+33,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+34,3,4,5,L4→L5,Family in insurgency leadership,-15.0
+35,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+36,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+37,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+38,3,4,5,L4→L5,Family in insurgency leadership,5.0
+39,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+40,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+41,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+42,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+43,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+44,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+45,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+46,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+47,3,4,5,L4→L5,Family in insurgency leadership,-10.0
+48,3,4,5,L4→L5,Family in insurgency leadership,-15.0
+49,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+50,3,4,5,L4→L5,Family in insurgency leadership,-5.0
+1,4,1,2,L1→L2,Drunk driving,-10.0
+2,4,1,2,L1→L2,Drunk driving,-30.0
+3,4,1,2,L1→L2,Drunk driving,-10.0
+4,4,1,2,L1→L2,Drunk driving,-10.0
+5,4,1,2,L1→L2,Drunk driving,-10.0
+6,4,1,2,L1→L2,Drunk driving,-10.0
+7,4,1,2,L1→L2,Drunk driving,-20.0
+8,4,1,2,L1→L2,Drunk driving,-10.0
+9,4,1,2,L1→L2,Drunk driving,-10.0
+10,4,1,2,L1→L2,Drunk driving,-10.0
+11,4,1,2,L1→L2,Drunk driving,-10.0
+12,4,1,2,L1→L2,Drunk driving,-10.0
+13,4,1,2,L1→L2,Drunk driving,-10.0
+14,4,1,2,L1→L2,Drunk driving,-10.0
+15,4,1,2,L1→L2,Drunk driving,-10.0
+16,4,1,2,L1→L2,Drunk driving,-10.0
+17,4,1,2,L1→L2,Drunk driving,-10.0
+18,4,1,2,L1→L2,Drunk driving,-10.0
+19,4,1,2,L1→L2,Drunk driving,-10.0
+20,4,1,2,L1→L2,Drunk driving,-10.0
+21,4,1,2,L1→L2,Drunk driving,-10.0
+22,4,1,2,L1→L2,Drunk driving,-10.0
+23,4,1,2,L1→L2,Drunk driving,-10.0
+24,4,1,2,L1→L2,Drunk driving,-10.0
+25,4,1,2,L1→L2,Drunk driving,-10.0
+26,4,1,2,L1→L2,Drunk driving,-10.0
+27,4,1,2,L1→L2,Drunk driving,-10.0
+28,4,1,2,L1→L2,Drunk driving,-30.0
+29,4,1,2,L1→L2,Drunk driving,-10.0
+30,4,1,2,L1→L2,Drunk driving,-10.0
+31,4,1,2,L1→L2,Drunk driving,-10.0
+32,4,1,2,L1→L2,Drunk driving,-10.0
+33,4,1,2,L1→L2,Drunk driving,-10.0
+34,4,1,2,L1→L2,Drunk driving,-30.0
+35,4,1,2,L1→L2,Drunk driving,-10.0
+36,4,1,2,L1→L2,Drunk driving,-20.0
+37,4,1,2,L1→L2,Drunk driving,-10.0
+38,4,1,2,L1→L2,Drunk driving,-10.0
+39,4,1,2,L1→L2,Drunk driving,-10.0
+40,4,1,2,L1→L2,Drunk driving,-10.0
+41,4,1,2,L1→L2,Drunk driving,-10.0
+42,4,1,2,L1→L2,Drunk driving,-10.0
+43,4,1,2,L1→L2,Drunk driving,-10.0
+44,4,1,2,L1→L2,Drunk driving,-30.0
+45,4,1,2,L1→L2,Drunk driving,-10.0
+46,4,1,2,L1→L2,Drunk driving,-10.0
+47,4,1,2,L1→L2,Drunk driving,-10.0
+48,4,1,2,L1→L2,Drunk driving,-10.0
+49,4,1,2,L1→L2,Drunk driving,-10.0
+50,4,1,2,L1→L2,Drunk driving,-10.0
+1,4,2,3,L2→L3,Drinking linked to bereavement,5.0
+2,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+3,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+4,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+5,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+6,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+7,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+8,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+9,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+10,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+11,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+12,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+13,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+14,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+15,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+16,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+17,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+18,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+19,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+20,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+21,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+22,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+23,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+24,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+25,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+26,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+27,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+28,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+29,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+30,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+31,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+32,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+33,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+34,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+35,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+36,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+37,4,2,3,L2→L3,Drinking linked to bereavement,5.0
+38,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+39,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+40,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+41,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+42,4,2,3,L2→L3,Drinking linked to bereavement,5.0
+43,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+44,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+45,4,2,3,L2→L3,Drinking linked to bereavement,5.000000000000007
+46,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+47,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+48,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+49,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+50,4,2,3,L2→L3,Drinking linked to bereavement,10.0
+1,4,3,4,L3→L4,Friend died in war,5.0
+2,4,3,4,L3→L4,Friend died in war,10.0
+3,4,3,4,L3→L4,Friend died in war,5.0
+4,4,3,4,L3→L4,Friend died in war,5.0
+5,4,3,4,L3→L4,Friend died in war,0.0
+6,4,3,4,L3→L4,Friend died in war,5.0
+7,4,3,4,L3→L4,Friend died in war,5.0
+8,4,3,4,L3→L4,Friend died in war,5.0
+9,4,3,4,L3→L4,Friend died in war,1.0
+10,4,3,4,L3→L4,Friend died in war,4.999999999999993
+11,4,3,4,L3→L4,Friend died in war,5.0
+12,4,3,4,L3→L4,Friend died in war,5.0
+13,4,3,4,L3→L4,Friend died in war,5.0
+14,4,3,4,L3→L4,Friend died in war,4.999999999999993
+15,4,3,4,L3→L4,Friend died in war,5.0
+16,4,3,4,L3→L4,Friend died in war,5.0
+17,4,3,4,L3→L4,Friend died in war,5.0
+18,4,3,4,L3→L4,Friend died in war,5.0
+19,4,3,4,L3→L4,Friend died in war,5.0
+20,4,3,4,L3→L4,Friend died in war,4.999999999999993
+21,4,3,4,L3→L4,Friend died in war,5.0
+22,4,3,4,L3→L4,Friend died in war,5.0
+23,4,3,4,L3→L4,Friend died in war,5.0
+24,4,3,4,L3→L4,Friend died in war,5.0
+25,4,3,4,L3→L4,Friend died in war,4.999999999999993
+26,4,3,4,L3→L4,Friend died in war,5.0
+27,4,3,4,L3→L4,Friend died in war,5.0
+28,4,3,4,L3→L4,Friend died in war,10.0
+29,4,3,4,L3→L4,Friend died in war,4.999999999999993
+30,4,3,4,L3→L4,Friend died in war,5.0
+31,4,3,4,L3→L4,Friend died in war,5.0
+32,4,3,4,L3→L4,Friend died in war,5.0
+33,4,3,4,L3→L4,Friend died in war,0.0
+34,4,3,4,L3→L4,Friend died in war,10.0
+35,4,3,4,L3→L4,Friend died in war,5.0
+36,4,3,4,L3→L4,Friend died in war,5.000000000000007
+37,4,3,4,L3→L4,Friend died in war,5.0
+38,4,3,4,L3→L4,Friend died in war,5.0
+39,4,3,4,L3→L4,Friend died in war,5.0
+40,4,3,4,L3→L4,Friend died in war,4.999999999999993
+41,4,3,4,L3→L4,Friend died in war,5.0
+42,4,3,4,L3→L4,Friend died in war,5.0
+43,4,3,4,L3→L4,Friend died in war,5.0
+44,4,3,4,L3→L4,Friend died in war,10.0
+45,4,3,4,L3→L4,Friend died in war,4.999999999999993
+46,4,3,4,L3→L4,Friend died in war,5.0
+47,4,3,4,L3→L4,Friend died in war,5.0
+48,4,3,4,L3→L4,Friend died in war,5.0
+49,4,3,4,L3→L4,Friend died in war,5.0
+50,4,3,4,L3→L4,Friend died in war,5.0
+1,4,4,5,L4→L5,B survived same ambush,10.0
+2,4,4,5,L4→L5,B survived same ambush,10.0
+3,4,4,5,L4→L5,B survived same ambush,5.0
+4,4,4,5,L4→L5,B survived same ambush,5.0
+5,4,4,5,L4→L5,B survived same ambush,10.0
+6,4,4,5,L4→L5,B survived same ambush,5.0
+7,4,4,5,L4→L5,B survived same ambush,5.0
+8,4,4,5,L4→L5,B survived same ambush,5.0
+9,4,4,5,L4→L5,B survived same ambush,0.9999999999999858
+10,4,4,5,L4→L5,B survived same ambush,5.0
+11,4,4,5,L4→L5,B survived same ambush,5.0
+12,4,4,5,L4→L5,B survived same ambush,5.0
+13,4,4,5,L4→L5,B survived same ambush,5.0
+14,4,4,5,L4→L5,B survived same ambush,5.0
+15,4,4,5,L4→L5,B survived same ambush,5.0
+16,4,4,5,L4→L5,B survived same ambush,5.0
+17,4,4,5,L4→L5,B survived same ambush,5.0
+18,4,4,5,L4→L5,B survived same ambush,5.0
+19,4,4,5,L4→L5,B survived same ambush,5.0
+20,4,4,5,L4→L5,B survived same ambush,5.0
+21,4,4,5,L4→L5,B survived same ambush,5.0
+22,4,4,5,L4→L5,B survived same ambush,5.0
+23,4,4,5,L4→L5,B survived same ambush,5.0
+24,4,4,5,L4→L5,B survived same ambush,5.0
+25,4,4,5,L4→L5,B survived same ambush,5.0
+26,4,4,5,L4→L5,B survived same ambush,5.0
+27,4,4,5,L4→L5,B survived same ambush,5.0
+28,4,4,5,L4→L5,B survived same ambush,10.0
+29,4,4,5,L4→L5,B survived same ambush,10.0
+30,4,4,5,L4→L5,B survived same ambush,5.0
+31,4,4,5,L4→L5,B survived same ambush,5.0
+32,4,4,5,L4→L5,B survived same ambush,5.0
+33,4,4,5,L4→L5,B survived same ambush,10.0
+34,4,4,5,L4→L5,B survived same ambush,10.0
+35,4,4,5,L4→L5,B survived same ambush,5.0
+36,4,4,5,L4→L5,B survived same ambush,4.999999999999993
+37,4,4,5,L4→L5,B survived same ambush,5.0
+38,4,4,5,L4→L5,B survived same ambush,5.0
+39,4,4,5,L4→L5,B survived same ambush,5.0
+40,4,4,5,L4→L5,B survived same ambush,5.0
+41,4,4,5,L4→L5,B survived same ambush,5.0
+42,4,4,5,L4→L5,B survived same ambush,5.0
+43,4,4,5,L4→L5,B survived same ambush,5.0
+44,4,4,5,L4→L5,B survived same ambush,10.0
+45,4,4,5,L4→L5,B survived same ambush,5.0
+46,4,4,5,L4→L5,B survived same ambush,5.0
+47,4,4,5,L4→L5,B survived same ambush,5.0
+48,4,4,5,L4→L5,B survived same ambush,5.0
+49,4,4,5,L4→L5,B survived same ambush,5.0
+50,4,4,5,L4→L5,B survived same ambush,5.0
+1,5,1,2,L1→L2,Former professional athlete,5.0
+2,5,1,2,L1→L2,Former professional athlete,8.0
+3,5,1,2,L1→L2,Former professional athlete,0.0
+4,5,1,2,L1→L2,Former professional athlete,0.0
+5,5,1,2,L1→L2,Former professional athlete,5.0
+6,5,1,2,L1→L2,Former professional athlete,8.0
+7,5,1,2,L1→L2,Former professional athlete,5.0
+8,5,1,2,L1→L2,Former professional athlete,5.0
+9,5,1,2,L1→L2,Former professional athlete,5.0
+10,5,1,2,L1→L2,Former professional athlete,5.0
+11,5,1,2,L1→L2,Former professional athlete,-5.0
+12,5,1,2,L1→L2,Former professional athlete,0.0
+13,5,1,2,L1→L2,Former professional athlete,8.0
+14,5,1,2,L1→L2,Former professional athlete,5.0
+15,5,1,2,L1→L2,Former professional athlete,5.0
+16,5,1,2,L1→L2,Former professional athlete,3.000000000000007
+17,5,1,2,L1→L2,Former professional athlete,5.0
+18,5,1,2,L1→L2,Former professional athlete,5.0
+19,5,1,2,L1→L2,Former professional athlete,5.0
+20,5,1,2,L1→L2,Former professional athlete,5.0
+21,5,1,2,L1→L2,Former professional athlete,5.0
+22,5,1,2,L1→L2,Former professional athlete,5.0
+23,5,1,2,L1→L2,Former professional athlete,5.0
+24,5,1,2,L1→L2,Former professional athlete,-5.0
+25,5,1,2,L1→L2,Former professional athlete,5.0
+26,5,1,2,L1→L2,Former professional athlete,5.0
+27,5,1,2,L1→L2,Former professional athlete,5.0
+28,5,1,2,L1→L2,Former professional athlete,5.0
+29,5,1,2,L1→L2,Former professional athlete,5.0
+30,5,1,2,L1→L2,Former professional athlete,5.0
+31,5,1,2,L1→L2,Former professional athlete,5.0
+32,5,1,2,L1→L2,Former professional athlete,5.0
+33,5,1,2,L1→L2,Former professional athlete,8.0
+34,5,1,2,L1→L2,Former professional athlete,5.0
+35,5,1,2,L1→L2,Former professional athlete,5.0
+36,5,1,2,L1→L2,Former professional athlete,5.0
+37,5,1,2,L1→L2,Former professional athlete,5.0
+38,5,1,2,L1→L2,Former professional athlete,5.0
+39,5,1,2,L1→L2,Former professional athlete,5.0
+40,5,1,2,L1→L2,Former professional athlete,-5.0
+41,5,1,2,L1→L2,Former professional athlete,5.0
+42,5,1,2,L1→L2,Former professional athlete,5.0
+43,5,1,2,L1→L2,Former professional athlete,5.0
+44,5,1,2,L1→L2,Former professional athlete,5.0
+45,5,1,2,L1→L2,Former professional athlete,5.0
+46,5,1,2,L1→L2,Former professional athlete,5.0
+47,5,1,2,L1→L2,Former professional athlete,5.0
+48,5,1,2,L1→L2,Former professional athlete,5.0
+49,5,1,2,L1→L2,Former professional athlete,-5.0
+50,5,1,2,L1→L2,Former professional athlete,0.0
+1,5,2,3,L2→L3,Career-ending injury,5.0
+2,5,2,3,L2→L3,Career-ending injury,5.0
+3,5,2,3,L2→L3,Career-ending injury,0.0
+4,5,2,3,L2→L3,Career-ending injury,0.0
+5,5,2,3,L2→L3,Career-ending injury,5.0
+6,5,2,3,L2→L3,Career-ending injury,5.0
+7,5,2,3,L2→L3,Career-ending injury,5.0
+8,5,2,3,L2→L3,Career-ending injury,5.0
+9,5,2,3,L2→L3,Career-ending injury,5.0
+10,5,2,3,L2→L3,Career-ending injury,5.0
+11,5,2,3,L2→L3,Career-ending injury,5.0
+12,5,2,3,L2→L3,Career-ending injury,0.0
+13,5,2,3,L2→L3,Career-ending injury,5.0
+14,5,2,3,L2→L3,Career-ending injury,5.0
+15,5,2,3,L2→L3,Career-ending injury,5.0
+16,5,2,3,L2→L3,Career-ending injury,4.999999999999993
+17,5,2,3,L2→L3,Career-ending injury,5.0
+18,5,2,3,L2→L3,Career-ending injury,5.0
+19,5,2,3,L2→L3,Career-ending injury,5.0
+20,5,2,3,L2→L3,Career-ending injury,5.0
+21,5,2,3,L2→L3,Career-ending injury,5.0
+22,5,2,3,L2→L3,Career-ending injury,5.0
+23,5,2,3,L2→L3,Career-ending injury,5.0
+24,5,2,3,L2→L3,Career-ending injury,5.0
+25,5,2,3,L2→L3,Career-ending injury,5.0
+26,5,2,3,L2→L3,Career-ending injury,5.0
+27,5,2,3,L2→L3,Career-ending injury,5.0
+28,5,2,3,L2→L3,Career-ending injury,5.0
+29,5,2,3,L2→L3,Career-ending injury,5.0
+30,5,2,3,L2→L3,Career-ending injury,5.0
+31,5,2,3,L2→L3,Career-ending injury,5.0
+32,5,2,3,L2→L3,Career-ending injury,5.0
+33,5,2,3,L2→L3,Career-ending injury,5.0
+34,5,2,3,L2→L3,Career-ending injury,5.0
+35,5,2,3,L2→L3,Career-ending injury,5.0
+36,5,2,3,L2→L3,Career-ending injury,5.0
+37,5,2,3,L2→L3,Career-ending injury,5.0
+38,5,2,3,L2→L3,Career-ending injury,5.0
+39,5,2,3,L2→L3,Career-ending injury,5.0
+40,5,2,3,L2→L3,Career-ending injury,5.0
+41,5,2,3,L2→L3,Career-ending injury,5.0
+42,5,2,3,L2→L3,Career-ending injury,5.0
+43,5,2,3,L2→L3,Career-ending injury,5.0
+44,5,2,3,L2→L3,Career-ending injury,5.0
+45,5,2,3,L2→L3,Career-ending injury,5.0
+46,5,2,3,L2→L3,Career-ending injury,5.0
+47,5,2,3,L2→L3,Career-ending injury,5.0
+48,5,2,3,L2→L3,Career-ending injury,5.0
+49,5,2,3,L2→L3,Career-ending injury,5.0
+50,5,2,3,L2→L3,Career-ending injury,5.0
+1,5,3,4,L3→L4,Painkiller addiction,5.0
+2,5,3,4,L3→L4,Painkiller addiction,5.0
+3,5,3,4,L3→L4,Painkiller addiction,10.0
+4,5,3,4,L3→L4,Painkiller addiction,5.0
+5,5,3,4,L3→L4,Painkiller addiction,5.0
+6,5,3,4,L3→L4,Painkiller addiction,5.0
+7,5,3,4,L3→L4,Painkiller addiction,5.0
+8,5,3,4,L3→L4,Painkiller addiction,5.0
+9,5,3,4,L3→L4,Painkiller addiction,5.0
+10,5,3,4,L3→L4,Painkiller addiction,5.0
+11,5,3,4,L3→L4,Painkiller addiction,5.0
+12,5,3,4,L3→L4,Painkiller addiction,10.0
+13,5,3,4,L3→L4,Painkiller addiction,5.0
+14,5,3,4,L3→L4,Painkiller addiction,5.0
+15,5,3,4,L3→L4,Painkiller addiction,5.0
+16,5,3,4,L3→L4,Painkiller addiction,5.0
+17,5,3,4,L3→L4,Painkiller addiction,5.0
+18,5,3,4,L3→L4,Painkiller addiction,5.0
+19,5,3,4,L3→L4,Painkiller addiction,5.0
+20,5,3,4,L3→L4,Painkiller addiction,5.0
+21,5,3,4,L3→L4,Painkiller addiction,5.0
+22,5,3,4,L3→L4,Painkiller addiction,5.0
+23,5,3,4,L3→L4,Painkiller addiction,5.0
+24,5,3,4,L3→L4,Painkiller addiction,5.0
+25,5,3,4,L3→L4,Painkiller addiction,5.0
+26,5,3,4,L3→L4,Painkiller addiction,5.0
+27,5,3,4,L3→L4,Painkiller addiction,5.0
+28,5,3,4,L3→L4,Painkiller addiction,5.0
+29,5,3,4,L3→L4,Painkiller addiction,5.0
+30,5,3,4,L3→L4,Painkiller addiction,5.0
+31,5,3,4,L3→L4,Painkiller addiction,5.0
+32,5,3,4,L3→L4,Painkiller addiction,5.0
+33,5,3,4,L3→L4,Painkiller addiction,5.0
+34,5,3,4,L3→L4,Painkiller addiction,5.0
+35,5,3,4,L3→L4,Painkiller addiction,5.0
+36,5,3,4,L3→L4,Painkiller addiction,5.0
+37,5,3,4,L3→L4,Painkiller addiction,5.0
+38,5,3,4,L3→L4,Painkiller addiction,5.0
+39,5,3,4,L3→L4,Painkiller addiction,10.0
+40,5,3,4,L3→L4,Painkiller addiction,5.0
+41,5,3,4,L3→L4,Painkiller addiction,5.0
+42,5,3,4,L3→L4,Painkiller addiction,5.0
+43,5,3,4,L3→L4,Painkiller addiction,5.0
+44,5,3,4,L3→L4,Painkiller addiction,5.0
+45,5,3,4,L3→L4,Painkiller addiction,5.0
+46,5,3,4,L3→L4,Painkiller addiction,5.0
+47,5,3,4,L3→L4,Painkiller addiction,5.0
+48,5,3,4,L3→L4,Painkiller addiction,5.0
+49,5,3,4,L3→L4,Painkiller addiction,5.0
+50,5,3,4,L3→L4,Painkiller addiction,5.0
+1,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+2,5,4,5,L4→L5,Seeking rehab / fatherhood,10.0
+3,5,4,5,L4→L5,Seeking rehab / fatherhood,10.0
+4,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+5,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+6,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+7,5,4,5,L4→L5,Seeking rehab / fatherhood,3.0
+8,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+9,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+10,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+11,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+12,5,4,5,L4→L5,Seeking rehab / fatherhood,10.0
+13,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+14,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+15,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+16,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+17,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+18,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+19,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+20,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+21,5,4,5,L4→L5,Seeking rehab / fatherhood,3.0
+22,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+23,5,4,5,L4→L5,Seeking rehab / fatherhood,3.0
+24,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+25,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+26,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+27,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+28,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+29,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+30,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+31,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+32,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+33,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+34,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+35,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+36,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+37,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+38,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+39,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+40,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+41,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+42,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+43,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+44,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+45,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+46,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+47,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+48,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+49,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+50,5,4,5,L4→L5,Seeking rehab / fatherhood,5.0
+1,6,1,2,L1→L2,Theft from employer,-20.0
+2,6,1,2,L1→L2,Theft from employer,-20.0
+3,6,1,2,L1→L2,Theft from employer,-20.0
+4,6,1,2,L1→L2,Theft from employer,-20.0
+5,6,1,2,L1→L2,Theft from employer,-20.0
+6,6,1,2,L1→L2,Theft from employer,-20.0
+7,6,1,2,L1→L2,Theft from employer,-20.0
+8,6,1,2,L1→L2,Theft from employer,-20.0
+9,6,1,2,L1→L2,Theft from employer,-20.0
+10,6,1,2,L1→L2,Theft from employer,-20.0
+11,6,1,2,L1→L2,Theft from employer,-20.0
+12,6,1,2,L1→L2,Theft from employer,-20.0
+13,6,1,2,L1→L2,Theft from employer,-20.0
+14,6,1,2,L1→L2,Theft from employer,-20.0
+15,6,1,2,L1→L2,Theft from employer,-20.0
+16,6,1,2,L1→L2,Theft from employer,-20.0
+17,6,1,2,L1→L2,Theft from employer,-20.0
+18,6,1,2,L1→L2,Theft from employer,-20.0
+19,6,1,2,L1→L2,Theft from employer,-20.0
+20,6,1,2,L1→L2,Theft from employer,-20.0
+21,6,1,2,L1→L2,Theft from employer,-20.0
+22,6,1,2,L1→L2,Theft from employer,-20.0
+23,6,1,2,L1→L2,Theft from employer,-20.0
+24,6,1,2,L1→L2,Theft from employer,-20.0
+25,6,1,2,L1→L2,Theft from employer,-20.0
+26,6,1,2,L1→L2,Theft from employer,-20.0
+27,6,1,2,L1→L2,Theft from employer,-20.0
+28,6,1,2,L1→L2,Theft from employer,-20.0
+29,6,1,2,L1→L2,Theft from employer,-20.0
+30,6,1,2,L1→L2,Theft from employer,-20.0
+31,6,1,2,L1→L2,Theft from employer,-20.0
+32,6,1,2,L1→L2,Theft from employer,-20.0
+33,6,1,2,L1→L2,Theft from employer,-20.0
+34,6,1,2,L1→L2,Theft from employer,-20.0
+35,6,1,2,L1→L2,Theft from employer,-20.0
+36,6,1,2,L1→L2,Theft from employer,-20.0
+37,6,1,2,L1→L2,Theft from employer,-20.0
+38,6,1,2,L1→L2,Theft from employer,-20.0
+39,6,1,2,L1→L2,Theft from employer,-20.0
+40,6,1,2,L1→L2,Theft from employer,-20.0
+41,6,1,2,L1→L2,Theft from employer,-20.0
+42,6,1,2,L1→L2,Theft from employer,-20.0
+43,6,1,2,L1→L2,Theft from employer,-20.0
+44,6,1,2,L1→L2,Theft from employer,-10.0
+45,6,1,2,L1→L2,Theft from employer,-20.0
+46,6,1,2,L1→L2,Theft from employer,-20.0
+47,6,1,2,L1→L2,Theft from employer,-20.0
+48,6,1,2,L1→L2,Theft from employer,-20.0
+49,6,1,2,L1→L2,Theft from employer,-10.0
+50,6,1,2,L1→L2,Theft from employer,-20.0
+1,6,2,3,L2→L3,Cannot re-enter field,10.0
+2,6,2,3,L2→L3,Cannot re-enter field,10.0
+3,6,2,3,L2→L3,Cannot re-enter field,10.0
+4,6,2,3,L2→L3,Cannot re-enter field,10.0
+5,6,2,3,L2→L3,Cannot re-enter field,10.0
+6,6,2,3,L2→L3,Cannot re-enter field,10.0
+7,6,2,3,L2→L3,Cannot re-enter field,10.0
+8,6,2,3,L2→L3,Cannot re-enter field,10.0
+9,6,2,3,L2→L3,Cannot re-enter field,10.0
+10,6,2,3,L2→L3,Cannot re-enter field,10.0
+11,6,2,3,L2→L3,Cannot re-enter field,10.0
+12,6,2,3,L2→L3,Cannot re-enter field,10.0
+13,6,2,3,L2→L3,Cannot re-enter field,10.0
+14,6,2,3,L2→L3,Cannot re-enter field,10.0
+15,6,2,3,L2→L3,Cannot re-enter field,10.0
+16,6,2,3,L2→L3,Cannot re-enter field,10.0
+17,6,2,3,L2→L3,Cannot re-enter field,10.0
+18,6,2,3,L2→L3,Cannot re-enter field,10.0
+19,6,2,3,L2→L3,Cannot re-enter field,10.0
+20,6,2,3,L2→L3,Cannot re-enter field,10.0
+21,6,2,3,L2→L3,Cannot re-enter field,10.0
+22,6,2,3,L2→L3,Cannot re-enter field,10.0
+23,6,2,3,L2→L3,Cannot re-enter field,10.0
+24,6,2,3,L2→L3,Cannot re-enter field,10.0
+25,6,2,3,L2→L3,Cannot re-enter field,10.0
+26,6,2,3,L2→L3,Cannot re-enter field,10.0
+27,6,2,3,L2→L3,Cannot re-enter field,10.0
+28,6,2,3,L2→L3,Cannot re-enter field,10.0
+29,6,2,3,L2→L3,Cannot re-enter field,10.0
+30,6,2,3,L2→L3,Cannot re-enter field,10.0
+31,6,2,3,L2→L3,Cannot re-enter field,10.0
+32,6,2,3,L2→L3,Cannot re-enter field,10.0
+33,6,2,3,L2→L3,Cannot re-enter field,10.0
+34,6,2,3,L2→L3,Cannot re-enter field,10.0
+35,6,2,3,L2→L3,Cannot re-enter field,10.0
+36,6,2,3,L2→L3,Cannot re-enter field,10.0
+37,6,2,3,L2→L3,Cannot re-enter field,10.0
+38,6,2,3,L2→L3,Cannot re-enter field,10.0
+39,6,2,3,L2→L3,Cannot re-enter field,10.0
+40,6,2,3,L2→L3,Cannot re-enter field,10.0
+41,6,2,3,L2→L3,Cannot re-enter field,10.0
+42,6,2,3,L2→L3,Cannot re-enter field,10.0
+43,6,2,3,L2→L3,Cannot re-enter field,10.0
+44,6,2,3,L2→L3,Cannot re-enter field,-5.0
+45,6,2,3,L2→L3,Cannot re-enter field,10.0
+46,6,2,3,L2→L3,Cannot re-enter field,10.0
+47,6,2,3,L2→L3,Cannot re-enter field,10.0
+48,6,2,3,L2→L3,Cannot re-enter field,10.0
+49,6,2,3,L2→L3,Cannot re-enter field,5.0
+50,6,2,3,L2→L3,Cannot re-enter field,10.0
+1,6,3,4,L3→L4,Working in fast food,5.0
+2,6,3,4,L3→L4,Working in fast food,0.0
+3,6,3,4,L3→L4,Working in fast food,5.0
+4,6,3,4,L3→L4,Working in fast food,5.0
+5,6,3,4,L3→L4,Working in fast food,0.0
+6,6,3,4,L3→L4,Working in fast food,0.0
+7,6,3,4,L3→L4,Working in fast food,0.0
+8,6,3,4,L3→L4,Working in fast food,5.0
+9,6,3,4,L3→L4,Working in fast food,5.0
+10,6,3,4,L3→L4,Working in fast food,0.0
+11,6,3,4,L3→L4,Working in fast food,0.0
+12,6,3,4,L3→L4,Working in fast food,5.0
+13,6,3,4,L3→L4,Working in fast food,5.0
+14,6,3,4,L3→L4,Working in fast food,5.0
+15,6,3,4,L3→L4,Working in fast food,5.0
+16,6,3,4,L3→L4,Working in fast food,0.0
+17,6,3,4,L3→L4,Working in fast food,5.0
+18,6,3,4,L3→L4,Working in fast food,0.0
+19,6,3,4,L3→L4,Working in fast food,5.0
+20,6,3,4,L3→L4,Working in fast food,5.0
+21,6,3,4,L3→L4,Working in fast food,0.0
+22,6,3,4,L3→L4,Working in fast food,5.0
+23,6,3,4,L3→L4,Working in fast food,5.0
+24,6,3,4,L3→L4,Working in fast food,0.0
+25,6,3,4,L3→L4,Working in fast food,5.0
+26,6,3,4,L3→L4,Working in fast food,5.0
+27,6,3,4,L3→L4,Working in fast food,5.0
+28,6,3,4,L3→L4,Working in fast food,5.0
+29,6,3,4,L3→L4,Working in fast food,5.0
+30,6,3,4,L3→L4,Working in fast food,0.0
+31,6,3,4,L3→L4,Working in fast food,5.0
+32,6,3,4,L3→L4,Working in fast food,5.0
+33,6,3,4,L3→L4,Working in fast food,0.0
+34,6,3,4,L3→L4,Working in fast food,5.0
+35,6,3,4,L3→L4,Working in fast food,0.0
+36,6,3,4,L3→L4,Working in fast food,0.0
+37,6,3,4,L3→L4,Working in fast food,5.0
+38,6,3,4,L3→L4,Working in fast food,5.0
+39,6,3,4,L3→L4,Working in fast food,5.0
+40,6,3,4,L3→L4,Working in fast food,0.0
+41,6,3,4,L3→L4,Working in fast food,5.0
+42,6,3,4,L3→L4,Working in fast food,5.0
+43,6,3,4,L3→L4,Working in fast food,0.0
+44,6,3,4,L3→L4,Working in fast food,15.0
+45,6,3,4,L3→L4,Working in fast food,5.0
+46,6,3,4,L3→L4,Working in fast food,5.0
+47,6,3,4,L3→L4,Working in fast food,5.0
+48,6,3,4,L3→L4,Working in fast food,5.0
+49,6,3,4,L3→L4,Working in fast food,5.0
+50,6,3,4,L3→L4,Working in fast food,5.0
+1,6,4,5,L4→L5,Sole family breadwinner,15.0
+2,6,4,5,L4→L5,Sole family breadwinner,20.0
+3,6,4,5,L4→L5,Sole family breadwinner,15.0
+4,6,4,5,L4→L5,Sole family breadwinner,15.0
+5,6,4,5,L4→L5,Sole family breadwinner,20.0
+6,6,4,5,L4→L5,Sole family breadwinner,20.0
+7,6,4,5,L4→L5,Sole family breadwinner,20.0
+8,6,4,5,L4→L5,Sole family breadwinner,15.0
+9,6,4,5,L4→L5,Sole family breadwinner,15.0
+10,6,4,5,L4→L5,Sole family breadwinner,20.0
+11,6,4,5,L4→L5,Sole family breadwinner,20.0
+12,6,4,5,L4→L5,Sole family breadwinner,15.0
+13,6,4,5,L4→L5,Sole family breadwinner,15.0
+14,6,4,5,L4→L5,Sole family breadwinner,15.0
+15,6,4,5,L4→L5,Sole family breadwinner,15.0
+16,6,4,5,L4→L5,Sole family breadwinner,20.0
+17,6,4,5,L4→L5,Sole family breadwinner,15.0
+18,6,4,5,L4→L5,Sole family breadwinner,20.0
+19,6,4,5,L4→L5,Sole family breadwinner,15.0
+20,6,4,5,L4→L5,Sole family breadwinner,15.0
+21,6,4,5,L4→L5,Sole family breadwinner,20.0
+22,6,4,5,L4→L5,Sole family breadwinner,15.0
+23,6,4,5,L4→L5,Sole family breadwinner,15.0
+24,6,4,5,L4→L5,Sole family breadwinner,20.0
+25,6,4,5,L4→L5,Sole family breadwinner,15.0
+26,6,4,5,L4→L5,Sole family breadwinner,15.0
+27,6,4,5,L4→L5,Sole family breadwinner,15.0
+28,6,4,5,L4→L5,Sole family breadwinner,15.0
+29,6,4,5,L4→L5,Sole family breadwinner,15.0
+30,6,4,5,L4→L5,Sole family breadwinner,20.0
+31,6,4,5,L4→L5,Sole family breadwinner,15.0
+32,6,4,5,L4→L5,Sole family breadwinner,15.0
+33,6,4,5,L4→L5,Sole family breadwinner,20.0
+34,6,4,5,L4→L5,Sole family breadwinner,15.0
+35,6,4,5,L4→L5,Sole family breadwinner,20.0
+36,6,4,5,L4→L5,Sole family breadwinner,20.0
+37,6,4,5,L4→L5,Sole family breadwinner,15.0
+38,6,4,5,L4→L5,Sole family breadwinner,15.0
+39,6,4,5,L4→L5,Sole family breadwinner,15.0
+40,6,4,5,L4→L5,Sole family breadwinner,20.0
+41,6,4,5,L4→L5,Sole family breadwinner,15.0
+42,6,4,5,L4→L5,Sole family breadwinner,15.0
+43,6,4,5,L4→L5,Sole family breadwinner,20.0
+44,6,4,5,L4→L5,Sole family breadwinner,10.0
+45,6,4,5,L4→L5,Sole family breadwinner,15.0
+46,6,4,5,L4→L5,Sole family breadwinner,15.0
+47,6,4,5,L4→L5,Sole family breadwinner,15.0
+48,6,4,5,L4→L5,Sole family breadwinner,15.0
+49,6,4,5,L4→L5,Sole family breadwinner,10.0
+50,6,4,5,L4→L5,Sole family breadwinner,15.0
+1,7,1,2,L1→L2,Years of smoking,10.0
+2,7,1,2,L1→L2,Years of smoking,-10.0
+3,7,1,2,L1→L2,Years of smoking,5.0
+4,7,1,2,L1→L2,Years of smoking,10.0
+5,7,1,2,L1→L2,Years of smoking,-10.0
+6,7,1,2,L1→L2,Years of smoking,-10.0
+7,7,1,2,L1→L2,Years of smoking,5.0
+8,7,1,2,L1→L2,Years of smoking,-10.0
+9,7,1,2,L1→L2,Years of smoking,10.0
+10,7,1,2,L1→L2,Years of smoking,5.0
+11,7,1,2,L1→L2,Years of smoking,-10.0
+12,7,1,2,L1→L2,Years of smoking,5.0
+13,7,1,2,L1→L2,Years of smoking,5.0
+14,7,1,2,L1→L2,Years of smoking,5.0
+15,7,1,2,L1→L2,Years of smoking,10.0
+16,7,1,2,L1→L2,Years of smoking,5.0
+17,7,1,2,L1→L2,Years of smoking,10.0
+18,7,1,2,L1→L2,Years of smoking,5.0
+19,7,1,2,L1→L2,Years of smoking,5.0
+20,7,1,2,L1→L2,Years of smoking,-10.0
+21,7,1,2,L1→L2,Years of smoking,5.0
+22,7,1,2,L1→L2,Years of smoking,5.0
+23,7,1,2,L1→L2,Years of smoking,-10.0
+24,7,1,2,L1→L2,Years of smoking,5.0
+25,7,1,2,L1→L2,Years of smoking,10.0
+26,7,1,2,L1→L2,Years of smoking,-4.999999999999993
+27,7,1,2,L1→L2,Years of smoking,10.0
+28,7,1,2,L1→L2,Years of smoking,-10.0
+29,7,1,2,L1→L2,Years of smoking,-4.999999999999993
+30,7,1,2,L1→L2,Years of smoking,5.0
+31,7,1,2,L1→L2,Years of smoking,5.0
+32,7,1,2,L1→L2,Years of smoking,10.0
+33,7,1,2,L1→L2,Years of smoking,-10.0
+34,7,1,2,L1→L2,Years of smoking,5.0
+35,7,1,2,L1→L2,Years of smoking,5.0
+36,7,1,2,L1→L2,Years of smoking,5.0
+37,7,1,2,L1→L2,Years of smoking,5.0
+38,7,1,2,L1→L2,Years of smoking,10.0
+39,7,1,2,L1→L2,Years of smoking,-4.999999999999993
+40,7,1,2,L1→L2,Years of smoking,5.0
+41,7,1,2,L1→L2,Years of smoking,10.0
+42,7,1,2,L1→L2,Years of smoking,10.0
+43,7,1,2,L1→L2,Years of smoking,5.0
+44,7,1,2,L1→L2,Years of smoking,5.0
+45,7,1,2,L1→L2,Years of smoking,5.0
+46,7,1,2,L1→L2,Years of smoking,10.0
+47,7,1,2,L1→L2,Years of smoking,10.0
+48,7,1,2,L1→L2,Years of smoking,10.0
+49,7,1,2,L1→L2,Years of smoking,5.0
+50,7,1,2,L1→L2,Years of smoking,10.0
+1,7,2,3,L2→L3,No insurance coverage,10.0
+2,7,2,3,L2→L3,No insurance coverage,10.0
+3,7,2,3,L2→L3,No insurance coverage,5.0
+4,7,2,3,L2→L3,No insurance coverage,5.0
+5,7,2,3,L2→L3,No insurance coverage,10.0
+6,7,2,3,L2→L3,No insurance coverage,10.0
+7,7,2,3,L2→L3,No insurance coverage,5.0
+8,7,2,3,L2→L3,No insurance coverage,10.0
+9,7,2,3,L2→L3,No insurance coverage,10.0
+10,7,2,3,L2→L3,No insurance coverage,5.0
+11,7,2,3,L2→L3,No insurance coverage,10.0
+12,7,2,3,L2→L3,No insurance coverage,5.0
+13,7,2,3,L2→L3,No insurance coverage,5.0
+14,7,2,3,L2→L3,No insurance coverage,5.0
+15,7,2,3,L2→L3,No insurance coverage,10.0
+16,7,2,3,L2→L3,No insurance coverage,5.0
+17,7,2,3,L2→L3,No insurance coverage,10.0
+18,7,2,3,L2→L3,No insurance coverage,5.0
+19,7,2,3,L2→L3,No insurance coverage,5.0
+20,7,2,3,L2→L3,No insurance coverage,10.0
+21,7,2,3,L2→L3,No insurance coverage,5.0
+22,7,2,3,L2→L3,No insurance coverage,5.0
+23,7,2,3,L2→L3,No insurance coverage,10.0
+24,7,2,3,L2→L3,No insurance coverage,5.0
+25,7,2,3,L2→L3,No insurance coverage,5.0
+26,7,2,3,L2→L3,No insurance coverage,4.999999999999993
+27,7,2,3,L2→L3,No insurance coverage,5.0
+28,7,2,3,L2→L3,No insurance coverage,10.0
+29,7,2,3,L2→L3,No insurance coverage,4.999999999999993
+30,7,2,3,L2→L3,No insurance coverage,5.0
+31,7,2,3,L2→L3,No insurance coverage,5.0
+32,7,2,3,L2→L3,No insurance coverage,5.0
+33,7,2,3,L2→L3,No insurance coverage,10.0
+34,7,2,3,L2→L3,No insurance coverage,5.0
+35,7,2,3,L2→L3,No insurance coverage,5.0
+36,7,2,3,L2→L3,No insurance coverage,5.0
+37,7,2,3,L2→L3,No insurance coverage,5.0
+38,7,2,3,L2→L3,No insurance coverage,10.0
+39,7,2,3,L2→L3,No insurance coverage,4.999999999999993
+40,7,2,3,L2→L3,No insurance coverage,5.0
+41,7,2,3,L2→L3,No insurance coverage,5.0
+42,7,2,3,L2→L3,No insurance coverage,5.0
+43,7,2,3,L2→L3,No insurance coverage,5.0
+44,7,2,3,L2→L3,No insurance coverage,5.0
+45,7,2,3,L2→L3,No insurance coverage,5.0
+46,7,2,3,L2→L3,No insurance coverage,10.0
+47,7,2,3,L2→L3,No insurance coverage,10.0
+48,7,2,3,L2→L3,No insurance coverage,5.0
+49,7,2,3,L2→L3,No insurance coverage,5.0
+50,7,2,3,L2→L3,No insurance coverage,5.0
+1,7,3,4,L3→L4,Cannot pay medical bills,5.0
+2,7,3,4,L3→L4,Cannot pay medical bills,10.0
+3,7,3,4,L3→L4,Cannot pay medical bills,5.0
+4,7,3,4,L3→L4,Cannot pay medical bills,5.0
+5,7,3,4,L3→L4,Cannot pay medical bills,10.0
+6,7,3,4,L3→L4,Cannot pay medical bills,10.0
+7,7,3,4,L3→L4,Cannot pay medical bills,5.0
+8,7,3,4,L3→L4,Cannot pay medical bills,10.0
+9,7,3,4,L3→L4,Cannot pay medical bills,5.0
+10,7,3,4,L3→L4,Cannot pay medical bills,5.0
+11,7,3,4,L3→L4,Cannot pay medical bills,10.0
+12,7,3,4,L3→L4,Cannot pay medical bills,5.0
+13,7,3,4,L3→L4,Cannot pay medical bills,5.0
+14,7,3,4,L3→L4,Cannot pay medical bills,5.0
+15,7,3,4,L3→L4,Cannot pay medical bills,5.0
+16,7,3,4,L3→L4,Cannot pay medical bills,5.0
+17,7,3,4,L3→L4,Cannot pay medical bills,5.0
+18,7,3,4,L3→L4,Cannot pay medical bills,5.0
+19,7,3,4,L3→L4,Cannot pay medical bills,5.0
+20,7,3,4,L3→L4,Cannot pay medical bills,10.0
+21,7,3,4,L3→L4,Cannot pay medical bills,5.0
+22,7,3,4,L3→L4,Cannot pay medical bills,5.0
+23,7,3,4,L3→L4,Cannot pay medical bills,10.0
+24,7,3,4,L3→L4,Cannot pay medical bills,5.0
+25,7,3,4,L3→L4,Cannot pay medical bills,5.0
+26,7,3,4,L3→L4,Cannot pay medical bills,10.0
+27,7,3,4,L3→L4,Cannot pay medical bills,5.0
+28,7,3,4,L3→L4,Cannot pay medical bills,10.0
+29,7,3,4,L3→L4,Cannot pay medical bills,5.0
+30,7,3,4,L3→L4,Cannot pay medical bills,5.0
+31,7,3,4,L3→L4,Cannot pay medical bills,5.0
+32,7,3,4,L3→L4,Cannot pay medical bills,5.0
+33,7,3,4,L3→L4,Cannot pay medical bills,10.0
+34,7,3,4,L3→L4,Cannot pay medical bills,5.0
+35,7,3,4,L3→L4,Cannot pay medical bills,5.0
+36,7,3,4,L3→L4,Cannot pay medical bills,5.0
+37,7,3,4,L3→L4,Cannot pay medical bills,5.0
+38,7,3,4,L3→L4,Cannot pay medical bills,10.0
+39,7,3,4,L3→L4,Cannot pay medical bills,10.0
+40,7,3,4,L3→L4,Cannot pay medical bills,5.0
+41,7,3,4,L3→L4,Cannot pay medical bills,5.0
+42,7,3,4,L3→L4,Cannot pay medical bills,5.0
+43,7,3,4,L3→L4,Cannot pay medical bills,5.0
+44,7,3,4,L3→L4,Cannot pay medical bills,5.0
+45,7,3,4,L3→L4,Cannot pay medical bills,5.0
+46,7,3,4,L3→L4,Cannot pay medical bills,5.0
+47,7,3,4,L3→L4,Cannot pay medical bills,5.0
+48,7,3,4,L3→L4,Cannot pay medical bills,5.0
+49,7,3,4,L3→L4,Cannot pay medical bills,5.0
+50,7,3,4,L3→L4,Cannot pay medical bills,5.0
+1,7,4,5,L4→L5,Treatment versus rent,5.0
+2,7,4,5,L4→L5,Treatment versus rent,5.0
+3,7,4,5,L4→L5,Treatment versus rent,5.0
+4,7,4,5,L4→L5,Treatment versus rent,10.0
+5,7,4,5,L4→L5,Treatment versus rent,10.0
+6,7,4,5,L4→L5,Treatment versus rent,10.0
+7,7,4,5,L4→L5,Treatment versus rent,5.0
+8,7,4,5,L4→L5,Treatment versus rent,10.0
+9,7,4,5,L4→L5,Treatment versus rent,5.0
+10,7,4,5,L4→L5,Treatment versus rent,5.0
+11,7,4,5,L4→L5,Treatment versus rent,10.0
+12,7,4,5,L4→L5,Treatment versus rent,5.0
+13,7,4,5,L4→L5,Treatment versus rent,5.0
+14,7,4,5,L4→L5,Treatment versus rent,5.0
+15,7,4,5,L4→L5,Treatment versus rent,5.0
+16,7,4,5,L4→L5,Treatment versus rent,5.0
+17,7,4,5,L4→L5,Treatment versus rent,5.0
+18,7,4,5,L4→L5,Treatment versus rent,5.0
+19,7,4,5,L4→L5,Treatment versus rent,5.0
+20,7,4,5,L4→L5,Treatment versus rent,10.0
+21,7,4,5,L4→L5,Treatment versus rent,5.0
+22,7,4,5,L4→L5,Treatment versus rent,5.0
+23,7,4,5,L4→L5,Treatment versus rent,10.0
+24,7,4,5,L4→L5,Treatment versus rent,5.0
+25,7,4,5,L4→L5,Treatment versus rent,5.0
+26,7,4,5,L4→L5,Treatment versus rent,5.0
+27,7,4,5,L4→L5,Treatment versus rent,5.0
+28,7,4,5,L4→L5,Treatment versus rent,10.0
+29,7,4,5,L4→L5,Treatment versus rent,5.0
+30,7,4,5,L4→L5,Treatment versus rent,5.0
+31,7,4,5,L4→L5,Treatment versus rent,5.0
+32,7,4,5,L4→L5,Treatment versus rent,10.0
+33,7,4,5,L4→L5,Treatment versus rent,10.0
+34,7,4,5,L4→L5,Treatment versus rent,5.0
+35,7,4,5,L4→L5,Treatment versus rent,5.0
+36,7,4,5,L4→L5,Treatment versus rent,5.0
+37,7,4,5,L4→L5,Treatment versus rent,5.0
+38,7,4,5,L4→L5,Treatment versus rent,10.0
+39,7,4,5,L4→L5,Treatment versus rent,10.0
+40,7,4,5,L4→L5,Treatment versus rent,5.0
+41,7,4,5,L4→L5,Treatment versus rent,5.0
+42,7,4,5,L4→L5,Treatment versus rent,5.0
+43,7,4,5,L4→L5,Treatment versus rent,5.0
+44,7,4,5,L4→L5,Treatment versus rent,5.0
+45,7,4,5,L4→L5,Treatment versus rent,5.0
+46,7,4,5,L4→L5,Treatment versus rent,5.0
+47,7,4,5,L4→L5,Treatment versus rent,5.0
+48,7,4,5,L4→L5,Treatment versus rent,5.0
+49,7,4,5,L4→L5,Treatment versus rent,5.0
+50,7,4,5,L4→L5,Treatment versus rent,5.0
+1,8,1,2,L1→L2,Sick child in shelter,10.0
+2,8,1,2,L1→L2,Sick child in shelter,10.0
+3,8,1,2,L1→L2,Sick child in shelter,10.0
+4,8,1,2,L1→L2,Sick child in shelter,10.0
+5,8,1,2,L1→L2,Sick child in shelter,10.0
+6,8,1,2,L1→L2,Sick child in shelter,10.0
+7,8,1,2,L1→L2,Sick child in shelter,10.0
+8,8,1,2,L1→L2,Sick child in shelter,10.0
+9,8,1,2,L1→L2,Sick child in shelter,10.0
+10,8,1,2,L1→L2,Sick child in shelter,10.0
+11,8,1,2,L1→L2,Sick child in shelter,10.0
+12,8,1,2,L1→L2,Sick child in shelter,10.0
+13,8,1,2,L1→L2,Sick child in shelter,10.0
+14,8,1,2,L1→L2,Sick child in shelter,10.0
+15,8,1,2,L1→L2,Sick child in shelter,10.0
+16,8,1,2,L1→L2,Sick child in shelter,10.0
+17,8,1,2,L1→L2,Sick child in shelter,10.0
+18,8,1,2,L1→L2,Sick child in shelter,10.0
+19,8,1,2,L1→L2,Sick child in shelter,10.0
+20,8,1,2,L1→L2,Sick child in shelter,10.0
+21,8,1,2,L1→L2,Sick child in shelter,10.0
+22,8,1,2,L1→L2,Sick child in shelter,10.0
+23,8,1,2,L1→L2,Sick child in shelter,10.0
+24,8,1,2,L1→L2,Sick child in shelter,10.0
+25,8,1,2,L1→L2,Sick child in shelter,10.0
+26,8,1,2,L1→L2,Sick child in shelter,10.0
+27,8,1,2,L1→L2,Sick child in shelter,10.0
+28,8,1,2,L1→L2,Sick child in shelter,10.0
+29,8,1,2,L1→L2,Sick child in shelter,10.0
+30,8,1,2,L1→L2,Sick child in shelter,10.0
+31,8,1,2,L1→L2,Sick child in shelter,10.0
+32,8,1,2,L1→L2,Sick child in shelter,10.0
+33,8,1,2,L1→L2,Sick child in shelter,10.0
+34,8,1,2,L1→L2,Sick child in shelter,10.0
+35,8,1,2,L1→L2,Sick child in shelter,10.0
+36,8,1,2,L1→L2,Sick child in shelter,10.0
+37,8,1,2,L1→L2,Sick child in shelter,10.0
+38,8,1,2,L1→L2,Sick child in shelter,10.0
+39,8,1,2,L1→L2,Sick child in shelter,10.0
+40,8,1,2,L1→L2,Sick child in shelter,10.0
+41,8,1,2,L1→L2,Sick child in shelter,10.0
+42,8,1,2,L1→L2,Sick child in shelter,10.0
+43,8,1,2,L1→L2,Sick child in shelter,10.0
+44,8,1,2,L1→L2,Sick child in shelter,10.0
+45,8,1,2,L1→L2,Sick child in shelter,10.0
+46,8,1,2,L1→L2,Sick child in shelter,10.0
+47,8,1,2,L1→L2,Sick child in shelter,10.0
+48,8,1,2,L1→L2,Sick child in shelter,10.0
+49,8,1,2,L1→L2,Sick child in shelter,10.0
+50,8,1,2,L1→L2,Sick child in shelter,5.0
+1,8,2,3,L2→L3,Forged documents for urgent care,10.0
+2,8,2,3,L2→L3,Forged documents for urgent care,10.0
+3,8,2,3,L2→L3,Forged documents for urgent care,10.0
+4,8,2,3,L2→L3,Forged documents for urgent care,10.0
+5,8,2,3,L2→L3,Forged documents for urgent care,10.0
+6,8,2,3,L2→L3,Forged documents for urgent care,10.0
+7,8,2,3,L2→L3,Forged documents for urgent care,10.0
+8,8,2,3,L2→L3,Forged documents for urgent care,10.0
+9,8,2,3,L2→L3,Forged documents for urgent care,10.0
+10,8,2,3,L2→L3,Forged documents for urgent care,10.0
+11,8,2,3,L2→L3,Forged documents for urgent care,10.0
+12,8,2,3,L2→L3,Forged documents for urgent care,10.0
+13,8,2,3,L2→L3,Forged documents for urgent care,10.0
+14,8,2,3,L2→L3,Forged documents for urgent care,10.0
+15,8,2,3,L2→L3,Forged documents for urgent care,10.0
+16,8,2,3,L2→L3,Forged documents for urgent care,10.0
+17,8,2,3,L2→L3,Forged documents for urgent care,10.0
+18,8,2,3,L2→L3,Forged documents for urgent care,10.0
+19,8,2,3,L2→L3,Forged documents for urgent care,10.0
+20,8,2,3,L2→L3,Forged documents for urgent care,10.0
+21,8,2,3,L2→L3,Forged documents for urgent care,10.0
+22,8,2,3,L2→L3,Forged documents for urgent care,5.0
+23,8,2,3,L2→L3,Forged documents for urgent care,10.0
+24,8,2,3,L2→L3,Forged documents for urgent care,10.0
+25,8,2,3,L2→L3,Forged documents for urgent care,5.0
+26,8,2,3,L2→L3,Forged documents for urgent care,5.0
+27,8,2,3,L2→L3,Forged documents for urgent care,5.0
+28,8,2,3,L2→L3,Forged documents for urgent care,5.0
+29,8,2,3,L2→L3,Forged documents for urgent care,10.0
+30,8,2,3,L2→L3,Forged documents for urgent care,10.0
+31,8,2,3,L2→L3,Forged documents for urgent care,10.0
+32,8,2,3,L2→L3,Forged documents for urgent care,5.0
+33,8,2,3,L2→L3,Forged documents for urgent care,10.0
+34,8,2,3,L2→L3,Forged documents for urgent care,10.0
+35,8,2,3,L2→L3,Forged documents for urgent care,10.0
+36,8,2,3,L2→L3,Forged documents for urgent care,10.0
+37,8,2,3,L2→L3,Forged documents for urgent care,10.0
+38,8,2,3,L2→L3,Forged documents for urgent care,10.0
+39,8,2,3,L2→L3,Forged documents for urgent care,5.0
+40,8,2,3,L2→L3,Forged documents for urgent care,10.0
+41,8,2,3,L2→L3,Forged documents for urgent care,10.0
+42,8,2,3,L2→L3,Forged documents for urgent care,5.0
+43,8,2,3,L2→L3,Forged documents for urgent care,10.0
+44,8,2,3,L2→L3,Forged documents for urgent care,5.0
+45,8,2,3,L2→L3,Forged documents for urgent care,10.0
+46,8,2,3,L2→L3,Forged documents for urgent care,10.0
+47,8,2,3,L2→L3,Forged documents for urgent care,10.0
+48,8,2,3,L2→L3,Forged documents for urgent care,5.0
+49,8,2,3,L2→L3,Forged documents for urgent care,10.0
+50,8,2,3,L2→L3,Forged documents for urgent care,5.0
+1,8,3,4,L3→L4,Faces deportation,5.0
+2,8,3,4,L3→L4,Faces deportation,5.0
+3,8,3,4,L3→L4,Faces deportation,5.0
+4,8,3,4,L3→L4,Faces deportation,5.0
+5,8,3,4,L3→L4,Faces deportation,5.0
+6,8,3,4,L3→L4,Faces deportation,5.0
+7,8,3,4,L3→L4,Faces deportation,5.0
+8,8,3,4,L3→L4,Faces deportation,5.0
+9,8,3,4,L3→L4,Faces deportation,5.0
+10,8,3,4,L3→L4,Faces deportation,5.0
+11,8,3,4,L3→L4,Faces deportation,5.0
+12,8,3,4,L3→L4,Faces deportation,5.0
+13,8,3,4,L3→L4,Faces deportation,5.0
+14,8,3,4,L3→L4,Faces deportation,5.0
+15,8,3,4,L3→L4,Faces deportation,5.0
+16,8,3,4,L3→L4,Faces deportation,5.0
+17,8,3,4,L3→L4,Faces deportation,5.0
+18,8,3,4,L3→L4,Faces deportation,5.0
+19,8,3,4,L3→L4,Faces deportation,5.0
+20,8,3,4,L3→L4,Faces deportation,5.0
+21,8,3,4,L3→L4,Faces deportation,5.0
+22,8,3,4,L3→L4,Faces deportation,5.0
+23,8,3,4,L3→L4,Faces deportation,5.0
+24,8,3,4,L3→L4,Faces deportation,5.0
+25,8,3,4,L3→L4,Faces deportation,5.0
+26,8,3,4,L3→L4,Faces deportation,5.0
+27,8,3,4,L3→L4,Faces deportation,5.0
+28,8,3,4,L3→L4,Faces deportation,5.0
+29,8,3,4,L3→L4,Faces deportation,5.0
+30,8,3,4,L3→L4,Faces deportation,5.0
+31,8,3,4,L3→L4,Faces deportation,5.0
+32,8,3,4,L3→L4,Faces deportation,5.0
+33,8,3,4,L3→L4,Faces deportation,5.0
+34,8,3,4,L3→L4,Faces deportation,5.0
+35,8,3,4,L3→L4,Faces deportation,5.0
+36,8,3,4,L3→L4,Faces deportation,5.0
+37,8,3,4,L3→L4,Faces deportation,5.0
+38,8,3,4,L3→L4,Faces deportation,5.0
+39,8,3,4,L3→L4,Faces deportation,5.0
+40,8,3,4,L3→L4,Faces deportation,5.0
+41,8,3,4,L3→L4,Faces deportation,5.0
+42,8,3,4,L3→L4,Faces deportation,5.0
+43,8,3,4,L3→L4,Faces deportation,5.0
+44,8,3,4,L3→L4,Faces deportation,5.0
+45,8,3,4,L3→L4,Faces deportation,5.0
+46,8,3,4,L3→L4,Faces deportation,5.0
+47,8,3,4,L3→L4,Faces deportation,5.0
+48,8,3,4,L3→L4,Faces deportation,5.0
+49,8,3,4,L3→L4,Faces deportation,5.0
+50,8,3,4,L3→L4,Faces deportation,5.0
+1,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+2,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+3,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+4,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+5,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+6,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+7,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+8,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+9,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+10,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+11,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+12,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+13,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+14,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+15,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+16,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+17,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+18,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+19,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+20,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+21,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+22,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+23,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+24,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+25,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+26,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+27,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+28,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+29,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+30,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+31,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+32,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+33,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+34,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+35,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+36,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+37,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+38,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+39,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+40,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+41,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+42,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+43,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+44,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+45,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+46,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+47,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+48,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+49,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+50,8,4,5,L4→L5,Spouse missing in conflict zone,5.0
+1,9,1,2,L1→L2,Investor lost in recession,10.0
+2,9,1,2,L1→L2,Investor lost in recession,10.0
+3,9,1,2,L1→L2,Investor lost in recession,10.0
+4,9,1,2,L1→L2,Investor lost in recession,10.0
+5,9,1,2,L1→L2,Investor lost in recession,10.0
+6,9,1,2,L1→L2,Investor lost in recession,10.0
+7,9,1,2,L1→L2,Investor lost in recession,10.0
+8,9,1,2,L1→L2,Investor lost in recession,10.0
+9,9,1,2,L1→L2,Investor lost in recession,10.0
+10,9,1,2,L1→L2,Investor lost in recession,10.0
+11,9,1,2,L1→L2,Investor lost in recession,10.0
+12,9,1,2,L1→L2,Investor lost in recession,10.0
+13,9,1,2,L1→L2,Investor lost in recession,10.0
+14,9,1,2,L1→L2,Investor lost in recession,10.0
+15,9,1,2,L1→L2,Investor lost in recession,10.0
+16,9,1,2,L1→L2,Investor lost in recession,10.0
+17,9,1,2,L1→L2,Investor lost in recession,10.0
+18,9,1,2,L1→L2,Investor lost in recession,10.0
+19,9,1,2,L1→L2,Investor lost in recession,10.0
+20,9,1,2,L1→L2,Investor lost in recession,10.0
+21,9,1,2,L1→L2,Investor lost in recession,10.0
+22,9,1,2,L1→L2,Investor lost in recession,10.0
+23,9,1,2,L1→L2,Investor lost in recession,10.0
+24,9,1,2,L1→L2,Investor lost in recession,10.0
+25,9,1,2,L1→L2,Investor lost in recession,10.0
+26,9,1,2,L1→L2,Investor lost in recession,10.0
+27,9,1,2,L1→L2,Investor lost in recession,10.0
+28,9,1,2,L1→L2,Investor lost in recession,10.0
+29,9,1,2,L1→L2,Investor lost in recession,10.0
+30,9,1,2,L1→L2,Investor lost in recession,10.0
+31,9,1,2,L1→L2,Investor lost in recession,10.0
+32,9,1,2,L1→L2,Investor lost in recession,10.0
+33,9,1,2,L1→L2,Investor lost in recession,10.0
+34,9,1,2,L1→L2,Investor lost in recession,10.0
+35,9,1,2,L1→L2,Investor lost in recession,10.0
+36,9,1,2,L1→L2,Investor lost in recession,10.0
+37,9,1,2,L1→L2,Investor lost in recession,10.0
+38,9,1,2,L1→L2,Investor lost in recession,10.0
+39,9,1,2,L1→L2,Investor lost in recession,10.0
+40,9,1,2,L1→L2,Investor lost in recession,10.0
+41,9,1,2,L1→L2,Investor lost in recession,10.0
+42,9,1,2,L1→L2,Investor lost in recession,10.0
+43,9,1,2,L1→L2,Investor lost in recession,10.0
+44,9,1,2,L1→L2,Investor lost in recession,10.0
+45,9,1,2,L1→L2,Investor lost in recession,10.0
+46,9,1,2,L1→L2,Investor lost in recession,10.0
+47,9,1,2,L1→L2,Investor lost in recession,10.0
+48,9,1,2,L1→L2,Investor lost in recession,10.0
+49,9,1,2,L1→L2,Investor lost in recession,10.0
+50,9,1,2,L1→L2,Investor lost in recession,10.0
+1,9,2,3,L2→L3,High-interest loan,5.0
+2,9,2,3,L2→L3,High-interest loan,5.0
+3,9,2,3,L2→L3,High-interest loan,5.0
+4,9,2,3,L2→L3,High-interest loan,10.0
+5,9,2,3,L2→L3,High-interest loan,5.0
+6,9,2,3,L2→L3,High-interest loan,5.0
+7,9,2,3,L2→L3,High-interest loan,10.0
+8,9,2,3,L2→L3,High-interest loan,5.0
+9,9,2,3,L2→L3,High-interest loan,10.0
+10,9,2,3,L2→L3,High-interest loan,5.0
+11,9,2,3,L2→L3,High-interest loan,5.0
+12,9,2,3,L2→L3,High-interest loan,5.0
+13,9,2,3,L2→L3,High-interest loan,5.0
+14,9,2,3,L2→L3,High-interest loan,5.0
+15,9,2,3,L2→L3,High-interest loan,10.0
+16,9,2,3,L2→L3,High-interest loan,5.0
+17,9,2,3,L2→L3,High-interest loan,10.0
+18,9,2,3,L2→L3,High-interest loan,5.0
+19,9,2,3,L2→L3,High-interest loan,5.0
+20,9,2,3,L2→L3,High-interest loan,5.0
+21,9,2,3,L2→L3,High-interest loan,5.0
+22,9,2,3,L2→L3,High-interest loan,5.0
+23,9,2,3,L2→L3,High-interest loan,5.0
+24,9,2,3,L2→L3,High-interest loan,5.0
+25,9,2,3,L2→L3,High-interest loan,10.0
+26,9,2,3,L2→L3,High-interest loan,10.0
+27,9,2,3,L2→L3,High-interest loan,10.0
+28,9,2,3,L2→L3,High-interest loan,10.0
+29,9,2,3,L2→L3,High-interest loan,10.0
+30,9,2,3,L2→L3,High-interest loan,10.0
+31,9,2,3,L2→L3,High-interest loan,10.0
+32,9,2,3,L2→L3,High-interest loan,10.0
+33,9,2,3,L2→L3,High-interest loan,5.0
+34,9,2,3,L2→L3,High-interest loan,5.0
+35,9,2,3,L2→L3,High-interest loan,5.0
+36,9,2,3,L2→L3,High-interest loan,5.0
+37,9,2,3,L2→L3,High-interest loan,5.0
+38,9,2,3,L2→L3,High-interest loan,5.0
+39,9,2,3,L2→L3,High-interest loan,10.0
+40,9,2,3,L2→L3,High-interest loan,5.0
+41,9,2,3,L2→L3,High-interest loan,10.0
+42,9,2,3,L2→L3,High-interest loan,5.0
+43,9,2,3,L2→L3,High-interest loan,5.0
+44,9,2,3,L2→L3,High-interest loan,5.0
+45,9,2,3,L2→L3,High-interest loan,5.0
+46,9,2,3,L2→L3,High-interest loan,5.0
+47,9,2,3,L2→L3,High-interest loan,5.0
+48,9,2,3,L2→L3,High-interest loan,5.0
+49,9,2,3,L2→L3,High-interest loan,5.0
+50,9,2,3,L2→L3,High-interest loan,10.0
+1,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+2,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+3,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+4,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+5,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+6,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+7,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+8,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+9,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+10,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+11,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+12,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+13,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+14,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+15,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+16,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+17,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+18,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+19,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+20,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+21,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+22,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+23,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+24,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+25,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+26,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+27,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+28,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+29,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+30,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+31,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+32,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+33,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+34,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+35,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+36,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+37,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+38,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+39,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+40,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+41,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+42,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+43,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+44,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+45,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+46,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+47,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+48,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+49,9,3,4,L3→L4,Default / personal bankruptcy,5.0
+50,9,3,4,L3→L4,Default / personal bankruptcy,10.0
+1,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+2,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+3,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+4,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+5,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+6,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+7,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+8,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+9,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+10,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+11,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+12,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+13,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+14,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+15,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+16,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+17,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+18,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+19,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+20,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+21,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+22,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+23,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+24,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+25,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+26,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+27,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+28,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+29,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+30,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+31,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+32,9,4,5,L4→L5,Pivot to youth social enterprise,10.0
+33,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+34,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+35,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+36,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+37,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+38,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+39,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+40,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+41,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+42,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+43,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+44,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+45,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+46,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+47,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+48,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+49,9,4,5,L4→L5,Pivot to youth social enterprise,5.0
+50,9,4,5,L4→L5,Pivot to youth social enterprise,0.0
+1,10,1,2,L1→L2,Offence to feed family,10.0
+2,10,1,2,L1→L2,Offence to feed family,10.0
+3,10,1,2,L1→L2,Offence to feed family,10.0
+4,10,1,2,L1→L2,Offence to feed family,10.0
+5,10,1,2,L1→L2,Offence to feed family,10.0
+6,10,1,2,L1→L2,Offence to feed family,10.0
+7,10,1,2,L1→L2,Offence to feed family,10.0
+8,10,1,2,L1→L2,Offence to feed family,10.0
+9,10,1,2,L1→L2,Offence to feed family,10.0
+10,10,1,2,L1→L2,Offence to feed family,10.0
+11,10,1,2,L1→L2,Offence to feed family,10.0
+12,10,1,2,L1→L2,Offence to feed family,10.0
+13,10,1,2,L1→L2,Offence to feed family,10.0
+14,10,1,2,L1→L2,Offence to feed family,10.0
+15,10,1,2,L1→L2,Offence to feed family,10.0
+16,10,1,2,L1→L2,Offence to feed family,10.0
+17,10,1,2,L1→L2,Offence to feed family,10.0
+18,10,1,2,L1→L2,Offence to feed family,10.0
+19,10,1,2,L1→L2,Offence to feed family,10.0
+20,10,1,2,L1→L2,Offence to feed family,10.0
+21,10,1,2,L1→L2,Offence to feed family,10.0
+22,10,1,2,L1→L2,Offence to feed family,10.0
+23,10,1,2,L1→L2,Offence to feed family,10.0
+24,10,1,2,L1→L2,Offence to feed family,10.0
+25,10,1,2,L1→L2,Offence to feed family,10.0
+26,10,1,2,L1→L2,Offence to feed family,10.0
+27,10,1,2,L1→L2,Offence to feed family,10.0
+28,10,1,2,L1→L2,Offence to feed family,10.0
+29,10,1,2,L1→L2,Offence to feed family,10.0
+30,10,1,2,L1→L2,Offence to feed family,10.0
+31,10,1,2,L1→L2,Offence to feed family,10.0
+32,10,1,2,L1→L2,Offence to feed family,10.0
+33,10,1,2,L1→L2,Offence to feed family,10.0
+34,10,1,2,L1→L2,Offence to feed family,10.0
+35,10,1,2,L1→L2,Offence to feed family,10.0
+36,10,1,2,L1→L2,Offence to feed family,10.0
+37,10,1,2,L1→L2,Offence to feed family,10.0
+38,10,1,2,L1→L2,Offence to feed family,10.0
+39,10,1,2,L1→L2,Offence to feed family,10.0
+40,10,1,2,L1→L2,Offence to feed family,10.0
+41,10,1,2,L1→L2,Offence to feed family,10.0
+42,10,1,2,L1→L2,Offence to feed family,10.0
+43,10,1,2,L1→L2,Offence to feed family,10.0
+44,10,1,2,L1→L2,Offence to feed family,10.0
+45,10,1,2,L1→L2,Offence to feed family,10.0
+46,10,1,2,L1→L2,Offence to feed family,10.0
+47,10,1,2,L1→L2,Offence to feed family,10.0
+48,10,1,2,L1→L2,Offence to feed family,10.0
+49,10,1,2,L1→L2,Offence to feed family,10.0
+50,10,1,2,L1→L2,Offence to feed family,10.0
+1,10,2,3,L2→L3,Family left / transitional housing,10.0
+2,10,2,3,L2→L3,Family left / transitional housing,10.0
+3,10,2,3,L2→L3,Family left / transitional housing,10.0
+4,10,2,3,L2→L3,Family left / transitional housing,10.0
+5,10,2,3,L2→L3,Family left / transitional housing,10.0
+6,10,2,3,L2→L3,Family left / transitional housing,10.0
+7,10,2,3,L2→L3,Family left / transitional housing,10.0
+8,10,2,3,L2→L3,Family left / transitional housing,10.0
+9,10,2,3,L2→L3,Family left / transitional housing,10.0
+10,10,2,3,L2→L3,Family left / transitional housing,10.0
+11,10,2,3,L2→L3,Family left / transitional housing,10.0
+12,10,2,3,L2→L3,Family left / transitional housing,10.0
+13,10,2,3,L2→L3,Family left / transitional housing,10.0
+14,10,2,3,L2→L3,Family left / transitional housing,10.0
+15,10,2,3,L2→L3,Family left / transitional housing,10.0
+16,10,2,3,L2→L3,Family left / transitional housing,10.0
+17,10,2,3,L2→L3,Family left / transitional housing,10.0
+18,10,2,3,L2→L3,Family left / transitional housing,10.0
+19,10,2,3,L2→L3,Family left / transitional housing,10.0
+20,10,2,3,L2→L3,Family left / transitional housing,10.0
+21,10,2,3,L2→L3,Family left / transitional housing,10.0
+22,10,2,3,L2→L3,Family left / transitional housing,10.0
+23,10,2,3,L2→L3,Family left / transitional housing,10.0
+24,10,2,3,L2→L3,Family left / transitional housing,10.0
+25,10,2,3,L2→L3,Family left / transitional housing,10.0
+26,10,2,3,L2→L3,Family left / transitional housing,10.0
+27,10,2,3,L2→L3,Family left / transitional housing,10.0
+28,10,2,3,L2→L3,Family left / transitional housing,10.0
+29,10,2,3,L2→L3,Family left / transitional housing,10.0
+30,10,2,3,L2→L3,Family left / transitional housing,10.0
+31,10,2,3,L2→L3,Family left / transitional housing,10.0
+32,10,2,3,L2→L3,Family left / transitional housing,10.0
+33,10,2,3,L2→L3,Family left / transitional housing,10.0
+34,10,2,3,L2→L3,Family left / transitional housing,10.0
+35,10,2,3,L2→L3,Family left / transitional housing,10.0
+36,10,2,3,L2→L3,Family left / transitional housing,10.0
+37,10,2,3,L2→L3,Family left / transitional housing,10.0
+38,10,2,3,L2→L3,Family left / transitional housing,10.0
+39,10,2,3,L2→L3,Family left / transitional housing,10.0
+40,10,2,3,L2→L3,Family left / transitional housing,10.0
+41,10,2,3,L2→L3,Family left / transitional housing,10.0
+42,10,2,3,L2→L3,Family left / transitional housing,10.0
+43,10,2,3,L2→L3,Family left / transitional housing,10.0
+44,10,2,3,L2→L3,Family left / transitional housing,10.0
+45,10,2,3,L2→L3,Family left / transitional housing,10.0
+46,10,2,3,L2→L3,Family left / transitional housing,10.0
+47,10,2,3,L2→L3,Family left / transitional housing,10.0
+48,10,2,3,L2→L3,Family left / transitional housing,10.0
+49,10,2,3,L2→L3,Family left / transitional housing,10.0
+50,10,2,3,L2→L3,Family left / transitional housing,10.0
+1,10,3,4,L3→L4,Pressure to re-offend,10.0
+2,10,3,4,L3→L4,Pressure to re-offend,10.0
+3,10,3,4,L3→L4,Pressure to re-offend,10.0
+4,10,3,4,L3→L4,Pressure to re-offend,10.0
+5,10,3,4,L3→L4,Pressure to re-offend,10.0
+6,10,3,4,L3→L4,Pressure to re-offend,5.0
+7,10,3,4,L3→L4,Pressure to re-offend,10.0
+8,10,3,4,L3→L4,Pressure to re-offend,10.0
+9,10,3,4,L3→L4,Pressure to re-offend,10.0
+10,10,3,4,L3→L4,Pressure to re-offend,10.0
+11,10,3,4,L3→L4,Pressure to re-offend,10.0
+12,10,3,4,L3→L4,Pressure to re-offend,10.0
+13,10,3,4,L3→L4,Pressure to re-offend,10.0
+14,10,3,4,L3→L4,Pressure to re-offend,10.0
+15,10,3,4,L3→L4,Pressure to re-offend,10.0
+16,10,3,4,L3→L4,Pressure to re-offend,10.0
+17,10,3,4,L3→L4,Pressure to re-offend,10.0
+18,10,3,4,L3→L4,Pressure to re-offend,10.0
+19,10,3,4,L3→L4,Pressure to re-offend,10.0
+20,10,3,4,L3→L4,Pressure to re-offend,10.0
+21,10,3,4,L3→L4,Pressure to re-offend,10.0
+22,10,3,4,L3→L4,Pressure to re-offend,10.0
+23,10,3,4,L3→L4,Pressure to re-offend,10.0
+24,10,3,4,L3→L4,Pressure to re-offend,10.0
+25,10,3,4,L3→L4,Pressure to re-offend,10.0
+26,10,3,4,L3→L4,Pressure to re-offend,10.0
+27,10,3,4,L3→L4,Pressure to re-offend,10.0
+28,10,3,4,L3→L4,Pressure to re-offend,10.0
+29,10,3,4,L3→L4,Pressure to re-offend,10.0
+30,10,3,4,L3→L4,Pressure to re-offend,10.0
+31,10,3,4,L3→L4,Pressure to re-offend,10.0
+32,10,3,4,L3→L4,Pressure to re-offend,10.0
+33,10,3,4,L3→L4,Pressure to re-offend,10.0
+34,10,3,4,L3→L4,Pressure to re-offend,10.0
+35,10,3,4,L3→L4,Pressure to re-offend,10.0
+36,10,3,4,L3→L4,Pressure to re-offend,10.0
+37,10,3,4,L3→L4,Pressure to re-offend,10.0
+38,10,3,4,L3→L4,Pressure to re-offend,10.0
+39,10,3,4,L3→L4,Pressure to re-offend,10.0
+40,10,3,4,L3→L4,Pressure to re-offend,10.0
+41,10,3,4,L3→L4,Pressure to re-offend,10.0
+42,10,3,4,L3→L4,Pressure to re-offend,10.0
+43,10,3,4,L3→L4,Pressure to re-offend,10.0
+44,10,3,4,L3→L4,Pressure to re-offend,10.0
+45,10,3,4,L3→L4,Pressure to re-offend,10.0
+46,10,3,4,L3→L4,Pressure to re-offend,10.0
+47,10,3,4,L3→L4,Pressure to re-offend,10.0
+48,10,3,4,L3→L4,Pressure to re-offend,10.0
+49,10,3,4,L3→L4,Pressure to re-offend,10.0
+50,10,3,4,L3→L4,Pressure to re-offend,10.0
+1,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+2,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+3,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+4,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+5,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+6,10,4,5,L4→L5,Rehabilitation / volunteering,5.0
+7,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+8,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+9,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+10,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+11,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+12,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+13,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+14,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+15,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+16,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+17,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+18,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+19,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+20,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+21,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+22,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+23,10,4,5,L4→L5,Rehabilitation / volunteering,5.0
+24,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+25,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+26,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+27,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+28,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+29,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+30,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+31,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+32,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+33,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+34,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+35,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+36,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+37,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+38,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+39,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+40,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+41,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+42,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+43,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+44,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+45,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+46,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+47,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+48,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+49,10,4,5,L4→L5,Rehabilitation / volunteering,10.0
+50,10,4,5,L4→L5,Rehabilitation / volunteering,10.0

@@ -1,0 +1,11 @@
+scenario,scenario_name,L1_mean_B_pct,L5_mean_B_pct,net_change_pp,trajectory,largest_fall,largest_rise
+1,Mobility impairment / criminal activity,60.0,71.3,11.299999999999997,non-monotonic,L1→L2: Criminal activity (-9.8 pp),L4→L5: Gambling for child's cancer care (+9.2 pp)
+2,Pregnancy loss / abortion,46.2,68.4,22.200000000000003,non-monotonic,L2→L3: Abortion (-4.6 pp),L4→L5: Incest complications (+9.6 pp)
+3,Communication trauma / insurgency,61.2,71.45,10.25,non-monotonic,L4→L5: Family in insurgency leadership (-5.8 pp),L1→L2: Trauma (+5.9 pp)
+4,Disability / drunk-driving accident,68.2,75.94,7.739999999999995,non-monotonic,L1→L2: Drunk driving (-12.0 pp),L2→L3: Drinking linked to bereavement (+8.9 pp)
+5,Homelessness / former athlete,70.2,89.38,19.179999999999993,monotonic increase,—,L3→L4: Painkiller addiction (+5.3 pp)
+6,Unemployment / workplace theft,49.8,59.8,10.0,non-monotonic,L1→L2: Theft from employer (-19.6 pp),L4→L5: Sole family breadwinner (+16.4 pp)
+7,Emphysema / smoking / medical need,59.4,81.6,22.199999999999996,monotonic increase,—,L2→L3: No insurance coverage (+6.6 pp)
+8,Refugee / sick child / document forgery,62.6,91.4,28.800000000000004,monotonic increase,—,L1→L2: Sick child in shelter (+9.9 pp)
+9,Startup failure / recession / social enterprise,60.0,88.0,28.0,monotonic increase,—,L1→L2: Investor lost in recession (+10.0 pp)
+10,Ex-convict / family need / rehabilitation,50.0,89.7,39.7,monotonic increase,—,L1→L2: Offence to feed family (+10.0 pp)

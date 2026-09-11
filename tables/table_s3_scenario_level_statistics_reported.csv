@@ -1,0 +1,51 @@
+scenario,scenario_name,level,Mean B pct [ci95],sd_B_pct,median_B_pct
+1,Mobility impairment / criminal activity,1,"60 [60, 60]",0,60
+1,Mobility impairment / criminal activity,2,"50.2 [49.919, 50.481]",0.99,50
+1,Mobility impairment / criminal activity,3,"57.08 [55.828, 58.332]",4.407,60
+1,Mobility impairment / criminal activity,4,"62.12 [60.077, 64.163]",7.187,60
+1,Mobility impairment / criminal activity,5,"71.3 [69.512, 73.088]",6.293,70
+2,Pregnancy loss / abortion,1,"46.2 [44.807, 47.593]",4.903,50
+2,Pregnancy loss / abortion,2,"55.6 [54.265, 56.935]",4.699,57.5
+2,Pregnancy loss / abortion,3,"51 [48.795, 53.205]",7.759,55
+2,Pregnancy loss / abortion,4,"58.8 [56.321, 61.279]",8.722,60
+2,Pregnancy loss / abortion,5,"68.4 [65.974, 70.826]",8.538,70
+3,Communication trauma / insurgency,1,"61.2 [60.267, 62.133]",3.283,60
+3,Communication trauma / insurgency,2,"67.1 [66.102, 68.098]",3.512,65
+3,Communication trauma / insurgency,3,"72.2 [71.159, 73.241]",3.665,70
+3,Communication trauma / insurgency,4,"77.3 [76.18, 78.42]",3.94,75
+3,Communication trauma / insurgency,5,"71.45 [70.198, 72.702]",4.406,70
+4,Disability / drunk-driving accident,1,"68.2 [67.097, 69.303]",3.881,70
+4,Disability / drunk-driving accident,2,"56.2 [54.305, 58.095]",6.667,60
+4,Disability / drunk-driving accident,3,"65.1 [62.961, 67.239]",7.525,70
+4,Disability / drunk-driving accident,4,"70.22 [68.265, 72.175]",6.879,75
+4,Disability / drunk-driving accident,5,"75.94 [74.077, 77.803]",6.554,80
+5,Homelessness / former athlete,1,"70.2 [68.123, 72.277]",7.309,70
+5,Homelessness / former athlete,2,"74.2 [72.399, 76.001]",6.337,75
+5,Homelessness / former athlete,3,"78.9 [77.011, 80.789]",6.646,80
+5,Homelessness / former athlete,4,"84.2 [82.354, 86.046]",6.496,85
+5,Homelessness / former athlete,5,"89.38 [87.659, 91.101]",6.057,90
+6,Unemployment / workplace theft,1,"49.8 [49.398, 50.202]",1.414,50
+6,Unemployment / workplace theft,2,"30.2 [29.798, 30.602]",1.414,30
+6,Unemployment / workplace theft,3,"39.8 [39.161, 40.439]",2.25,40
+6,Unemployment / workplace theft,4,"43.4 [42.671, 44.129]",2.563,45
+6,Unemployment / workplace theft,5,"59.8 [59.398, 60.202]",1.414,60
+7,Emphysema / smoking / medical need,1,"59.4 [58.718, 60.082]",2.399,60
+7,Emphysema / smoking / medical need,2,"62.6 [60.606, 64.594]",7.016,65
+7,Emphysema / smoking / medical need,3,"69.2 [67.445, 70.955]",6.174,70
+7,Emphysema / smoking / medical need,4,"75.4 [74.058, 76.742]",4.721,75
+7,Emphysema / smoking / medical need,5,"81.6 [80.334, 82.866]",4.454,80
+8,Refugee / sick child / document forgery,1,"62.6 [61.341, 63.859]",4.431,60
+8,Refugee / sick child / document forgery,2,"72.5 [71.274, 73.726]",4.315,70
+8,Refugee / sick child / document forgery,3,"81.4 [80.638, 82.162]",2.68,80
+8,Refugee / sick child / document forgery,4,"86.4 [85.638, 87.162]",2.68,85
+8,Refugee / sick child / document forgery,5,"91.4 [90.638, 92.162]",2.68,90
+9,Startup failure / recession / social enterprise,1,"60 [60, 60]",0,60
+9,Startup failure / recession / social enterprise,2,"70 [70, 70]",0,70
+9,Startup failure / recession / social enterprise,3,"76.6 [75.93, 77.27]",2.356,75
+9,Startup failure / recession / social enterprise,4,"83.2 [81.861, 84.539]",4.712,80
+9,Startup failure / recession / social enterprise,5,"88 [86.508, 89.492]",5.249,85
+10,Ex-convict / family need / rehabilitation,1,"50 [50, 50]",0,50
+10,Ex-convict / family need / rehabilitation,2,"60 [60, 60]",0,60
+10,Ex-convict / family need / rehabilitation,3,"70 [70, 70]",0,70
+10,Ex-convict / family need / rehabilitation,4,"79.9 [79.699, 80.101]",0.707,80
+10,Ex-convict / family need / rehabilitation,5,"89.7 [89.254, 90.146]",1.568,90

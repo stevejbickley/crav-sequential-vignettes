@@ -1,0 +1,8 @@
+model,formula,R2,adjusted_R2,AIC,BIC,n_observations,n_parameters,interpretation
+Temperature only,allocation_B_pct ~ C(temperature),0.0006369535503063517,-0.0005642039574458302,20431.278833085755,20454.57501712918,2500,4,Descriptive model fit; not a causal variance decomposition.
+Model-instance identity only,allocation_B_pct ~ C(agent),0.00782912871252972,-0.012014288713219745,20505.221881192392,20796.42418173521,2500,50,Descriptive model fit; not a causal variance decomposition.
+Scenario only,allocation_B_pct ~ C(scenario),0.5126204817657936,0.5108588690492843,18648.09132138287,18706.331781491434,2500,10,Descriptive model fit; not a causal variance decomposition.
+Contextual level only,allocation_B_pct ~ C(level),0.2729767257604556,0.27181115738492123,19637.879754623245,19666.999984677528,2500,5,Descriptive model fit; not a causal variance decomposition.
+Scenario + level,allocation_B_pct ~ C(scenario) + C(level),0.7855972075262492,0.7844760344360807,16603.124661132777,16684.661305284764,2500,14,Descriptive model fit; not a causal variance decomposition.
+Scenario × level,allocation_B_pct ~ C(scenario) * C(level),0.8927049514829698,0.8905590505126292,14944.439782888581,15235.642083431396,2500,50,Descriptive model fit; not a causal variance decomposition.
+Scenario × level + temperature,allocation_B_pct ~ C(scenario) * C(level) + C(temperature),0.893341905033276,0.8910753660311226,14935.554387383127,15244.22882595851,2500,53,Descriptive model fit; not a causal variance decomposition.

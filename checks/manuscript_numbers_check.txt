@@ -1,0 +1,39 @@
+CRAV MANUSCRIPT NUMERICAL CROSS-CHECK
+=======================================================
+Observations: 2,500; model instances: 50; scenarios: 10; levels: 5.
+Model(s): gpt-4o.
+Collection window: 2025-02-12 04:28:08+00:00 to 2025-02-12 05:06:43+00:00 (UTC).
+
+Overall contextual progression
+Level 1 mean B allocation: 58.760%.
+Level 5 mean B allocation: 78.697%.
+Model-instance mean L5-L1 change: 19.937 pp (95% CI 19.655, 20.219); paired t(49)=142.032, p=9.380e-66.
+
+Transition structure
+40/40 paired transitions significant at BH-FDR q<.05; 35 positive and 5 negative mean changes.
+Non-monotonic scenario-mean trajectories: 5/10.
+
+Selected contextual shifts (percentage points to Person B)
+- S1 criminal activity: -9.80 pp (95% CI -10.08, -9.52; BH q=3.536e-50).
+- S2 abortion after pregnancy loss: -4.60 pp (95% CI -5.85, -3.35; BH q=1.533e-09).
+- S3 family insurgency leadership: -5.85 pp (95% CI -6.80, -4.90; BH q=1.245e-16).
+- S4 drunk driving: -12.00 pp (95% CI -13.62, -10.38; BH q=1.170e-19).
+- S4 bereavement-linked drinking: +8.90 pp (95% CI 8.31, 9.49; BH q=6.351e-33).
+- S6 theft from employer: -19.60 pp (95% CI -20.16, -19.04; BH q=3.536e-50).
+- S6 sole breadwinner: +16.40 pp (95% CI 15.64, 17.16; BH q=3.014e-40).
+- S7 smoking cause: +3.20 pp (95% CI 1.15, 5.25; BH q=2.829e-03).
+- S8 forged documents for urgent care: +8.90 pp (95% CI 8.31, 9.49; BH q=6.351e-33).
+
+Descriptive R-squared
+- Temperature only: R2=0.000637; adjusted R2=-0.000564
+- Model-instance identity only: R2=0.007829; adjusted R2=-0.012014
+- Scenario only: R2=0.512620; adjusted R2=0.510859
+- Contextual level only: R2=0.272977; adjusted R2=0.271811
+- Scenario + level: R2=0.785597; adjusted R2=0.784476
+- Scenario × level: R2=0.892705; adjusted R2=0.890559
+- Scenario × level + temperature: R2=0.893342; adjusted R2=0.891075
+
+Two-way repeated-measures ANOVA
+- scenario: F(9,441)=329.867, p=1.186e-189.
+- level: F(4,196)=6747.771, p=1.164e-208.
+- scenario:level: F(36,1764)=245.975, p=0.000e+00.
