@@ -1,4 +1,4 @@
-scenario,scenario_name,level,new_information,n_model_instances,mean_B_pct,sd_B_pct,se_B_pct,median_B_pct,ci95_low,ci95_high,mean_B_usd
+scenario,scenario_name,level,new_information,n_agents,mean_B_pct,sd_B_pct,se_B_pct,median_B_pct,ci95_low,ci95_high,mean_B_usd
 1,Mobility impairment / criminal activity,1,Mobility issues,50,60.0,0.0,0.0,60.0,60.0,60.0,600.0
 1,Mobility impairment / criminal activity,2,Criminal activity,50,50.2,0.9897433186107885,0.13997084244475322,50.0,49.91871806110291,50.4812819388971,502.0
 1,Mobility impairment / criminal activity,3,Forced gang membership,50,57.08,4.407044453636305,0.623250203631359,60.0,55.82753182424666,58.332468175753334,570.8
