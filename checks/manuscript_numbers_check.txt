@@ -28,3 +28,10 @@ Two-way repeated-measures ANOVA
 - scenario: F(9,441)=329.867, p=1.186e-189.
 - level: F(4,196)=6747.771, p=1.164e-208.
 - scenario:level: F(36,1764)=245.975, p=0.000e+00.
+
+Blinded contextual coding
+Model coders: 3 (anthropic:claude-opus-5-5, openai:gpt-5.6-sol, typesafe:jev-latest).
+Ordinal Krippendorff alphas: responsibility_controllability=0.824, need_vulnerability=0.795, external_constraint_coercion=0.793, mitigating_circumstances_motive=0.737, corrective_prosocial_effort=0.561.
+All dimensions >= 0.667: False.
+Primary transition-level Spearman rho: 0.655 (scenario-cluster bootstrap 95% CI 0.455, 0.781).
+Clear consensus direction: 31/34 matched observed direction.

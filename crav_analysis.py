@@ -16,9 +16,11 @@ This script:
 8. Runs a two-way repeated-measures ANOVA (scenario x contextual level).
 9. Fits descriptive model specifications comparing R-squared across scenario,
    contextual level, agent identifier, and temperature.
-10. Produces Main Figure 1 and Table 1 and Supplementary Figures S1-S2 and
-    Tables S1-S10.
-11. Writes Supplementary Data S1-S3, validation outputs, analysis metadata,
+10. Optionally analyses blinded multi-model contextual codings when
+    data/supplementary_data_s4_blinded_context_codings.csv is present.
+11. Produces Main Figures 1-2 and Table 1, Supplementary Figures S1-S2,
+    and empirical Tables S1-S13. (The conceptual extensions table becomes S14.)
+12. Writes Supplementary Data S1-S6, validation outputs, analysis metadata,
     recorded environment versions, and a manuscript numerical cross-check.
 """
 
@@ -46,6 +48,24 @@ EXPECTED_LEVELS = 5
 EXPECTED_AGENTS = 50
 EXPECTED_ROWS = EXPECTED_SCENARIOS * EXPECTED_LEVELS * EXPECTED_AGENTS
 RANDOM_SEED = 20260901
+
+CODING_DIMENSIONS = [
+    "responsibility_controllability",
+    "need_vulnerability",
+    "external_constraint_coercion",
+    "mitigating_circumstances_motive",
+    "corrective_prosocial_effort",
+]
+CODING_ORIENTED_COMPONENTS = [
+    "externality_luck_score",
+    "need_vulnerability",
+    "external_constraint_coercion",
+    "mitigating_circumstances_motive",
+    "corrective_prosocial_effort",
+]
+CODING_RELIABILITY_GATE = 0.667
+CODING_DIRECTION_CONSENSUS = 2.0 / 3.0
+CODING_BOOTSTRAP_REPS = 5000
 
 PLOT_TITLES: Dict[int, str] = {
     1: "Mobility impairment / criminal activity",
@@ -476,6 +496,16 @@ def parse_args() -> argparse.Namespace:
         "--allow-unexpected-counts",
         action="store_true",
         help="Continue if the number of files/agents/rows differs from the supplied study.",
+    )
+    parser.add_argument(
+        "--coding-file",
+        type=Path,
+        default=None,
+        help=(
+            "Optional blinded context-coding CSV. If omitted, the script looks for "
+            "<output-dir>/data/supplementary_data_s4_blinded_context_codings.csv. "
+            "If no coding file exists, the original CRAV workflow runs unchanged."
+        ),
     )
     return parser.parse_args()
 
@@ -1101,9 +1131,8 @@ def hypothesis_evidence_table(
         {
             "hypothesis": "H1: Contextual updating",
             "observable_implication": (
-                "Morally diagnostic additions produce non-zero average "
-                "stage-to-stage reallocations within the repeated "
-                "conversational trajectories."
+                "Sequential contextual additions produce systematic stage-to-stage "
+                "reallocations within the repeated conversational trajectories."
             ),
             "evidence": (
                 f"{n_sig}/40 stage-to-stage transitions were distinguishable "
@@ -1233,6 +1262,390 @@ def transition_hypothesis_map(transitions: pd.DataFrame) -> pd.DataFrame:
         })
     return pd.DataFrame(rows)
 
+
+
+def load_context_codings(path: Path) -> pd.DataFrame:
+    """Load and validate blinded model-coder ratings for the 50 cumulative states."""
+    c = pd.read_csv(path)
+    required = {
+        "coder_id", "provider", "model", "codebook_version", "codebook_sha256",
+        "scenario", "level", "narrative", *CODING_DIMENSIONS,
+    }
+    missing = required.difference(c.columns)
+    if missing:
+        raise ValueError(f"Context coding file is missing columns: {sorted(missing)}")
+    if c["coder_id"].nunique() < 2:
+        raise ValueError("At least two blinded model coders are required; three or more are preferable.")
+    if c["codebook_sha256"].nunique() != 1:
+        raise ValueError("All coders must use exactly the same frozen codebook hash.")
+    dup = c.duplicated(["coder_id", "scenario", "level"]).sum()
+    if dup:
+        raise ValueError(f"Duplicate coder-scenario-level ratings detected: {dup}")
+    for col in CODING_DIMENSIONS:
+        c[col] = pd.to_numeric(c[col], errors="raise")
+        if not c[col].between(1, 7).all():
+            raise ValueError(f"Ratings outside 1-7 detected in {col}.")
+    counts = c.groupby("coder_id").size()
+    if not (counts == 50).all():
+        raise ValueError(f"Every coder must rate all 50 states; observed counts: {counts.to_dict()}")
+    cell_counts = c.groupby(["scenario", "level"])["coder_id"].nunique()
+    if len(cell_counts) != 50 or cell_counts.nunique() != 1:
+        raise ValueError("Coding data do not form a balanced coder x 10 x 5 panel.")
+    c["externality_luck_score"] = 8.0 - c["responsibility_controllability"]
+    c["contextual_deservingness_index"] = c[CODING_ORIENTED_COMPONENTS].mean(axis=1)
+    return c
+
+
+def ordinal_krippendorff_alpha(reliability_data: np.ndarray) -> float:
+    """Krippendorff's alpha with the ordinal disagreement metric.
+
+    reliability_data is coders x items. This implementation follows the
+    coincidence-matrix definition and supports missing values, although the CRAV
+    coding protocol requires a complete balanced panel. Categories are the
+    observed ordered numeric values (here integers 1-7).
+    """
+    x = np.asarray(reliability_data, dtype=float)
+    values = np.array(sorted(np.unique(x[np.isfinite(x)])), dtype=float)
+    if len(values) < 2:
+        return 1.0
+    idx = {v: i for i, v in enumerate(values)}
+    o = np.zeros((len(values), len(values)), dtype=float)
+
+    for j in range(x.shape[1]):
+        vals = x[:, j]
+        vals = vals[np.isfinite(vals)]
+        m = len(vals)
+        if m < 2:
+            continue
+        counts = np.zeros(len(values), dtype=float)
+        for v in vals:
+            counts[idx[v]] += 1.0
+        # Coincidences are ordered pairs, normalized by (m-1) within item.
+        for a in range(len(values)):
+            if counts[a] == 0:
+                continue
+            o[a, a] += counts[a] * (counts[a] - 1.0) / (m - 1.0)
+            for b in range(len(values)):
+                if a != b and counts[b] > 0:
+                    o[a, b] += counts[a] * counts[b] / (m - 1.0)
+
+    marg = o.sum(axis=1)
+    n = float(marg.sum())
+    if n <= 1:
+        return np.nan
+
+    # Ordinal disagreement distance uses cumulative marginal frequencies between
+    # category endpoints. Any common scaling cancels in Do/De.
+    delta = np.zeros_like(o)
+    for a in range(len(values)):
+        for b in range(len(values)):
+            if a == b:
+                continue
+            lo, hi = sorted((a, b))
+            midpoint_mass = marg[lo:hi + 1].sum() - 0.5 * (marg[lo] + marg[hi])
+            delta[a, b] = midpoint_mass ** 2
+
+    do = float((o * delta).sum() / n)
+    de = float(np.outer(marg, marg).ravel().dot(delta.ravel()) / (n * (n - 1.0)))
+    if np.isclose(de, 0.0):
+        return 1.0 if np.isclose(do, 0.0) else np.nan
+    return float(1.0 - do / de)
+
+
+def context_coding_reliability(c: pd.DataFrame) -> pd.DataFrame:
+    """Ordinal Krippendorff alpha for each blinded contextual dimension."""
+    labels = {
+        "responsibility_controllability": "Responsibility / controllability",
+        "need_vulnerability": "Need / vulnerability",
+        "external_constraint_coercion": "External constraint / coercion",
+        "mitigating_circumstances_motive": "Mitigating circumstances / motive",
+        "corrective_prosocial_effort": "Corrective / prosocial effort",
+    }
+    rows = []
+    for dim in CODING_DIMENSIONS:
+        m = c.pivot(index="coder_id", columns=["scenario", "level"], values=dim).sort_index(axis=1)
+        alpha = float(ordinal_krippendorff_alpha(m.to_numpy(dtype=float)))
+        rows.append({
+            "dimension": dim,
+            "label": labels[dim],
+            "n_coders": int(m.shape[0]),
+            "n_states": int(m.shape[1]),
+            "ordinal_krippendorff_alpha": alpha,
+            "passes_0_667_gate": bool(alpha >= CODING_RELIABILITY_GATE),
+        })
+    out = pd.DataFrame(rows)
+    out["all_dimensions_pass_gate"] = bool(out["passes_0_667_gate"].all())
+    return out
+
+
+def context_state_scores(c: pd.DataFrame) -> pd.DataFrame:
+    """Aggregate blinded coder ratings at each of the 50 cumulative states."""
+    components = [*CODING_DIMENSIONS, "externality_luck_score", "contextual_deservingness_index"]
+    rows = []
+    for (scenario, level), g in c.groupby(["scenario", "level"], sort=True):
+        row = {
+            "scenario": int(scenario),
+            "scenario_name": SCENARIO_NAMES[int(scenario)],
+            "level": int(level),
+            "stage_cue": STAGE_CUES[int(scenario)][int(level)],
+            "n_coders": int(g["coder_id"].nunique()),
+            "narrative": str(g["narrative"].iloc[0]),
+        }
+        for col in components:
+            row[f"{col}_mean"] = float(g[col].mean())
+            row[f"{col}_median"] = float(g[col].median())
+            row[f"{col}_sd"] = float(g[col].std(ddof=1)) if len(g) > 1 else np.nan
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def coder_transition_scores(c: pd.DataFrame) -> pd.DataFrame:
+    """Convert independently coded cumulative states into within-coder transition deltas."""
+    components = [*CODING_ORIENTED_COMPONENTS, "contextual_deservingness_index"]
+    rows = []
+    for (coder_id, scenario), g in c.groupby(["coder_id", "scenario"], sort=True):
+        g = g.sort_values("level").set_index("level")
+        for to_level in range(2, 6):
+            row = {
+                "coder_id": coder_id,
+                "provider": g.loc[to_level, "provider"],
+                "model": g.loc[to_level, "model"],
+                "scenario": int(scenario),
+                "scenario_name": SCENARIO_NAMES[int(scenario)],
+                "from_level": to_level - 1,
+                "to_level": to_level,
+                "transition": f"L{to_level-1}→L{to_level}",
+                "new_information": STAGE_CUES[int(scenario)][to_level],
+            }
+            for col in components:
+                row[f"delta_{col}"] = float(g.loc[to_level, col] - g.loc[to_level - 1, col])
+            rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def _consensus_direction(x: pd.Series) -> tuple[str, float, int, int, int]:
+    vals = x.to_numpy(dtype=float)
+    pos = int((vals > 0).sum())
+    neg = int((vals < 0).sum())
+    zero = int(np.isclose(vals, 0.0).sum())
+    n = len(vals)
+    if n == 0:
+        return "mixed/indeterminate", np.nan, pos, neg, zero
+    shares = {"increase": pos / n, "decrease": neg / n, "neutral": zero / n}
+    direction, share = max(shares.items(), key=lambda z: z[1])
+    if share + 1e-12 < CODING_DIRECTION_CONSENSUS:
+        direction = "mixed/indeterminate"
+    return direction, float(share), pos, neg, zero
+
+
+def context_transition_scores(c: pd.DataFrame, transitions: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Merge blinded theory-coded transition changes with observed GPT-4o reallocations."""
+    coder_deltas = coder_transition_scores(c)
+    delta_cols = [x for x in coder_deltas.columns if x.startswith("delta_")]
+    rows = []
+    for (scenario, to_level), g in coder_deltas.groupby(["scenario", "to_level"], sort=True):
+        row = {
+            "scenario": int(scenario),
+            "scenario_name": SCENARIO_NAMES[int(scenario)],
+            "from_level": int(to_level) - 1,
+            "to_level": int(to_level),
+            "transition": f"L{int(to_level)-1}→L{int(to_level)}",
+            "new_information": STAGE_CUES[int(scenario)][int(to_level)],
+            "n_coders": int(g["coder_id"].nunique()),
+        }
+        for col in delta_cols:
+            row[f"{col}_mean"] = float(g[col].mean())
+            row[f"{col}_median"] = float(g[col].median())
+            row[f"{col}_sd"] = float(g[col].std(ddof=1)) if len(g) > 1 else np.nan
+        direction, share, pos, neg, zero = _consensus_direction(g["delta_contextual_deservingness_index"])
+        row.update({
+            "coder_consensus_direction": direction,
+            "coder_consensus_share": share,
+            "coder_votes_increase": pos,
+            "coder_votes_decrease": neg,
+            "coder_votes_neutral": zero,
+        })
+        rows.append(row)
+    out = pd.DataFrame(rows)
+    obs = transitions[["scenario", "to_level", "mean_delta_pp", "ci95_low", "ci95_high"]].copy()
+    obs = obs.rename(columns={
+        "mean_delta_pp": "observed_delta_B_pp",
+        "ci95_low": "observed_delta_B_ci95_low",
+        "ci95_high": "observed_delta_B_ci95_high",
+    })
+    out = out.merge(obs, on=["scenario", "to_level"], how="left", validate="one_to_one")
+    out["observed_direction"] = np.where(out["observed_delta_B_pp"] > 0, "increase",
+                                          np.where(out["observed_delta_B_pp"] < 0, "decrease", "neutral"))
+    out["direction_consistent"] = np.where(
+        out["coder_consensus_direction"].isin(["increase", "decrease"]),
+        out["coder_consensus_direction"] == out["observed_direction"],
+        pd.NA,
+    )
+    return coder_deltas, out
+
+
+def cluster_bootstrap_spearman(
+    df: pd.DataFrame,
+    x_col: str,
+    y_col: str = "observed_delta_B_pp",
+    reps: int = CODING_BOOTSTRAP_REPS,
+    seed: int = RANDOM_SEED + 25,
+) -> tuple[float, float, float, int]:
+    """Spearman rho with percentile CI from scenario-cluster bootstrap resampling."""
+    d = df[["scenario", "to_level", x_col, y_col]].dropna().sort_values(["scenario", "to_level"]).copy()
+
+    def fast_spearman(a: np.ndarray, b: np.ndarray) -> float:
+        ra = stats.rankdata(a, method="average")
+        rb = stats.rankdata(b, method="average")
+        sda, sdb = np.std(ra), np.std(rb)
+        if np.isclose(sda, 0.0) or np.isclose(sdb, 0.0):
+            return np.nan
+        return float(np.corrcoef(ra, rb)[0, 1])
+
+    rho = fast_spearman(d[x_col].to_numpy(dtype=float), d[y_col].to_numpy(dtype=float))
+    scenarios = np.array(sorted(d["scenario"].unique()))
+    x_blocks, y_blocks = [], []
+    for s in scenarios:
+        g = d[d["scenario"] == s].sort_values("to_level")
+        x_blocks.append(g[x_col].to_numpy(dtype=float))
+        y_blocks.append(g[y_col].to_numpy(dtype=float))
+    widths = {len(a) for a in x_blocks}
+    if len(widths) != 1:
+        raise ValueError("Scenario-cluster bootstrap expects the same number of transitions per scenario.")
+    xb = np.stack(x_blocks)
+    yb = np.stack(y_blocks)
+
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, len(scenarios), size=(reps, len(scenarios)))
+    boots = np.empty(reps, dtype=float)
+    for i, draw in enumerate(draws):
+        boots[i] = fast_spearman(xb[draw].reshape(-1), yb[draw].reshape(-1))
+    boots = boots[np.isfinite(boots)]
+    lo, hi = np.quantile(boots, [0.025, 0.975]) if len(boots) else (np.nan, np.nan)
+    return rho, float(lo), float(hi), int(len(boots))
+
+def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd.DataFrame) -> pd.DataFrame:
+    """Primary and sensitivity associations between blinded context changes and reallocations."""
+    d = transition_scores.copy()
+    base = {
+        "externality_luck_score": "Externality/luck (reverse responsibility)",
+        "need_vulnerability": "Need / vulnerability",
+        "external_constraint_coercion": "External constraint / coercion",
+        "mitigating_circumstances_motive": "Mitigating circumstances / motive",
+        "corrective_prosocial_effort": "Corrective / prosocial effort",
+    }
+    predictors = [("Primary equal-weight five-component index", "delta_contextual_deservingness_index_mean", True)]
+    for key, label in base.items():
+        predictors.append((label, f"delta_{key}_mean", False))
+
+    # Leave-one-component-out indices are derived from the same five equally scaled oriented components.
+    oriented_delta_cols = [f"delta_{x}_mean" for x in CODING_ORIENTED_COMPONENTS]
+    for omitted in CODING_ORIENTED_COMPONENTS:
+        use = [f"delta_{x}_mean" for x in CODING_ORIENTED_COMPONENTS if x != omitted]
+        new_col = f"loo_without_{omitted}"
+        d[new_col] = d[use].mean(axis=1)
+        predictors.append((f"Leave-one-out: omit {omitted}", new_col, False))
+
+    gate = bool(reliability["passes_0_667_gate"].all())
+    rows = []
+    for i, (label, col, primary) in enumerate(predictors):
+        rho, lo, hi, n_boot = cluster_bootstrap_spearman(d, col, seed=RANDOM_SEED + 250 + i)
+        rows.append({
+            "analysis": label,
+            "predictor": col,
+            "primary": primary,
+            "n_transitions": int(d[[col, "observed_delta_B_pp"]].dropna().shape[0]),
+            "spearman_rho": rho,
+            "scenario_cluster_bootstrap_ci95_low": lo,
+            "scenario_cluster_bootstrap_ci95_high": hi,
+            "bootstrap_replicates_used": n_boot,
+            "reliability_gate_passed": gate,
+            "interpretation": "Exploratory theory-guided association; 40 transitions are the unit of analysis.",
+        })
+
+    clear = d[d["coder_consensus_direction"].isin(["increase", "decrease"])].copy()
+    concordant = clear["direction_consistent"].astype("boolean") if len(clear) else pd.Series(dtype="boolean")
+    sign_row = {
+        "analysis": "Consensus directional concordance",
+        "predictor": "two-thirds-or-greater coder consensus on index-change sign",
+        "primary": False,
+        "n_transitions": int(len(clear)),
+        "spearman_rho": np.nan,
+        "scenario_cluster_bootstrap_ci95_low": np.nan,
+        "scenario_cluster_bootstrap_ci95_high": np.nan,
+        "bootstrap_replicates_used": 0,
+        "reliability_gate_passed": gate,
+        "interpretation": (
+            f"{int(concordant.sum())}/{len(clear)} clear-consensus transitions "
+            f"({100*float(concordant.mean()):.1f}%) matched the observed direction."
+            if len(clear) else "No clear-consensus transitions."
+        ),
+    }
+    rows.append(sign_row)
+    return pd.DataFrame(rows)
+
+
+def figure2_context_coding(
+    transition_scores: pd.DataFrame,
+    associations: pd.DataFrame,
+    path_png: Path,
+    path_pdf: Path,
+) -> None:
+    """Main Figure 2: blinded theory-coded context change versus observed reallocation."""
+    d = transition_scores.sort_values(["scenario", "to_level"]).copy()
+    x = d["delta_contextual_deservingness_index_mean"].to_numpy(dtype=float)
+    y = d["observed_delta_B_pp"].to_numpy(dtype=float)
+    xerr = d["delta_contextual_deservingness_index_sd"].fillna(0).to_numpy(dtype=float)
+
+    fig, ax = plt.subplots(figsize=(8.2, 6.4))
+    ax.errorbar(x, y, xerr=xerr, fmt="o", capsize=2, alpha=0.8)
+    ax.axhline(0, linestyle="--", linewidth=0.9)
+    ax.axvline(0, linestyle="--", linewidth=0.9)
+    if np.unique(x).size > 1:
+        slope, intercept = np.polyfit(x, y, 1)
+        xx = np.linspace(float(np.min(x)), float(np.max(x)), 100)
+        ax.plot(xx, intercept + slope * xx, linewidth=1.2)
+
+    primary = associations.loc[associations["primary"] == True].iloc[0]
+    ax.text(
+        0.02, 0.98,
+        f"Spearman ρ = {primary['spearman_rho']:.2f}\n"
+        f"scenario-cluster bootstrap 95% CI "
+        f"[{primary['scenario_cluster_bootstrap_ci95_low']:.2f}, {primary['scenario_cluster_bootstrap_ci95_high']:.2f}]",
+        transform=ax.transAxes, ha="left", va="top", fontsize=9,
+    )
+    ax.set_xlabel("Change in blinded theory-guided contextual score (ΔD)")
+    ax.set_ylabel("Observed change in allocation to Person B (percentage points)")
+    ax.set_title("Blinded contextual coding and observed CRAV reallocations")
+    ax.grid(alpha=0.18)
+    fig.tight_layout()
+    fig.savefig(path_png, dpi=300, bbox_inches="tight")
+    fig.savefig(path_pdf, bbox_inches="tight")
+    plt.close(fig)
+
+
+def context_coding_summary_text(
+    codings: pd.DataFrame,
+    reliability: pd.DataFrame,
+    transition_scores: pd.DataFrame,
+    associations: pd.DataFrame,
+) -> str:
+    primary = associations.loc[associations["primary"] == True].iloc[0]
+    clear = transition_scores[transition_scores["coder_consensus_direction"].isin(["increase", "decrease"])]
+    n_match = int(clear["direction_consistent"].astype("boolean").sum()) if len(clear) else 0
+    alphas = ", ".join(
+        f"{r.dimension}={r.ordinal_krippendorff_alpha:.3f}" for r in reliability.itertuples(index=False)
+    )
+    return (
+        "\nBlinded contextual coding\n"
+        f"Model coders: {codings['coder_id'].nunique()} ({', '.join(sorted(codings['coder_id'].unique()))}).\n"
+        f"Ordinal Krippendorff alphas: {alphas}.\n"
+        f"All dimensions >= {CODING_RELIABILITY_GATE:.3f}: {bool(reliability['passes_0_667_gate'].all())}.\n"
+        f"Primary transition-level Spearman rho: {primary['spearman_rho']:.3f} "
+        f"(scenario-cluster bootstrap 95% CI {primary['scenario_cluster_bootstrap_ci95_low']:.3f}, "
+        f"{primary['scenario_cluster_bootstrap_ci95_high']:.3f}).\n"
+        f"Clear consensus direction: {n_match}/{len(clear)} matched observed direction.\n"
+    )
 
 def save_table(df: pd.DataFrame, stem: Path, index: bool = False) -> None:
     """Save CSV plus a readable Markdown version."""
@@ -1463,6 +1876,20 @@ def main() -> None:
     delta_long.to_csv(dirs["data"] / "supplementary_data_s2_transition_deltas.csv", index=False)
     trajectory_detail.to_csv(dirs["data"] / "supplementary_data_s3_trajectory_switching.csv", index=False)
 
+    # Optional blinded multi-model coding analysis. The raw API coding file is archived
+    # as Supplementary Data S4 and is analysed only if it exists.
+    coding_path = args.coding_file or (dirs["data"] / "supplementary_data_s4_blinded_context_codings.csv")
+    coding_results = None
+    if coding_path.exists():
+        codings = load_context_codings(coding_path)
+        reliability = context_coding_reliability(codings)
+        state_scores = context_state_scores(codings)
+        coder_deltas, context_transitions = context_transition_scores(codings, transitions)
+        coding_associations = context_coding_associations(context_transitions, reliability)
+        state_scores.to_csv(dirs["data"] / "supplementary_data_s5_context_state_scores.csv", index=False)
+        coder_deltas.to_csv(dirs["data"] / "supplementary_data_s6_coder_transition_scores.csv", index=False)
+        coding_results = (codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations)
+
     main_table = scenarios[[
         "scenario", "scenario_name", "lowest_level", "lowest_mean_B_pct",
         "highest_level", "highest_mean_B_pct", "mean_abs_reallocation_pp",
@@ -1482,16 +1909,29 @@ def main() -> None:
     save_table(transitions, dirs["tables"] / "table_s4_transition_tests")
     save_table(anova, dirs["tables"] / "table_s5_repeated_measures_anova")
     save_table(fits, dirs["tables"] / "table_s6_model_fit_comparisons")
-    save_table(switching, dirs["tables"] / "table_s7_trajectory_switching")
-    save_table(temps, dirs["tables"] / "table_s8_temperature_robustness")
+    save_table(temps, dirs["tables"] / "table_s7_temperature_robustness")
+    save_table(switching, dirs["tables"] / "table_s8_trajectory_switching")
     save_table(hypothesis_evidence_table(transitions, switching), dirs["tables"] / "table_s9_hypothesis_evidence")
     save_table(transition_map, dirs["tables"] / "table_s10_transition_hypothesis_map")
+    if coding_results is not None:
+        codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
+        save_table(reliability, dirs["tables"] / "table_s11_blinded_coder_reliability")
+        save_table(context_transitions, dirs["tables"] / "table_s12_context_coding_transition_map")
+        save_table(coding_associations, dirs["tables"] / "table_s13_context_coding_associations")
 
     figure1_trajectories(
         df, cells,
         dirs["figures"] / "figure1_crav_trajectories.png",
         dirs["figures"] / "figure1_crav_trajectories.pdf",
     )
+    if coding_results is not None:
+        codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
+        figure2_context_coding(
+            context_transitions, coding_associations,
+            dirs["figures"] / "figure2_context_coding_association.png",
+            dirs["figures"] / "figure2_context_coding_association.pdf",
+        )
+
     figure_s1_transitions(
         transitions,
         dirs["figures"] / "figure_s1_transition_effects.png",
@@ -1504,8 +1944,31 @@ def main() -> None:
     )
 
     summary_text = manuscript_summary_text(df, overall, transitions, scenarios, switching, fits, anova)
+    if coding_results is not None:
+        codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
+        summary_text += context_coding_summary_text(codings, reliability, context_transitions, coding_associations)
+    else:
+        summary_text += "\nBlinded contextual coding\nNo coding file found; coding-based Figure 2 and Tables S11-S13 were not generated.\n"
     (dirs["checks"] / "manuscript_numbers_check.txt").write_text(summary_text, encoding="utf-8")
     write_metadata(df, files, dirs["checks"] / "analysis_metadata.json")
+    if coding_results is not None:
+        codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
+        coding_meta = {
+            "coding_file": str(coding_path),
+            "coding_file_sha256": __import__("hashlib").sha256(coding_path.read_bytes()).hexdigest(),
+            "codebook_sha256": str(codings["codebook_sha256"].iloc[0]),
+            "n_model_coders": int(codings["coder_id"].nunique()),
+            "coders": sorted(map(str, codings["coder_id"].unique())),
+            "n_coded_states": 50,
+            "n_transition_units": 40,
+            "reliability_gate": CODING_RELIABILITY_GATE,
+            "all_dimensions_pass_gate": bool(reliability["passes_0_667_gate"].all()),
+            "direction_consensus_fraction": CODING_DIRECTION_CONSENSUS,
+            "cluster_bootstrap_replicates": CODING_BOOTSTRAP_REPS,
+        }
+        (dirs["checks"] / "context_coding_analysis_metadata.json").write_text(
+            json.dumps(coding_meta, indent=2), encoding="utf-8"
+        )
     write_environment_versions(dirs["checks"] / "environment_versions.txt")
 
     print(summary_text)

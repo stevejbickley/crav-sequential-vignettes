@@ -1,0 +1,6 @@
+dimension,label,n_coders,n_states,ordinal_krippendorff_alpha,passes_0_667_gate,all_dimensions_pass_gate
+responsibility_controllability,Responsibility / controllability,3,50,0.8240224714690846,True,False
+need_vulnerability,Need / vulnerability,3,50,0.7950731624815438,True,False
+external_constraint_coercion,External constraint / coercion,3,50,0.7930424748720887,True,False
+mitigating_circumstances_motive,Mitigating circumstances / motive,3,50,0.7370754952118588,True,False
+corrective_prosocial_effort,Corrective / prosocial effort,3,50,0.5608850331013367,False,False
