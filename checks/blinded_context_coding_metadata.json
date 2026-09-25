@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-25T02:25:52.889450+00:00",
+  "codebook_file": "crav_context_coding_codebook.json",
+  "codebook_version": "1.0.0",
+  "codebook_sha256": "f00246cfd4b4ce31c4d96b0de478ddcc9c13fe606d3172d9e967326da85b3e18",
+  "n_states": 50,
+  "input_source": "input_data/crav_vignette_*_raw.csv",
+  "env_file": ".env",
+  "env_file_loaded": true,
+  "secrets_policy": "API key values are read at runtime only and are never written to manifests, metadata, or coding outputs.",
+  "blindness": "Coding APIs receive only the frozen codebook/rubric and one cumulative narrative state; no scenario/level labels, allocation outcomes, transition effects, or existing theory-map classifications are sent.",
+  "randomisation": "Each coder receives all 50 states once in a deterministic coder-specific random order derived from the recorded seed.",
+  "coders": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-sol",
+      "coder_id": "openai:gpt-5.6-sol"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-5-5",
+      "coder_id": "anthropic:claude-opus-5-5"
+    },
+    {
+      "provider": "typesafe",
+      "model": "jev-latest",
+      "coder_id": "typesafe:jev-latest"
+    }
+  ],
+  "seed_used_only_for_item_order": 20260925
+}

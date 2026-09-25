@@ -1,0 +1,121 @@
+coder_id,provider,model,scenario,scenario_name,from_level,to_level,transition,new_information,delta_externality_luck_score,delta_need_vulnerability,delta_external_constraint_coercion,delta_mitigating_circumstances_motive,delta_corrective_prosocial_effort,delta_contextual_deservingness_index
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,1,2,L1→L2,Criminal activity,-2.0,1.0,0.0,0.0,0.0,-0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,2,3,L2→L3,Forced gang membership,3.0,0.0,4.0,4.0,0.0,2.2
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,3,4,L3→L4,Illegal gambling debts,-1.0,0.0,0.0,-1.0,0.0,-0.40000000000000036
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,4,5,L4→L5,Gambling for child's cancer care,0.0,1.0,0.0,2.0,1.0,0.7999999999999998
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,2,Pregnancy loss / abortion,1,2,L1→L2,Pregnancy loss,0.0,5.0,0.0,0.0,0.0,1.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,2,Pregnancy loss / abortion,2,3,L2→L3,Abortion,0.0,-2.0,0.0,0.0,0.0,-0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,2,Pregnancy loss / abortion,3,4,L3→L4,Life-saving medical abortion,2.0,1.0,5.0,5.0,0.0,2.5999999999999996
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,2,Pregnancy loss / abortion,4,5,L4→L5,Incest complications,0.0,1.0,0.0,0.0,0.0,0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,3,Communication trauma / insurgency,1,2,L1→L2,Trauma,0.0,1.0,0.0,0.0,0.0,0.19999999999999973
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,3,Communication trauma / insurgency,2,3,L2→L3,Trauma as insurgent,-2.0,0.0,0.0,0.0,0.0,-0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,3,Communication trauma / insurgency,3,4,L3→L4,Family killed in drone bombing,1.0,1.0,1.0,3.0,0.0,1.2000000000000002
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,3,Communication trauma / insurgency,4,5,L4→L5,Family in insurgency leadership,0.0,0.0,1.0,-1.0,0.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,4,Disability / drunk-driving accident,1,2,L1→L2,Drunk driving,-2.0,0.0,-3.0,0.0,0.0,-1.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,4,Disability / drunk-driving accident,2,3,L2→L3,Drinking linked to bereavement,1.0,0.0,1.0,2.0,0.0,0.7999999999999998
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,4,Disability / drunk-driving accident,3,4,L3→L4,Friend died in war,1.0,0.0,1.0,-2.0,0.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,4,Disability / drunk-driving accident,4,5,L4→L5,B survived same ambush,0.0,0.0,0.0,1.0,2.0,0.6000000000000001
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,5,Homelessness / former athlete,1,2,L1→L2,Former professional athlete,0.0,1.0,0.0,0.0,0.0,0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,5,Homelessness / former athlete,2,3,L2→L3,Career-ending injury,2.0,0.0,3.0,2.0,0.0,1.4
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,5,Homelessness / former athlete,3,4,L3→L4,Painkiller addiction,-1.0,0.0,-1.0,1.0,0.0,-0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,5,Homelessness / former athlete,4,5,L4→L5,Seeking rehab / fatherhood,0.0,0.0,0.0,1.0,2.0,0.6000000000000005
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,6,Unemployment / workplace theft,1,2,L1→L2,Theft from employer,-3.0,0.0,0.0,0.0,0.0,-0.6000000000000001
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,6,Unemployment / workplace theft,2,3,L2→L3,Cannot re-enter field,1.0,1.0,2.0,0.0,1.0,1.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,6,Unemployment / workplace theft,3,4,L3→L4,Working in fast food,0.0,-1.0,0.0,0.0,1.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,6,Unemployment / workplace theft,4,5,L4→L5,Sole family breadwinner,0.0,1.0,0.0,1.0,0.0,0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,7,Emphysema / smoking / medical need,1,2,L1→L2,Years of smoking,-2.0,0.0,0.0,0.0,0.0,-0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,7,Emphysema / smoking / medical need,2,3,L2→L3,No insurance coverage,0.0,1.0,1.0,0.0,0.0,0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,7,Emphysema / smoking / medical need,3,4,L3→L4,Cannot pay medical bills,0.0,0.0,0.0,0.0,0.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,7,Emphysema / smoking / medical need,4,5,L4→L5,Treatment versus rent,0.0,0.0,3.0,0.0,0.0,0.6000000000000001
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,8,Refugee / sick child / document forgery,1,2,L1→L2,Sick child in shelter,1.0,1.0,1.0,0.0,0.0,0.6000000000000001
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,8,Refugee / sick child / document forgery,2,3,L2→L3,Forged documents for urgent care,-1.0,0.0,0.0,5.0,0.0,0.7999999999999998
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,8,Refugee / sick child / document forgery,3,4,L3→L4,Faces deportation,-1.0,1.0,0.0,0.0,1.0,0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,8,Refugee / sick child / document forgery,4,5,L4→L5,Spouse missing in conflict zone,1.0,0.0,0.0,0.0,-1.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,9,Startup failure / recession / social enterprise,1,2,L1→L2,Investor lost in recession,1.0,1.0,3.0,2.0,0.0,1.4
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,9,Startup failure / recession / social enterprise,2,3,L2→L3,High-interest loan,0.0,0.0,0.0,0.0,0.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,9,Startup failure / recession / social enterprise,3,4,L3→L4,Default / personal bankruptcy,-1.0,2.0,1.0,0.0,0.0,0.3999999999999999
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,9,Startup failure / recession / social enterprise,4,5,L4→L5,Pivot to youth social enterprise,0.0,0.0,-1.0,0.0,2.0,0.20000000000000018
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,10,Ex-convict / family need / rehabilitation,1,2,L1→L2,Offence to feed family,0.0,1.0,2.0,4.0,0.0,1.4
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,10,Ex-convict / family need / rehabilitation,2,3,L2→L3,Family left / transitional housing,0.0,1.0,-1.0,0.0,0.0,0.0
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,10,Ex-convict / family need / rehabilitation,3,4,L3→L4,Pressure to re-offend,0.0,1.0,2.0,0.0,0.0,0.6000000000000001
+anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,10,Ex-convict / family need / rehabilitation,4,5,L4→L5,Rehabilitation / volunteering,0.0,-1.0,0.0,0.0,5.0,0.7999999999999998
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,1,Mobility impairment / criminal activity,1,2,L1→L2,Criminal activity,0.0,0.0,-1.0,0.0,0.0,-0.20000000000000018
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,1,Mobility impairment / criminal activity,2,3,L2→L3,Forced gang membership,2.0,0.0,6.0,6.0,0.0,2.8
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,1,Mobility impairment / criminal activity,3,4,L3→L4,Illegal gambling debts,-2.0,1.0,0.0,-1.0,0.0,-0.39999999999999947
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,1,Mobility impairment / criminal activity,4,5,L4→L5,Gambling for child's cancer care,0.0,1.0,0.0,1.0,1.0,0.5999999999999996
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,2,Pregnancy loss / abortion,1,2,L1→L2,Pregnancy loss,0.0,5.0,0.0,0.0,0.0,1.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,2,Pregnancy loss / abortion,2,3,L2→L3,Abortion,0.0,-1.0,0.0,0.0,0.0,-0.20000000000000018
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,2,Pregnancy loss / abortion,3,4,L3→L4,Life-saving medical abortion,2.0,1.0,5.0,6.0,0.0,2.8000000000000003
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,2,Pregnancy loss / abortion,4,5,L4→L5,Incest complications,1.0,0.0,1.0,0.0,0.0,0.39999999999999947
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,3,Communication trauma / insurgency,1,2,L1→L2,Trauma,3.0,1.0,1.0,1.0,0.0,1.2
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,3,Communication trauma / insurgency,2,3,L2→L3,Trauma as insurgent,-3.0,1.0,1.0,1.0,0.0,0.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,3,Communication trauma / insurgency,3,4,L3→L4,Family killed in drone bombing,0.0,1.0,0.0,3.0,0.0,0.7999999999999998
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,3,Communication trauma / insurgency,4,5,L4→L5,Family in insurgency leadership,0.0,-1.0,0.0,-4.0,0.0,-1.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,4,Disability / drunk-driving accident,1,2,L1→L2,Drunk driving,-3.0,1.0,0.0,0.0,0.0,-0.40000000000000036
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,4,Disability / drunk-driving accident,2,3,L2→L3,Drinking linked to bereavement,1.0,0.0,-3.0,3.0,0.0,0.20000000000000018
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,4,Disability / drunk-driving accident,3,4,L3→L4,Friend died in war,2.0,0.0,3.0,-3.0,0.0,0.3999999999999999
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,4,Disability / drunk-driving accident,4,5,L4→L5,B survived same ambush,0.0,0.0,0.0,4.0,0.0,0.8000000000000003
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,5,Homelessness / former athlete,1,2,L1→L2,Former professional athlete,0.0,0.0,-2.0,0.0,0.0,-0.3999999999999999
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,5,Homelessness / former athlete,2,3,L2→L3,Career-ending injury,3.0,0.0,4.0,4.0,0.0,2.1999999999999997
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,5,Homelessness / former athlete,3,4,L3→L4,Painkiller addiction,-2.0,1.0,0.0,-1.0,0.0,-0.39999999999999947
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,5,Homelessness / former athlete,4,5,L4→L5,Seeking rehab / fatherhood,0.0,0.0,0.0,2.0,4.0,1.2000000000000002
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,6,Unemployment / workplace theft,1,2,L1→L2,Theft from employer,-2.0,1.0,0.0,0.0,0.0,-0.19999999999999996
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,6,Unemployment / workplace theft,2,3,L2→L3,Cannot re-enter field,0.0,1.0,2.0,0.0,0.0,0.6000000000000001
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,6,Unemployment / workplace theft,3,4,L3→L4,Working in fast food,0.0,-1.0,0.0,0.0,2.0,0.19999999999999973
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,6,Unemployment / workplace theft,4,5,L4→L5,Sole family breadwinner,0.0,2.0,1.0,0.0,2.0,1.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,7,Emphysema / smoking / medical need,1,2,L1→L2,Years of smoking,-2.0,-1.0,0.0,0.0,0.0,-0.5999999999999999
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,7,Emphysema / smoking / medical need,2,3,L2→L3,No insurance coverage,0.0,1.0,2.0,0.0,0.0,0.5999999999999999
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,7,Emphysema / smoking / medical need,3,4,L3→L4,Cannot pay medical bills,0.0,1.0,-2.0,0.0,0.0,-0.19999999999999973
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,7,Emphysema / smoking / medical need,4,5,L4→L5,Treatment versus rent,0.0,0.0,5.0,0.0,0.0,1.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,8,Refugee / sick child / document forgery,1,2,L1→L2,Sick child in shelter,1.0,1.0,1.0,-4.0,0.0,-0.20000000000000018
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,8,Refugee / sick child / document forgery,2,3,L2→L3,Forged documents for urgent care,-2.0,0.0,0.0,6.0,4.0,1.5999999999999996
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,8,Refugee / sick child / document forgery,3,4,L3→L4,Faces deportation,-1.0,0.0,0.0,0.0,0.0,-0.20000000000000018
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,8,Refugee / sick child / document forgery,4,5,L4→L5,Spouse missing in conflict zone,1.0,1.0,0.0,0.0,0.0,0.40000000000000036
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,9,Startup failure / recession / social enterprise,1,2,L1→L2,Investor lost in recession,2.0,1.0,4.0,4.0,-1.0,2.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,9,Startup failure / recession / social enterprise,2,3,L2→L3,High-interest loan,-1.0,1.0,0.0,0.0,3.0,0.5999999999999996
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,9,Startup failure / recession / social enterprise,3,4,L3→L4,Default / personal bankruptcy,-1.0,0.0,0.0,0.0,-1.0,-0.39999999999999947
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,9,Startup failure / recession / social enterprise,4,5,L4→L5,Pivot to youth social enterprise,0.0,0.0,0.0,0.0,1.0,0.1999999999999993
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,10,Ex-convict / family need / rehabilitation,1,2,L1→L2,Offence to feed family,-1.0,3.0,3.0,5.0,0.0,1.9999999999999998
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,10,Ex-convict / family need / rehabilitation,2,3,L2→L3,Family left / transitional housing,0.0,1.0,1.0,0.0,0.0,0.40000000000000036
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,10,Ex-convict / family need / rehabilitation,3,4,L3→L4,Pressure to re-offend,0.0,0.0,0.0,0.0,0.0,0.0
+openai:gpt-5.6-sol,openai,gpt-5.6-sol,10,Ex-convict / family need / rehabilitation,4,5,L4→L5,Rehabilitation / volunteering,1.0,-1.0,1.0,0.0,5.0,1.2000000000000002
+typesafe:jev-latest,typesafe,jev-latest,1,Mobility impairment / criminal activity,1,2,L1→L2,Criminal activity,-2.0,1.0,-1.0,0.0,0.0,-0.40000000000000013
+typesafe:jev-latest,typesafe,jev-latest,1,Mobility impairment / criminal activity,2,3,L2→L3,Forced gang membership,5.0,1.0,6.0,5.0,0.0,3.4000000000000004
+typesafe:jev-latest,typesafe,jev-latest,1,Mobility impairment / criminal activity,3,4,L3→L4,Illegal gambling debts,-2.0,0.0,0.0,0.0,0.0,-0.40000000000000036
+typesafe:jev-latest,typesafe,jev-latest,1,Mobility impairment / criminal activity,4,5,L4→L5,Gambling for child's cancer care,0.0,1.0,0.0,1.0,0.0,0.40000000000000036
+typesafe:jev-latest,typesafe,jev-latest,2,Pregnancy loss / abortion,1,2,L1→L2,Pregnancy loss,0.0,5.0,0.0,4.0,0.0,1.7999999999999998
+typesafe:jev-latest,typesafe,jev-latest,2,Pregnancy loss / abortion,2,3,L2→L3,Abortion,0.0,0.0,0.0,-4.0,0.0,-0.7999999999999998
+typesafe:jev-latest,typesafe,jev-latest,2,Pregnancy loss / abortion,3,4,L3→L4,Life-saving medical abortion,3.0,1.0,6.0,6.0,0.0,3.1999999999999997
+typesafe:jev-latest,typesafe,jev-latest,2,Pregnancy loss / abortion,4,5,L4→L5,Incest complications,0.0,0.0,0.0,0.0,0.0,0.0
+typesafe:jev-latest,typesafe,jev-latest,3,Communication trauma / insurgency,1,2,L1→L2,Trauma,0.0,0.0,0.0,3.0,0.0,0.5999999999999996
+typesafe:jev-latest,typesafe,jev-latest,3,Communication trauma / insurgency,2,3,L2→L3,Trauma as insurgent,0.0,1.0,0.0,0.0,0.0,0.20000000000000018
+typesafe:jev-latest,typesafe,jev-latest,3,Communication trauma / insurgency,3,4,L3→L4,Family killed in drone bombing,1.0,2.0,4.0,0.0,0.0,1.4000000000000004
+typesafe:jev-latest,typesafe,jev-latest,3,Communication trauma / insurgency,4,5,L4→L5,Family in insurgency leadership,-1.0,-1.0,0.0,0.0,0.0,-0.40000000000000036
+typesafe:jev-latest,typesafe,jev-latest,4,Disability / drunk-driving accident,1,2,L1→L2,Drunk driving,-6.0,0.0,-4.0,-5.0,0.0,-3.0
+typesafe:jev-latest,typesafe,jev-latest,4,Disability / drunk-driving accident,2,3,L2→L3,Drinking linked to bereavement,1.0,0.0,4.0,2.0,0.0,1.4
+typesafe:jev-latest,typesafe,jev-latest,4,Disability / drunk-driving accident,3,4,L3→L4,Friend died in war,0.0,0.0,0.0,-2.0,0.0,-0.3999999999999999
+typesafe:jev-latest,typesafe,jev-latest,4,Disability / drunk-driving accident,4,5,L4→L5,B survived same ambush,2.0,0.0,0.0,4.0,0.0,1.2000000000000002
+typesafe:jev-latest,typesafe,jev-latest,5,Homelessness / former athlete,1,2,L1→L2,Former professional athlete,0.0,1.0,0.0,0.0,0.0,0.19999999999999973
+typesafe:jev-latest,typesafe,jev-latest,5,Homelessness / former athlete,2,3,L2→L3,Career-ending injury,3.0,0.0,0.0,4.0,0.0,1.4
+typesafe:jev-latest,typesafe,jev-latest,5,Homelessness / former athlete,3,4,L3→L4,Painkiller addiction,-3.0,0.0,0.0,0.0,0.0,-0.5999999999999996
+typesafe:jev-latest,typesafe,jev-latest,5,Homelessness / former athlete,4,5,L4→L5,Seeking rehab / fatherhood,0.0,0.0,0.0,0.0,2.0,0.39999999999999947
+typesafe:jev-latest,typesafe,jev-latest,6,Unemployment / workplace theft,1,2,L1→L2,Theft from employer,-3.0,2.0,0.0,0.0,0.0,-0.19999999999999996
+typesafe:jev-latest,typesafe,jev-latest,6,Unemployment / workplace theft,2,3,L2→L3,Cannot re-enter field,1.0,1.0,3.0,0.0,0.0,1.0
+typesafe:jev-latest,typesafe,jev-latest,6,Unemployment / workplace theft,3,4,L3→L4,Working in fast food,0.0,0.0,0.0,0.0,0.0,0.0
+typesafe:jev-latest,typesafe,jev-latest,6,Unemployment / workplace theft,4,5,L4→L5,Sole family breadwinner,0.0,1.0,1.0,4.0,1.0,1.4
+typesafe:jev-latest,typesafe,jev-latest,7,Emphysema / smoking / medical need,1,2,L1→L2,Years of smoking,-3.0,0.0,0.0,-1.0,0.0,-0.7999999999999998
+typesafe:jev-latest,typesafe,jev-latest,7,Emphysema / smoking / medical need,2,3,L2→L3,No insurance coverage,1.0,1.0,2.0,0.0,0.0,0.7999999999999998
+typesafe:jev-latest,typesafe,jev-latest,7,Emphysema / smoking / medical need,3,4,L3→L4,Cannot pay medical bills,0.0,1.0,2.0,4.0,0.0,1.4
+typesafe:jev-latest,typesafe,jev-latest,7,Emphysema / smoking / medical need,4,5,L4→L5,Treatment versus rent,0.0,0.0,2.0,1.0,0.0,0.6000000000000005
+typesafe:jev-latest,typesafe,jev-latest,8,Refugee / sick child / document forgery,1,2,L1→L2,Sick child in shelter,0.0,1.0,1.0,1.0,0.0,0.6000000000000005
+typesafe:jev-latest,typesafe,jev-latest,8,Refugee / sick child / document forgery,2,3,L2→L3,Forged documents for urgent care,-2.0,0.0,1.0,1.0,0.0,0.0
+typesafe:jev-latest,typesafe,jev-latest,8,Refugee / sick child / document forgery,3,4,L3→L4,Faces deportation,0.0,1.0,0.0,0.0,0.0,0.20000000000000018
+typesafe:jev-latest,typesafe,jev-latest,8,Refugee / sick child / document forgery,4,5,L4→L5,Spouse missing in conflict zone,1.0,0.0,0.0,0.0,0.0,0.1999999999999993
+typesafe:jev-latest,typesafe,jev-latest,9,Startup failure / recession / social enterprise,1,2,L1→L2,Investor lost in recession,0.0,1.0,4.0,4.0,0.0,1.7999999999999998
+typesafe:jev-latest,typesafe,jev-latest,9,Startup failure / recession / social enterprise,2,3,L2→L3,High-interest loan,0.0,0.0,0.0,0.0,0.0,0.0
+typesafe:jev-latest,typesafe,jev-latest,9,Startup failure / recession / social enterprise,3,4,L3→L4,Default / personal bankruptcy,0.0,1.0,0.0,0.0,0.0,0.20000000000000018
+typesafe:jev-latest,typesafe,jev-latest,9,Startup failure / recession / social enterprise,4,5,L4→L5,Pivot to youth social enterprise,0.0,0.0,0.0,0.0,2.0,0.39999999999999947
+typesafe:jev-latest,typesafe,jev-latest,10,Ex-convict / family need / rehabilitation,1,2,L1→L2,Offence to feed family,0.0,1.0,0.0,5.0,0.0,1.2000000000000002
+typesafe:jev-latest,typesafe,jev-latest,10,Ex-convict / family need / rehabilitation,2,3,L2→L3,Family left / transitional housing,0.0,1.0,1.0,0.0,0.0,0.39999999999999947
+typesafe:jev-latest,typesafe,jev-latest,10,Ex-convict / family need / rehabilitation,3,4,L3→L4,Pressure to re-offend,0.0,0.0,0.0,0.0,0.0,0.0
+typesafe:jev-latest,typesafe,jev-latest,10,Ex-convict / family need / rehabilitation,4,5,L4→L5,Rehabilitation / volunteering,0.0,0.0,0.0,0.0,5.0,1.0

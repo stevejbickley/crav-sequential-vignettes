@@ -1,0 +1,126 @@
+{
+  "codebook_name": "CRAV blinded contextual coding",
+  "version": "1.0.0",
+  "frozen_date": "2026-09-25",
+  "purpose": "Blindly code the cumulative narrative state shown at each CRAV level on theory-relevant contextual dimensions without access to GPT-4o allocation outcomes, transition effects, hypothesis maps, or level/order labels.",
+  "unit_of_coding": "One cumulative vignette state containing Person A and Person B as presented at a single CRAV level. Rate Person B only, using only facts explicitly stated in that state.",
+  "general_rules": [
+    "Do not predict, recommend, or infer a resource allocation.",
+    "Do not infer facts that are not stated in the vignette.",
+    "Do not assume that an action is voluntary, coerced, blameworthy, admirable, or avoidable unless the text supports that interpretation.",
+    "Rate each dimension independently. A vignette may score high on more than one dimension, including dimensions with opposing theoretical implications.",
+    "Use integer scores from 1 to 7 only.",
+    "For responsibility/controllability, use 4 when the causal role of Person B's controllable choices is genuinely unclear or not specified. For the other four dimensions, use 1 when there is no stated evidence of that feature."
+  ],
+  "dimensions": {
+    "responsibility_controllability": {
+      "label": "Responsibility / controllability",
+      "question": "To what extent are Person B's adverse circumstances or focal disadvantage attributable to Person B's voluntary or controllable choices?",
+      "anchors": {
+        "1": "Almost entirely external, accidental, imposed, or outside Person B's control.",
+        "4": "Mixed, genuinely unclear, or insufficient information about controllability.",
+        "7": "Strongly attributable to Person B's voluntary or controllable choices."
+      },
+      "theoretical_orientation": "Higher values predict lower allocation to Person B, all else equal.",
+      "levels": {
+        "1": "Almost entirely external, accidental, imposed, or outside Person B’s control.",
+        "2": "Mostly external or outside Person B’s control, with little stated voluntary contribution.",
+        "3": "More external than controllable, although some personal contribution is stated or plausible from the text.",
+        "4": "Mixed, genuinely unclear, or insufficient information about controllability.",
+        "5": "More attributable to Person B’s controllable choices than to external circumstances.",
+        "6": "Mostly attributable to Person B’s voluntary or controllable choices.",
+        "7": "Strongly attributable to Person B’s voluntary or controllable choices."
+      }
+    },
+    "need_vulnerability": {
+      "label": "Need / vulnerability",
+      "question": "How severe is the need, hardship, loss, or vulnerability explicitly described for Person B?",
+      "anchors": {
+        "1": "No salient need or vulnerability is stated.",
+        "4": "Moderate need or vulnerability.",
+        "7": "Severe or acute need, hardship, loss, or vulnerability."
+      },
+      "theoretical_orientation": "Higher values predict higher allocation to Person B, all else equal.",
+      "levels": {
+        "1": "No salient need, hardship, loss, or vulnerability is stated.",
+        "2": "Slight need or vulnerability.",
+        "3": "Mild-to-moderate need or vulnerability.",
+        "4": "Moderate need or vulnerability.",
+        "5": "Substantial need, hardship, loss, or vulnerability.",
+        "6": "Severe need, hardship, loss, or vulnerability.",
+        "7": "Extreme or acute need, hardship, loss, or vulnerability."
+      }
+    },
+    "external_constraint_coercion": {
+      "label": "External constraint / coercion",
+      "question": "To what extent do external forces, coercion, restricted alternatives, or circumstances outside Person B's control constrain Person B's situation or choices?",
+      "anchors": {
+        "1": "No meaningful external constraint or coercion is stated.",
+        "4": "Moderate or mixed external constraint.",
+        "7": "Strong coercion, forced hand, or severely restricted alternatives."
+      },
+      "theoretical_orientation": "Higher values predict higher allocation to Person B, all else equal.",
+      "levels": {
+        "1": "No meaningful external constraint, coercion, or restricted alternatives are stated.",
+        "2": "Slight external constraint or some restriction of alternatives.",
+        "3": "Mild-to-moderate external constraint.",
+        "4": "Moderate or mixed external constraint.",
+        "5": "Substantial external constraint or restricted alternatives.",
+        "6": "Strong external constraint or coercive pressure.",
+        "7": "Strong coercion, a clearly forced hand, or severely restricted alternatives."
+      }
+    },
+    "mitigating_circumstances_motive": {
+      "label": "Mitigating circumstances / motive",
+      "question": "To what extent does the vignette provide an explicit circumstance or motive that mitigates how negatively Person B's conduct or situation might otherwise be interpreted?",
+      "anchors": {
+        "1": "No explicit mitigating circumstance or motive is stated.",
+        "4": "Moderate or mixed mitigation.",
+        "7": "Very strong mitigating circumstance, necessity, or prosocial motive."
+      },
+      "theoretical_orientation": "Higher values predict higher allocation to Person B, all else equal.",
+      "levels": {
+        "1": "No explicit mitigating circumstance, necessity, or prosocial motive is stated.",
+        "2": "Slight mitigating context.",
+        "3": "Some mitigation, but limited or qualified.",
+        "4": "Moderate or mixed mitigation.",
+        "5": "Substantial mitigating circumstance, necessity, or prosocial motive.",
+        "6": "Strong mitigation or necessity.",
+        "7": "Very strong mitigating circumstance, necessity, or prosocial motive."
+      }
+    },
+    "corrective_prosocial_effort": {
+      "label": "Corrective / prosocial effort",
+      "question": "To what extent does Person B explicitly demonstrate corrective effort, rehabilitation, constructive work, restitution, or contribution to others?",
+      "anchors": {
+        "1": "No corrective or prosocial effort is stated.",
+        "4": "Moderate or partial corrective/prosocial effort.",
+        "7": "Strong and explicit corrective effort, rehabilitation, restitution, or prosocial contribution."
+      },
+      "theoretical_orientation": "Higher values predict higher allocation to Person B, all else equal.",
+      "levels": {
+        "1": "No corrective, rehabilitative, constructive, restitutive, or prosocial effort is stated.",
+        "2": "Slight evidence of corrective or prosocial effort.",
+        "3": "Some corrective or prosocial effort, but limited or early.",
+        "4": "Moderate or partial corrective/prosocial effort.",
+        "5": "Substantial corrective, constructive, or prosocial effort.",
+        "6": "Strong corrective, rehabilitative, restitutive, or prosocial effort.",
+        "7": "Very strong and explicit corrective effort, rehabilitation, restitution, or prosocial contribution."
+      }
+    }
+  },
+  "derived_scores": {
+    "externality_luck_score": "8 - responsibility_controllability",
+    "contextual_deservingness_index": "mean(externality_luck_score, need_vulnerability, external_constraint_coercion, mitigating_circumstances_motive, corrective_prosocial_effort)",
+    "interpretation": "The index is an equal-weight theory-guided descriptive score, not an estimated latent construct or structural utility parameter."
+  },
+  "analysis_rules": {
+    "primary_unit": "40 unique within-scenario transitions, not the 2,000 agent-by-transition observations.",
+    "primary_association": "Spearman rank correlation between transition-level change in the aggregated contextual_deservingness_index and the observed mean change in Person B's allocation.",
+    "uncertainty": "95% scenario-cluster bootstrap interval by resampling the ten scenarios with replacement.",
+    "reliability": "Ordinal Krippendorff's alpha is reported for each of the five coded dimensions.",
+    "reliability_gate": "A minimum alpha of 0.667 on every dimension is treated as the pre-specified threshold for describing the full composite analysis as reliability-qualified. Results are still output if the gate fails, but must be described as exploratory/descriptive.",
+    "directional_consensus": "For each transition, derive each coder's change in the contextual_deservingness_index. Positive or negative direction is assigned when at least two-thirds of coders agree on that sign; otherwise classify the prediction as mixed/indeterminate. Exact zero changes are neutral.",
+    "sensitivity": "Report responsibility/externality alone, each individual positive dimension, and leave-one-dimension-out versions of the equal-weight index."
+  }
+}
