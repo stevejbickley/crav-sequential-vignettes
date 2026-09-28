@@ -34,4 +34,9 @@ Model coders: 3 (anthropic:claude-opus-5-5, openai:gpt-5.6-sol, typesafe:jev-lat
 Ordinal Krippendorff alphas: responsibility_controllability=0.824, need_vulnerability=0.795, external_constraint_coercion=0.793, mitigating_circumstances_motive=0.737, corrective_prosocial_effort=0.561.
 All dimensions >= 0.667: False.
 Primary transition-level Spearman rho: 0.655 (scenario-cluster bootstrap 95% CI 0.455, 0.781).
+Externality/luck (reverse responsibility): rho=0.358 (95% CI 0.084, 0.582).
+Need / vulnerability: rho=0.441 (95% CI 0.231, 0.591).
+External constraint / coercion: rho=0.560 (95% CI 0.367, 0.712).
+Mitigating circumstances / motive: rho=0.429 (95% CI 0.231, 0.585).
+Corrective / prosocial effort: rho=0.077 (95% CI -0.233, 0.351).
 Clear consensus direction: 31/34 matched observed direction.

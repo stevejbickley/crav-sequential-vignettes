@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
 CRAV analysis for:
-"Context-Sensitive Resource Allocation:
- Evidence from Sequential Vignettes Using Artificial Agents"
+"Context-Sensitive Resource Allocation by a Large Language Model:
+ Evidence from Sequential Vignettes"
 
 This script:
 1. Loads the 10 archived SurveyLM CRAV CSV exports.
 2. Parses Person A/B dollar allocations from free-text answers.
 3. Validates the $1,000 allocation constraint and balanced repeated design.
-4. Builds a clean long panel (agent x scenario x level).
+4. Builds a clean long panel (run identifier x scenario x level).
 5. Summarises allocation trajectories and stage-to-stage reallocations.
-6. Tests each of the 40 within-agent transitions (paired t-test + Wilcoxon),
+6. Tests each of the 40 within-run transitions (paired t-test + Wilcoxon),
    with Benjamini-Hochberg false-discovery-rate correction.
 7. Quantifies trajectory-level directional switching/non-monotonicity.
 8. Runs a two-way repeated-measures ANOVA (scenario x contextual level).
@@ -18,8 +18,9 @@ This script:
    contextual level, agent identifier, and temperature.
 10. Optionally analyses blinded multi-model contextual codings when
     data/supplementary_data_s4_blinded_context_codings.csv is present.
-11. Produces Main Figures 1-2 and Table 1, Supplementary Figures S1-S2,
-    and empirical Tables S1-S13. (The conceptual extensions table becomes S14.)
+11. Produces Main Figures 1-3 and Table 1, Supplementary Figure S1,
+    and empirical Tables S1-S13. Main Figure 3 has panels A-B; the conceptual
+    extensions table remains Supplementary Table S14.
 12. Writes Supplementary Data S1-S6, validation outputs, analysis metadata,
     recorded environment versions, and a manuscript numerical cross-check.
 """
@@ -495,7 +496,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--allow-unexpected-counts",
         action="store_true",
-        help="Continue if the number of files/agents/rows differs from the supplied study.",
+        help="Continue if the number of files/run identifiers/rows differs from the supplied study.",
     )
     parser.add_argument(
         "--coding-file",
@@ -661,17 +662,17 @@ def validate_panel(df: pd.DataFrame, files: Iterable[Path], allow_unexpected: bo
     add_check("all allocations parsed", parsed_ok.all(), int(parsed_ok.sum()), len(df))
     add_check("all allocations sum to $1000", budget_ok.all(), int(budget_ok.sum()), len(df))
     add_check("all allocations within [0,1000]", bounds_ok.all(), int(bounds_ok.sum()), len(df))
-    add_check("no duplicate agent-scenario-level rows", duplicate_count == 0, duplicate_count, 0)
+    add_check("no duplicate run-scenario-level rows", duplicate_count == 0, duplicate_count, 0)
     add_check("number of input CSV files", len(list(files)) == 10, len(list(files)), 10)
     add_check("number of rows", len(df) == EXPECTED_ROWS, len(df), EXPECTED_ROWS)
-    add_check("number of agents", df["agent"].nunique() == EXPECTED_AGENTS, df["agent"].nunique(), EXPECTED_AGENTS)
+    add_check("number of run identifiers", df["agent"].nunique() == EXPECTED_AGENTS, df["agent"].nunique(), EXPECTED_AGENTS)
     add_check("number of scenarios", df["scenario"].nunique() == EXPECTED_SCENARIOS, df["scenario"].nunique(), EXPECTED_SCENARIOS)
     add_check("number of levels", df["level"].nunique() == EXPECTED_LEVELS, df["level"].nunique(), EXPECTED_LEVELS)
 
     # Every agent should have all 50 scenario-level cells.
     per_agent = df.groupby("agent").size()
     add_check(
-        "balanced 50 observations per agent",
+        "balanced 50 observations per run identifier",
         (per_agent == EXPECTED_SCENARIOS * EXPECTED_LEVELS).all(),
         f"min={per_agent.min()}, max={per_agent.max()}",
         EXPECTED_SCENARIOS * EXPECTED_LEVELS,
@@ -680,7 +681,7 @@ def validate_panel(df: pd.DataFrame, files: Iterable[Path], allow_unexpected: bo
     # Temperature is expected to be fixed within agent in supplied data.
     temp_nunique = df.groupby("agent")["temperature"].nunique()
     add_check(
-        "temperature fixed within agent",
+        "temperature fixed within run identifier",
         (temp_nunique == 1).all(),
         int((temp_nunique == 1).sum()),
         df["agent"].nunique(),
@@ -709,10 +710,10 @@ def validate_panel(df: pd.DataFrame, files: Iterable[Path], allow_unexpected: bo
                 [
                     "number of input CSV files",
                     "number of rows",
-                    "number of agents",
+                    "number of run identifiers",
                     "number of scenarios",
                     "number of levels",
-                    "balanced 50 observations per agent",
+                    "balanced 50 observations per run identifier",
                 ]
             )
         ]
@@ -762,7 +763,7 @@ def cell_summary(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 def overall_level_summary(df: pd.DataFrame) -> pd.DataFrame:
-    """Aggregate over scenarios within matched agent identifier before inference."""
+    """Aggregate over scenarios within matched run identifier before inference."""
     agent_level = (
         df.groupby(["agent", "level"], as_index=False)["allocation_B_pct"]
         .mean()
@@ -803,7 +804,7 @@ def overall_level_summary(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 def transition_tests(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Compute 40 within-agent level-to-level changes and paired tests.
+    """Compute 40 within-run level-to-level changes and paired tests.
 
     Wilcoxon signed-rank tests are the primary inferential tests. Paired t-tests
     are reported as a parametric robustness check only where the paired
@@ -1097,14 +1098,14 @@ def hypothesis_evidence_table(
     transitions: pd.DataFrame,
     switching: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Build the high-level hypothesis-to-evidence map (Supplementary Table S9).
+    """Build the high-level hypothesis-to-evidence map (Supplementary Table S12).
 
     H1 has direct transition-level inference. H2 and H3 are theory-guided,
     descriptive pattern-consistency hypotheses because the vignette dimensions
     and reveal order are not independently randomised.
 
     Numerical values are read from the current analysis outputs rather than
-    hard-coded, so Table S9 remains synchronised with the analysed data.
+    hard-coded, so Table S12 remains synchronised with the analysed data.
     """
     n_sig = int((transitions["wilcoxon_q_BH"] < 0.05).sum())
     min_delta = float(transitions["mean_delta_pp"].min())
@@ -1167,7 +1168,7 @@ def hypothesis_evidence_table(
                 f"{delta(7, 2):+.1f} pp, and several transitions (for example, "
                 "document forgery for urgent child medical care) combine "
                 "opposing cues and are therefore not assigned a unique H2 sign. "
-                "Table S10 provides the full transition-level map."
+                "Table S13 provides the full transition-level map."
             ),
         },
         {
@@ -1194,7 +1195,7 @@ def hypothesis_evidence_table(
 
 
 def transition_hypothesis_map(transitions: pd.DataFrame) -> pd.DataFrame:
-    """Build the descriptive theory-guided transition evidence map (Table S10).
+    """Build the descriptive theory-guided transition evidence map (Table S13).
 
     The H2 cue/expectation labels are interpretive classifications of vignette
     content. They are not preregistered and are not used for inferential tests.
@@ -1539,12 +1540,21 @@ def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd
         predictors.append((label, f"delta_{key}_mean", False))
 
     # Leave-one-component-out indices are derived from the same five equally scaled oriented components.
-    oriented_delta_cols = [f"delta_{x}_mean" for x in CODING_ORIENTED_COMPONENTS]
+    loo_labels = {
+        "externality_luck_score": "Composite excluding externality/luck",
+        "need_vulnerability": "Composite excluding need/vulnerability",
+        "external_constraint_coercion": "Composite excluding external constraint/coercion",
+        "mitigating_circumstances_motive": "Composite excluding mitigating circumstances/motive",
+        "corrective_prosocial_effort": (
+            "Four reliability-qualified dimensions only "
+            "(excluding corrective/prosocial effort)"
+        ),
+    }
     for omitted in CODING_ORIENTED_COMPONENTS:
         use = [f"delta_{x}_mean" for x in CODING_ORIENTED_COMPONENTS if x != omitted]
         new_col = f"loo_without_{omitted}"
         d[new_col] = d[use].mean(axis=1)
-        predictors.append((f"Leave-one-out: omit {omitted}", new_col, False))
+        predictors.append((loo_labels[omitted], new_col, False))
 
     gate = bool(reliability["passes_0_667_gate"].all())
     rows = []
@@ -1585,44 +1595,99 @@ def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd
     return pd.DataFrame(rows)
 
 
-def figure2_context_coding(
+def figure3_context_coding(
     transition_scores: pd.DataFrame,
     associations: pd.DataFrame,
     path_png: Path,
     path_pdf: Path,
 ) -> None:
-    """Main Figure 2: blinded theory-coded context change versus observed reallocation."""
+    """Main Figure 3A-B: composite scatterplot plus index/component correlations."""
     d = transition_scores.sort_values(["scenario", "to_level"]).copy()
     x = d["delta_contextual_deservingness_index_mean"].to_numpy(dtype=float)
     y = d["observed_delta_B_pp"].to_numpy(dtype=float)
     xerr = d["delta_contextual_deservingness_index_sd"].fillna(0).to_numpy(dtype=float)
 
-    fig, ax = plt.subplots(figsize=(8.2, 6.4))
-    ax.errorbar(x, y, xerr=xerr, fmt="o", capsize=2, alpha=0.8)
-    ax.axhline(0, linestyle="--", linewidth=0.9)
-    ax.axvline(0, linestyle="--", linewidth=0.9)
+    fig, (ax_a, ax_b) = plt.subplots(
+        1, 2, figsize=(13.8, 6.4),
+        gridspec_kw={"width_ratios": [1.15, 1.0]},
+    )
+
+    # Panel A: existing transition-level association for the equal-weight index.
+    ax_a.errorbar(x, y, xerr=xerr, fmt="o", capsize=2, alpha=0.8)
+    ax_a.axhline(0, linestyle="--", linewidth=0.9)
+    ax_a.axvline(0, linestyle="--", linewidth=0.9)
     if np.unique(x).size > 1:
         slope, intercept = np.polyfit(x, y, 1)
         xx = np.linspace(float(np.min(x)), float(np.max(x)), 100)
-        ax.plot(xx, intercept + slope * xx, linewidth=1.2)
+        ax_a.plot(xx, intercept + slope * xx, linewidth=1.2)
 
     primary = associations.loc[associations["primary"] == True].iloc[0]
-    ax.text(
+    ax_a.text(
         0.02, 0.98,
         f"Spearman ρ = {primary['spearman_rho']:.2f}\n"
         f"scenario-cluster bootstrap 95% CI "
-        f"[{primary['scenario_cluster_bootstrap_ci95_low']:.2f}, {primary['scenario_cluster_bootstrap_ci95_high']:.2f}]",
-        transform=ax.transAxes, ha="left", va="top", fontsize=9,
+        f"[{primary['scenario_cluster_bootstrap_ci95_low']:.2f}, "
+        f"{primary['scenario_cluster_bootstrap_ci95_high']:.2f}]",
+        transform=ax_a.transAxes, ha="left", va="top", fontsize=9,
     )
-    ax.set_xlabel("Change in blinded theory-guided contextual score (ΔD)")
-    ax.set_ylabel("Observed change in allocation to Person B (percentage points)")
-    ax.set_title("Blinded contextual coding and observed CRAV reallocations")
-    ax.grid(alpha=0.18)
-    fig.tight_layout()
+    ax_a.set_xlabel("Change in blinded theory-guided contextual score (ΔD)")
+    ax_a.set_ylabel("Observed change in allocation to Person B (percentage points)")
+    ax_a.set_title("A. Equal-weight contextual score")
+    ax_a.grid(alpha=0.18)
+
+    # Panel B: overall index plus correlations for each of the five coded dimensions.
+    component_order = [
+        "Primary equal-weight five-component index",
+        "Externality/luck (reverse responsibility)",
+        "Need / vulnerability",
+        "External constraint / coercion",
+        "Mitigating circumstances / motive",
+        "Corrective / prosocial effort",
+    ]
+    component_labels = {
+        "Primary equal-weight five-component index": "Five-component index",
+        "Externality/luck (reverse responsibility)": "Externality/luck\n(reverse responsibility)",
+        "Need / vulnerability": "Need / vulnerability",
+        "External constraint / coercion": "External constraint /\ncoercion",
+        "Mitigating circumstances / motive": "Mitigating circumstances /\nmotive",
+        "Corrective / prosocial effort": "Corrective / prosocial\neffort",
+    }
+    assoc = (
+        associations.loc[associations["analysis"].isin(component_order)]
+        .set_index("analysis")
+        .loc[component_order]
+        .reset_index()
+    )
+    yy = np.arange(len(assoc))
+    rho = assoc["spearman_rho"].to_numpy(dtype=float)
+    lo = assoc["scenario_cluster_bootstrap_ci95_low"].to_numpy(dtype=float)
+    hi = assoc["scenario_cluster_bootstrap_ci95_high"].to_numpy(dtype=float)
+    xerr_b = np.vstack([rho - lo, hi - rho])
+
+    ax_b.errorbar(rho, yy, xerr=xerr_b, fmt="o", capsize=3, linewidth=1.2)
+    ax_b.axvline(0, linestyle="--", linewidth=0.9)
+    ax_b.set_yticks(yy)
+    ax_b.set_yticklabels([component_labels[a] for a in assoc["analysis"]], fontsize=8.5)
+    ax_b.invert_yaxis()
+    ax_b.set_xlabel("Spearman ρ with observed reallocation")
+    ax_b.set_title("B. Index and component associations")
+    ax_b.grid(axis="x", alpha=0.18)
+
+    # Add compact rho labels without duplicating the confidence intervals.
+    span = float(np.nanmax(hi) - np.nanmin(lo)) if np.isfinite(hi).any() and np.isfinite(lo).any() else 1.0
+    pad = max(0.015, 0.025 * span)
+    for yi, r, upper in zip(yy, rho, hi):
+        ax_b.text(float(upper) + pad, yi, f"{r:.2f}", va="center", fontsize=8)
+
+    xmin = min(-0.30, float(np.nanmin(lo)) - 0.06)
+    xmax = max(0.85, float(np.nanmax(hi)) + 0.12)
+    ax_b.set_xlim(xmin, xmax)
+
+    fig.suptitle("Outcome-blinded contextual coding and observed CRAV reallocations", fontsize=12.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.96])
     fig.savefig(path_png, dpi=300, bbox_inches="tight")
     fig.savefig(path_pdf, bbox_inches="tight")
     plt.close(fig)
-
 
 def context_coding_summary_text(
     codings: pd.DataFrame,
@@ -1644,7 +1709,21 @@ def context_coding_summary_text(
         f"Primary transition-level Spearman rho: {primary['spearman_rho']:.3f} "
         f"(scenario-cluster bootstrap 95% CI {primary['scenario_cluster_bootstrap_ci95_low']:.3f}, "
         f"{primary['scenario_cluster_bootstrap_ci95_high']:.3f}).\n"
-        f"Clear consensus direction: {n_match}/{len(clear)} matched observed direction.\n"
+        + "".join(
+            f"{row.analysis}: rho={row.spearman_rho:.3f} "
+            f"(95% CI {row.scenario_cluster_bootstrap_ci95_low:.3f}, "
+            f"{row.scenario_cluster_bootstrap_ci95_high:.3f}).\n"
+            for row in associations[
+                associations["analysis"].isin([
+                    "Externality/luck (reverse responsibility)",
+                    "Need / vulnerability",
+                    "External constraint / coercion",
+                    "Mitigating circumstances / motive",
+                    "Corrective / prosocial effort",
+                ])
+            ].itertuples(index=False)
+        )
+        + f"Clear consensus direction: {n_match}/{len(clear)} matched observed direction.\n"
     )
 
 def save_table(df: pd.DataFrame, stem: Path, index: bool = False) -> None:
@@ -1704,8 +1783,8 @@ def figure1_trajectories(df: pd.DataFrame, cells: pd.DataFrame, path_png: Path, 
     fig.savefig(path_pdf, bbox_inches="tight")
     plt.close(fig)
 
-def figure_s1_transitions(transitions: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
-    """Supplement: all 40 paired mean changes with 95% CIs."""
+def figure2_transition_effects(transitions: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
+    """Main Figure 2: all 40 paired mean changes with 95% CIs."""
     t = transitions.copy().sort_values(["scenario", "to_level"], ascending=[False, False]).reset_index(drop=True)
     labels = [
         f"S{int(r.scenario)} {r.transition}: {r.new_information}"
@@ -1732,8 +1811,8 @@ def figure_s1_transitions(transitions: pd.DataFrame, path_png: Path, path_pdf: P
     plt.close(fig)
 
 
-def figure_s2_switching(switch_summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
-    """Supplement: proportion of mixed-direction scenario-specific trajectories."""
+def figure_s1_switching(switch_summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
+    """Supplementary Figure S1: proportion of mixed-direction scenario-specific trajectories."""
     t = switch_summary.sort_values("scenario")
     x = np.arange(len(t))
     y = t["mixed_direction_pct"].to_numpy()
@@ -1843,10 +1922,32 @@ def write_environment_versions(out_path: Path) -> None:
     ]
     out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
+
+def remove_legacy_numbering_outputs(dirs: Dict[str, Path]) -> None:
+    """Remove obsolete pre-28-Sep figure/table filenames to avoid stale duplicates."""
+    legacy_stems = [
+        dirs["figures"] / "figure2_context_coding_association",
+        dirs["figures"] / "figure_s1_transition_effects",
+        dirs["figures"] / "figure_s2_directional_switching",
+        dirs["tables"] / "table_s9_hypothesis_evidence",
+        dirs["tables"] / "table_s10_transition_hypothesis_map",
+        dirs["tables"] / "table_s11_blinded_coder_reliability",
+        dirs["tables"] / "table_s12_context_coding_transition_map",
+        dirs["tables"] / "table_s13_context_coding_associations",
+    ]
+    for stem in legacy_stems:
+        for suffix in (".csv", ".md", ".png", ".pdf"):
+            path = stem.with_suffix(suffix)
+            if path.exists():
+                path.unlink()
+
+
+
 def main() -> None:
     args = parse_args()
     np.random.seed(RANDOM_SEED)
     dirs = make_output_dirs(args.output_dir)
+    remove_legacy_numbering_outputs(dirs)
 
     raw, files = load_data(args.input_dir, args.pattern)
     df = prepare_panel(raw)
@@ -1911,36 +2012,36 @@ def main() -> None:
     save_table(fits, dirs["tables"] / "table_s6_model_fit_comparisons")
     save_table(temps, dirs["tables"] / "table_s7_temperature_robustness")
     save_table(switching, dirs["tables"] / "table_s8_trajectory_switching")
-    save_table(hypothesis_evidence_table(transitions, switching), dirs["tables"] / "table_s9_hypothesis_evidence")
-    save_table(transition_map, dirs["tables"] / "table_s10_transition_hypothesis_map")
     if coding_results is not None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
-        save_table(reliability, dirs["tables"] / "table_s11_blinded_coder_reliability")
-        save_table(context_transitions, dirs["tables"] / "table_s12_context_coding_transition_map")
-        save_table(coding_associations, dirs["tables"] / "table_s13_context_coding_associations")
+        save_table(reliability, dirs["tables"] / "table_s9_blinded_coder_reliability")
+        save_table(context_transitions, dirs["tables"] / "table_s10_context_coding_transition_map")
+        save_table(coding_associations, dirs["tables"] / "table_s11_context_coding_associations")
+    save_table(hypothesis_evidence_table(transitions, switching), dirs["tables"] / "table_s12_hypothesis_evidence")
+    save_table(transition_map, dirs["tables"] / "table_s13_transition_hypothesis_map")
 
     figure1_trajectories(
         df, cells,
         dirs["figures"] / "figure1_crav_trajectories.png",
         dirs["figures"] / "figure1_crav_trajectories.pdf",
     )
+    figure2_transition_effects(
+        transitions,
+        dirs["figures"] / "figure2_transition_effects.png",
+        dirs["figures"] / "figure2_transition_effects.pdf",
+    )
     if coding_results is not None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
-        figure2_context_coding(
+        figure3_context_coding(
             context_transitions, coding_associations,
-            dirs["figures"] / "figure2_context_coding_association.png",
-            dirs["figures"] / "figure2_context_coding_association.pdf",
+            dirs["figures"] / "figure3_context_coding_associations.png",
+            dirs["figures"] / "figure3_context_coding_associations.pdf",
         )
 
-    figure_s1_transitions(
-        transitions,
-        dirs["figures"] / "figure_s1_transition_effects.png",
-        dirs["figures"] / "figure_s1_transition_effects.pdf",
-    )
-    figure_s2_switching(
+    figure_s1_switching(
         switching,
-        dirs["figures"] / "figure_s2_directional_switching.png",
-        dirs["figures"] / "figure_s2_directional_switching.pdf",
+        dirs["figures"] / "figure_s1_directional_switching.png",
+        dirs["figures"] / "figure_s1_directional_switching.pdf",
     )
 
     summary_text = manuscript_summary_text(df, overall, transitions, scenarios, switching, fits, anova)
@@ -1948,7 +2049,7 @@ def main() -> None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
         summary_text += context_coding_summary_text(codings, reliability, context_transitions, coding_associations)
     else:
-        summary_text += "\nBlinded contextual coding\nNo coding file found; coding-based Figure 2 and Tables S11-S13 were not generated.\n"
+        summary_text += "\nBlinded contextual coding\nNo coding file found; coding-based Figure 3 and Tables S9-S11 were not generated.\n"
     (dirs["checks"] / "manuscript_numbers_check.txt").write_text(summary_text, encoding="utf-8")
     write_metadata(df, files, dirs["checks"] / "analysis_metadata.json")
     if coding_results is not None:
