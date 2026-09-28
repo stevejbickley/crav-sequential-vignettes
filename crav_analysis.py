@@ -19,7 +19,8 @@ This script:
 10. Optionally analyses blinded multi-model contextual codings when
     data/supplementary_data_s4_blinded_context_codings.csv is present.
 11. Produces Main Figures 1-3 and Table 1, Supplementary Figure S1,
-    and empirical Tables S1-S13. Main Figure 3 has panels A-B; the conceptual
+    and empirical Tables S1-S13. Main Figure 3 has panels A-B; an optional
+    scenario-coloured Figure 3 variant can also be written. The conceptual
     extensions table remains Supplementary Table S14.
 12. Writes Supplementary Data S1-S6, validation outputs, analysis metadata,
     recorded environment versions, and a manuscript numerical cross-check.
@@ -35,6 +36,8 @@ from pathlib import Path
 from typing import Dict, Iterable, Tuple
 
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
+from matplotlib.lines import Line2D
 import numpy as np
 import pandas as pd
 from scipy import stats
@@ -506,6 +509,16 @@ def parse_args() -> argparse.Namespace:
             "Optional blinded context-coding CSV. If omitted, the script looks for "
             "<output-dir>/data/supplementary_data_s4_blinded_context_codings.csv. "
             "If no coding file exists, the original CRAV workflow runs unchanged."
+        ),
+    )
+    parser.add_argument(
+        "--figure3-colour-mode",
+        choices=("single", "scenario", "both"),
+        default="both",
+        help=(
+            "How to render Figure 3A when blinded coding data are available: "
+            "'single' writes the manuscript-default one-colour version; 'scenario' "
+            "writes the ten-scenario colour version; 'both' writes both (default)."
         ),
     )
     return parser.parse_args()
@@ -1600,42 +1613,256 @@ def figure3_context_coding(
     associations: pd.DataFrame,
     path_png: Path,
     path_pdf: Path,
+    panel_a_colour_mode: str = "single",
 ) -> None:
-    """Main Figure 3A-B: composite scatterplot plus index/component correlations."""
+    """Main Figure 3A-B: outcome-blinded composite association and component correlations.
+
+    Parameters
+    ----------
+    panel_a_colour_mode : {"single", "scenario"}
+        ``single`` is the manuscript-default version: one colour for all Panel A
+        observations, with marker shape identifying transition stage. ``scenario``
+        retains the same geometry and marker-stage encoding but assigns one of ten
+        distinct colours to scenarios S1-S10 and adds a boxed scenario legend.
+
+    Panel A is deliberately given substantially more physical space than Panel B so
+    that the dense central cloud is easier to read without jittering or otherwise
+    moving any data points. Only the three coder-consensus directional mismatches are
+    directly annotated. Panel B reports the composite and component-level Spearman
+    associations.
+    """
+    if panel_a_colour_mode not in {"single", "scenario"}:
+        raise ValueError(
+            "panel_a_colour_mode must be either 'single' or 'scenario'; "
+            f"got {panel_a_colour_mode!r}."
+        )
+
     d = transition_scores.sort_values(["scenario", "to_level"]).copy()
     x = d["delta_contextual_deservingness_index_mean"].to_numpy(dtype=float)
     y = d["observed_delta_B_pp"].to_numpy(dtype=float)
     xerr = d["delta_contextual_deservingness_index_sd"].fillna(0).to_numpy(dtype=float)
 
+    # Panel A is intentionally much wider/taller than before. The larger physical
+    # grid cells increase visual separation in the central cloud while preserving
+    # every exact x/y coordinate and error bar.
     fig, (ax_a, ax_b) = plt.subplots(
-        1, 2, figsize=(13.8, 6.4),
-        gridspec_kw={"width_ratios": [1.15, 1.0]},
+        1,
+        2,
+        figsize=(20.8, 9.2),
+        gridspec_kw={"width_ratios": [1.90, 1.0]},
     )
 
-    # Panel A: existing transition-level association for the equal-weight index.
-    ax_a.errorbar(x, y, xerr=xerr, fmt="o", capsize=2, alpha=0.8)
-    ax_a.axhline(0, linestyle="--", linewidth=0.9)
-    ax_a.axvline(0, linestyle="--", linewidth=0.9)
+    # Panel A: equal-weight contextual score.
+    base_color = plt.rcParams["axes.prop_cycle"].by_key()["color"][0]
+    transition_styles = [
+        ("L1→L2", "o"),
+        ("L2→L3", "s"),
+        ("L3→L4", "D"),
+        ("L4→L5", "^"),
+    ]
+    transition_marker = dict(transition_styles)
+
+    # Ten distinct scenario colours for the optional alternative rendering.
+    scenario_ids = sorted(int(s) for s in d["scenario"].unique())
+    tab10 = plt.get_cmap("tab10")
+    scenario_colours = {s: tab10((s - 1) % 10) for s in scenario_ids}
+
+    if panel_a_colour_mode == "single":
+        for transition_label, marker in transition_styles:
+            mask = (d["transition"] == transition_label).to_numpy()
+            if not mask.any():
+                continue
+            ax_a.errorbar(
+                x[mask],
+                y[mask],
+                xerr=xerr[mask],
+                fmt=marker,
+                markersize=5.8,
+                markeredgewidth=0.7,
+                capsize=2,
+                elinewidth=0.9,
+                linewidth=0.9,
+                linestyle="none",
+                color=base_color,
+                alpha=0.80,
+                zorder=3,
+            )
+    else:
+        # Scenario-coloured alternative: colour = scenario, shape = transition stage.
+        for scenario in scenario_ids:
+            for transition_label, marker in transition_styles:
+                mask = (
+                    (d["scenario"].astype(int) == scenario)
+                    & (d["transition"] == transition_label)
+                ).to_numpy()
+                if not mask.any():
+                    continue
+                ax_a.errorbar(
+                    x[mask],
+                    y[mask],
+                    xerr=xerr[mask],
+                    fmt=marker,
+                    markersize=5.8,
+                    markeredgewidth=0.7,
+                    capsize=2,
+                    elinewidth=0.9,
+                    linewidth=0.9,
+                    linestyle="none",
+                    color=scenario_colours[scenario],
+                    alpha=0.82,
+                    zorder=3,
+                )
+
+    ax_a.axhline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
+    ax_a.axvline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
+
+    # Red solid least-squares line is a visual trend only; the reported statistic is
+    # Spearman's rank correlation.
     if np.unique(x).size > 1:
         slope, intercept = np.polyfit(x, y, 1)
-        xx = np.linspace(float(np.min(x)), float(np.max(x)), 100)
-        ax_a.plot(xx, intercept + slope * xx, linewidth=1.2)
+        xx = np.linspace(float(np.min(x)), float(np.max(x)), 200)
+        ax_a.plot(
+            xx,
+            intercept + slope * xx,
+            linewidth=1.55,
+            linestyle="-",
+            color="red",
+            zorder=2,
+        )
 
     primary = associations.loc[associations["primary"] == True].iloc[0]
     ax_a.text(
-        0.02, 0.98,
+        0.02,
+        0.98,
         f"Spearman ρ = {primary['spearman_rho']:.2f}\n"
         f"scenario-cluster bootstrap 95% CI "
         f"[{primary['scenario_cluster_bootstrap_ci95_low']:.2f}, "
         f"{primary['scenario_cluster_bootstrap_ci95_high']:.2f}]",
-        transform=ax_a.transAxes, ha="left", va="top", fontsize=9,
+        transform=ax_a.transAxes,
+        ha="left",
+        va="top",
+        fontsize=9.4,
     )
+
+    # Label only the three coder-consensus directional mismatches discussed in text.
+    # Painkiller addiction is deliberately placed in the open upper-left area, above
+    # the illegal-gambling-debts label, so the two near-overlapping observations can
+    # be distinguished without shifting their plotted coordinates.
+    mismatch_offsets = {
+        "Illegal gambling debts": (-132, 38),
+        "Painkiller addiction": (-132, 92),
+        "Years of smoking": (18, -56),
+    }
+    for cue, offset in mismatch_offsets.items():
+        hit = d.loc[d["new_information"] == cue]
+        if len(hit) != 1:
+            continue
+        r = hit.iloc[0]
+        ax_a.annotate(
+            f"S{int(r['scenario'])} {r['transition']}\n{cue.lower()}",
+            xy=(
+                float(r["delta_contextual_deservingness_index_mean"]),
+                float(r["observed_delta_B_pp"]),
+            ),
+            xytext=offset,
+            textcoords="offset points",
+            ha="left",
+            va="center",
+            fontsize=8.4,
+            arrowprops={"arrowstyle": "-", "linewidth": 0.8, "color": "0.35"},
+            zorder=5,
+        )
+
     ax_a.set_xlabel("Change in blinded theory-guided contextual score (ΔD)")
     ax_a.set_ylabel("Observed change in allocation to Person B (percentage points)")
     ax_a.set_title("A. Equal-weight contextual score")
-    ax_a.grid(alpha=0.18)
 
-    # Panel B: overall index plus correlations for each of the five coded dimensions.
+    # Fixed major-grid spacing, combined with the larger physical axes, keeps the
+    # cloud open and makes individual markers easier to distinguish.
+    ax_a.xaxis.set_major_locator(MultipleLocator(1.0))
+    ax_a.yaxis.set_major_locator(MultipleLocator(5.0))
+    ax_a.grid(which="major", alpha=0.13, linewidth=0.8)
+
+    # Retain all observations and error bars while allowing modest whitespace for
+    # annotations and the visually enlarged plotting region.
+    x_left = float(np.nanmin(x - xerr)) - 0.20
+    x_right = float(np.nanmax(x + xerr)) + 0.34
+    y_span = float(np.nanmax(y) - np.nanmin(y))
+    y_pad = max(1.4, 0.04 * y_span)
+    ax_a.set_xlim(x_left, x_right)
+    ax_a.set_ylim(float(np.nanmin(y)) - y_pad, float(np.nanmax(y)) + y_pad)
+
+    # Boxed transition-stage legend. In the scenario-coloured version, neutral grey
+    # marker faces prevent the stage legend from competing with the scenario colours.
+    stage_face = base_color if panel_a_colour_mode == "single" else "0.45"
+    stage_handles = [
+        Line2D(
+            [0],
+            [0],
+            marker=transition_marker[label],
+            linestyle="none",
+            markersize=6.0,
+            markerfacecolor=stage_face,
+            markeredgecolor=stage_face,
+            label=label,
+        )
+        for label, _ in transition_styles
+    ]
+    stage_legend = ax_a.legend(
+        handles=stage_handles,
+        title="Transition stage",
+        loc="lower right",
+        ncol=2,
+        fontsize=8.3,
+        title_fontsize=8.8,
+        frameon=True,
+        fancybox=False,
+        framealpha=1.0,
+        edgecolor="0.30",
+        facecolor="white",
+        borderpad=0.75,
+        columnspacing=1.25,
+        handletextpad=0.55,
+    )
+    stage_legend.get_frame().set_linewidth(0.9)
+
+    if panel_a_colour_mode == "scenario":
+        # A separate boxed scenario key sits below Panel A so the colour information
+        # is available without covering observations in the main plotting region.
+        scenario_handles = [
+            Line2D(
+                [0],
+                [0],
+                marker="o",
+                linestyle="none",
+                markersize=5.8,
+                markerfacecolor=scenario_colours[s],
+                markeredgecolor=scenario_colours[s],
+                label=f"S{s}",
+            )
+            for s in scenario_ids
+        ]
+        scenario_legend = ax_a.legend(
+            handles=scenario_handles,
+            title="Scenario",
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.12),
+            ncol=5,
+            fontsize=8.1,
+            title_fontsize=8.7,
+            frameon=True,
+            fancybox=False,
+            framealpha=1.0,
+            edgecolor="0.30",
+            facecolor="white",
+            borderpad=0.65,
+            columnspacing=1.0,
+            handletextpad=0.45,
+        )
+        scenario_legend.get_frame().set_linewidth(0.9)
+        ax_a.add_artist(stage_legend)
+
+    # Panel B: overall index plus correlations for each coded dimension.
     component_order = [
         "Primary equal-weight five-component index",
         "Externality/luck (reverse responsibility)",
@@ -1665,26 +1892,35 @@ def figure3_context_coding(
     xerr_b = np.vstack([rho - lo, hi - rho])
 
     ax_b.errorbar(rho, yy, xerr=xerr_b, fmt="o", capsize=3, linewidth=1.2)
-    ax_b.axvline(0, linestyle="--", linewidth=0.9)
+    ax_b.axvline(0, linestyle="--", linewidth=0.9, color="0.45")
     ax_b.set_yticks(yy)
-    ax_b.set_yticklabels([component_labels[a] for a in assoc["analysis"]], fontsize=8.5)
+    ax_b.set_yticklabels([component_labels[a] for a in assoc["analysis"]], fontsize=8.8)
     ax_b.invert_yaxis()
     ax_b.set_xlabel("Spearman ρ with observed reallocation")
     ax_b.set_title("B. Index and component associations")
-    ax_b.grid(axis="x", alpha=0.18)
+    ax_b.xaxis.set_major_locator(MultipleLocator(0.2))
+    ax_b.grid(axis="x", alpha=0.13, linewidth=0.8)
 
-    # Add compact rho labels without duplicating the confidence intervals.
-    span = float(np.nanmax(hi) - np.nanmin(lo)) if np.isfinite(hi).any() and np.isfinite(lo).any() else 1.0
+    span = (
+        float(np.nanmax(hi) - np.nanmin(lo))
+        if np.isfinite(hi).any() and np.isfinite(lo).any()
+        else 1.0
+    )
     pad = max(0.015, 0.025 * span)
     for yi, r, upper in zip(yy, rho, hi):
-        ax_b.text(float(upper) + pad, yi, f"{r:.2f}", va="center", fontsize=8)
+        ax_b.text(float(upper) + pad, yi, f"{r:.2f}", va="center", fontsize=8.3)
 
     xmin = min(-0.30, float(np.nanmin(lo)) - 0.06)
     xmax = max(0.85, float(np.nanmax(hi)) + 0.12)
     ax_b.set_xlim(xmin, xmax)
 
-    fig.suptitle("Outcome-blinded contextual coding and observed CRAV reallocations", fontsize=12.5)
-    fig.tight_layout(rect=[0, 0, 1, 0.96])
+    fig.suptitle(
+        "Outcome-blinded contextual coding and observed CRAV reallocations",
+        fontsize=13.2,
+        y=0.97,
+    )
+    bottom = 0.17 if panel_a_colour_mode == "scenario" else 0.10
+    fig.subplots_adjust(left=0.055, right=0.988, bottom=bottom, top=0.87, wspace=0.26)
     fig.savefig(path_png, dpi=300, bbox_inches="tight")
     fig.savefig(path_pdf, bbox_inches="tight")
     plt.close(fig)
@@ -1784,32 +2020,80 @@ def figure1_trajectories(df: pd.DataFrame, cells: pd.DataFrame, path_png: Path, 
     plt.close(fig)
 
 def figure2_transition_effects(transitions: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
-    """Main Figure 2: all 40 paired mean changes with 95% CIs."""
+    """Main Figure 2: observed transition effects with theory-guided H2 marker shapes."""
     t = transitions.copy().sort_values(["scenario", "to_level"], ascending=[False, False]).reset_index(drop=True)
+    t["h2_expectation"] = [
+        TRANSITION_THEORY_MAP[(int(s), int(l))]["h2_expectation"]
+        for s, l in zip(t["scenario"], t["to_level"])
+    ]
+
     labels = [
         f"S{int(r.scenario)} {r.transition}: {r.new_information}"
         for r in t.itertuples(index=False)
     ]
     y = np.arange(len(t))
-    means = t["mean_delta_pp"].to_numpy()
+    means = t["mean_delta_pp"].to_numpy(dtype=float)
     xerr = np.vstack([
-        means - t["ci95_low"].to_numpy(),
-        t["ci95_high"].to_numpy() - means,
+        means - t["ci95_low"].to_numpy(dtype=float),
+        t["ci95_high"].to_numpy(dtype=float) - means,
     ])
 
+    expectation_styles = [
+        ("Increase", "^", "Expected increase"),
+        ("Decrease", "v", "Expected decrease"),
+        ("Mixed/ambiguous", "D", "Mixed / ambiguous"),
+        ("No directional prediction", "o", "No directional prediction"),
+    ]
+
     fig, ax = plt.subplots(figsize=(11, 14))
-    ax.errorbar(means, y, xerr=xerr, fmt="o", capsize=2, linewidth=1)
-    ax.axvline(0, linestyle="--", linewidth=1)
+    for expectation, marker, legend_label in expectation_styles:
+        mask = (t["h2_expectation"] == expectation).to_numpy()
+        if not mask.any():
+            continue
+        ax.errorbar(
+            means[mask],
+            y[mask],
+            xerr=xerr[:, mask],
+            fmt=marker,
+            markersize=6,
+            capsize=2,
+            linewidth=1,
+            linestyle="none",
+            label=legend_label,
+        )
+
+    ax.axvline(0, linestyle="--", linewidth=1, color="0.45")
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=7.5)
     ax.set_xlabel("Change in allocation to Person B (percentage points)")
-    ax.set_title("Stage-to-stage contextual reallocations")
+    ax.set_title("Stage-to-stage contextual reallocations and H2 expectations")
     ax.grid(axis="x", alpha=0.18)
-    fig.tight_layout()
+
+    handles, legend_labels = ax.get_legend_handles_labels()
+    leg = fig.legend(
+        handles,
+        legend_labels,
+        title="Theory-guided H2 classification",
+        loc="lower center",
+        bbox_to_anchor=(0.5, 0.005),
+        ncol=2,
+        fontsize=8,
+        title_fontsize=8.5,
+        frameon=True,
+        fancybox=False,
+        framealpha=1.0,
+        edgecolor="0.35",
+        facecolor="white",
+        borderpad=0.8,
+        columnspacing=1.4,
+        handletextpad=0.6,
+    )
+    leg.get_frame().set_linewidth(0.8)
+
+    fig.tight_layout(rect=[0, 0.075, 1, 1])
     fig.savefig(path_png, dpi=300, bbox_inches="tight")
     fig.savefig(path_pdf, bbox_inches="tight")
     plt.close(fig)
-
 
 def figure_s1_switching(switch_summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
     """Supplementary Figure S1: proportion of mixed-direction scenario-specific trajectories."""
@@ -2032,11 +2316,22 @@ def main() -> None:
     )
     if coding_results is not None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
-        figure3_context_coding(
-            context_transitions, coding_associations,
-            dirs["figures"] / "figure3_context_coding_associations.png",
-            dirs["figures"] / "figure3_context_coding_associations.pdf",
-        )
+        if args.figure3_colour_mode in {"single", "both"}:
+            figure3_context_coding(
+                context_transitions,
+                coding_associations,
+                dirs["figures"] / "figure3_context_coding_associations.png",
+                dirs["figures"] / "figure3_context_coding_associations.pdf",
+                panel_a_colour_mode="single",
+            )
+        if args.figure3_colour_mode in {"scenario", "both"}:
+            figure3_context_coding(
+                context_transitions,
+                coding_associations,
+                dirs["figures"] / "figure3_context_coding_associations_scenario_colours.png",
+                dirs["figures"] / "figure3_context_coding_associations_scenario_colours.pdf",
+                panel_a_colour_mode="scenario",
+            )
 
     figure_s1_switching(
         switching,
