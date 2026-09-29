@@ -13,5 +13,7 @@
   "reliability_gate": 0.667,
   "all_dimensions_pass_gate": false,
   "direction_consensus_fraction": 0.6666666666666666,
-  "cluster_bootstrap_replicates": 5000
+  "cluster_bootstrap_replicates": 5000,
+  "context_figure_layout": "both",
+  "figure3_colour_mode": "both"
 }

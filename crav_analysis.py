@@ -18,10 +18,11 @@ This script:
    contextual level, agent identifier, and temperature.
 10. Optionally analyses blinded multi-model contextual codings when
     data/supplementary_data_s4_blinded_context_codings.csv is present.
-11. Produces Main Figures 1-3 and Table 1, Supplementary Figure S1,
-    and empirical Tables S1-S13. Main Figure 3 has panels A-B; an optional
-    scenario-coloured Figure 3 variant can also be written. The conceptual
-    extensions table remains Supplementary Table S14.
+11. Produces Main Figures 1-2 plus flexible outcome-blinded context figures:
+    either a combined Figure 3 with panels A-B, separate Figures 3 and 4, or
+    both layout alternatives. By default, both layout alternatives are written,
+    and Figure 3 is produced both with a common point colour and with scenario
+    colours. The conceptual extensions table remains Supplementary Table S14.
 12. Writes Supplementary Data S1-S6, validation outputs, analysis metadata,
     recorded environment versions, and a manuscript numerical cross-check.
 """
@@ -512,13 +513,25 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--context-figure-layout",
+        choices=("combined", "separate", "both"),
+        default="both",
+        help=(
+            "Layout for the outcome-blinded contextual-coding figures: 'combined' "
+            "writes one Figure 3 with panels A-B; 'separate' writes Figure 3 "
+            "(scatter) and Figure 4 (component associations); 'both' writes both "
+            "alternatives (default)."
+        ),
+    )
+    parser.add_argument(
         "--figure3-colour-mode",
         choices=("single", "scenario", "both"),
         default="both",
         help=(
-            "How to render Figure 3A when blinded coding data are available: "
-            "'single' writes the manuscript-default one-colour version; 'scenario' "
-            "writes the ten-scenario colour version; 'both' writes both (default)."
+            "Colour variants for the Figure 3 scatter panel when blinded coding "
+            "data are available: 'single' writes the manuscript-default common-colour "
+            "version; 'scenario' writes the ten-scenario colour version; 'both' "
+            "writes both (default). This applies to both combined and separate layouts."
         ),
     )
     return parser.parse_args()
@@ -1306,7 +1319,7 @@ def load_context_codings(path: Path) -> pd.DataFrame:
     if len(cell_counts) != 50 or cell_counts.nunique() != 1:
         raise ValueError("Coding data do not form a balanced coder x 10 x 5 panel.")
     c["externality_luck_score"] = 8.0 - c["responsibility_controllability"]
-    c["contextual_deservingness_index"] = c[CODING_ORIENTED_COMPONENTS].mean(axis=1)
+    c["outcome_blinded_contextual_score"] = c[CODING_ORIENTED_COMPONENTS].mean(axis=1)
     return c
 
 
@@ -1394,7 +1407,7 @@ def context_coding_reliability(c: pd.DataFrame) -> pd.DataFrame:
 
 def context_state_scores(c: pd.DataFrame) -> pd.DataFrame:
     """Aggregate blinded coder ratings at each of the 50 cumulative states."""
-    components = [*CODING_DIMENSIONS, "externality_luck_score", "contextual_deservingness_index"]
+    components = [*CODING_DIMENSIONS, "externality_luck_score", "outcome_blinded_contextual_score"]
     rows = []
     for (scenario, level), g in c.groupby(["scenario", "level"], sort=True):
         row = {
@@ -1415,7 +1428,7 @@ def context_state_scores(c: pd.DataFrame) -> pd.DataFrame:
 
 def coder_transition_scores(c: pd.DataFrame) -> pd.DataFrame:
     """Convert independently coded cumulative states into within-coder transition deltas."""
-    components = [*CODING_ORIENTED_COMPONENTS, "contextual_deservingness_index"]
+    components = [*CODING_ORIENTED_COMPONENTS, "outcome_blinded_contextual_score"]
     rows = []
     for (coder_id, scenario), g in c.groupby(["coder_id", "scenario"], sort=True):
         g = g.sort_values("level").set_index("level")
@@ -1471,7 +1484,7 @@ def context_transition_scores(c: pd.DataFrame, transitions: pd.DataFrame) -> tup
             row[f"{col}_mean"] = float(g[col].mean())
             row[f"{col}_median"] = float(g[col].median())
             row[f"{col}_sd"] = float(g[col].std(ddof=1)) if len(g) > 1 else np.nan
-        direction, share, pos, neg, zero = _consensus_direction(g["delta_contextual_deservingness_index"])
+        direction, share, pos, neg, zero = _consensus_direction(g["delta_outcome_blinded_contextual_score"])
         row.update({
             "coder_consensus_direction": direction,
             "coder_consensus_share": share,
@@ -1548,7 +1561,7 @@ def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd
         "mitigating_circumstances_motive": "Mitigating circumstances / motive",
         "corrective_prosocial_effort": "Corrective / prosocial effort",
     }
-    predictors = [("Primary equal-weight five-component index", "delta_contextual_deservingness_index_mean", True)]
+    predictors = [("Five-component contextual score (ΔD̃)", "delta_outcome_blinded_contextual_score_mean", True)]
     for key, label in base.items():
         predictors.append((label, f"delta_{key}_mean", False))
 
@@ -1583,14 +1596,14 @@ def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd
             "scenario_cluster_bootstrap_ci95_high": hi,
             "bootstrap_replicates_used": n_boot,
             "reliability_gate_passed": gate,
-            "interpretation": "Exploratory theory-guided association; 40 transitions are the unit of analysis.",
+            "interpretation": "Outcome-blinded theory-guided association; 40 transitions are the unit of analysis.",
         })
 
     clear = d[d["coder_consensus_direction"].isin(["increase", "decrease"])].copy()
     concordant = clear["direction_consistent"].astype("boolean") if len(clear) else pd.Series(dtype="boolean")
     sign_row = {
         "analysis": "Consensus directional concordance",
-        "predictor": "two-thirds-or-greater coder consensus on index-change sign",
+        "predictor": "two-thirds-or-greater coder consensus on contextual-score-change sign",
         "primary": False,
         "n_transitions": int(len(clear)),
         "spearman_rho": np.nan,
@@ -1608,51 +1621,39 @@ def context_coding_associations(transition_scores: pd.DataFrame, reliability: pd
     return pd.DataFrame(rows)
 
 
-def figure3_context_coding(
+
+def _draw_context_coding_scatter_panel(
+    ax,
     transition_scores: pd.DataFrame,
     associations: pd.DataFrame,
-    path_png: Path,
-    path_pdf: Path,
-    panel_a_colour_mode: str = "single",
+    colour_mode: str = "single",
+    compact: bool = False,
+    panel_title: str | None = None,
 ) -> None:
-    """Main Figure 3A-B: outcome-blinded composite association and component correlations.
+    """Draw the outcome-blinded contextual-score scatter on an existing axis.
 
     Parameters
     ----------
-    panel_a_colour_mode : {"single", "scenario"}
-        ``single`` is the manuscript-default version: one colour for all Panel A
-        observations, with marker shape identifying transition stage. ``scenario``
-        retains the same geometry and marker-stage encoding but assigns one of ten
-        distinct colours to scenarios S1-S10 and adds a boxed scenario legend.
-
-    Panel A is deliberately given substantially more physical space than Panel B so
-    that the dense central cloud is easier to read without jittering or otherwise
-    moving any data points. Only the three coder-consensus directional mismatches are
-    directly annotated. Panel B reports the composite and component-level Spearman
-    associations.
+    colour_mode : {"single", "scenario"}
+        ``single`` uses one common colour for all points. ``scenario`` colours
+        observations by scenario while retaining marker shape for transition stage.
+    compact : bool
+        Use slightly smaller typography/markers for the combined A-B layout.
+    panel_title : str or None
+        Optional title, e.g. ``"A. Contextual-score changes"`` in the combined figure.
     """
-    if panel_a_colour_mode not in {"single", "scenario"}:
+    if colour_mode not in {"single", "scenario"}:
         raise ValueError(
-            "panel_a_colour_mode must be either 'single' or 'scenario'; "
-            f"got {panel_a_colour_mode!r}."
+            "colour_mode must be either 'single' or 'scenario'; "
+            f"got {colour_mode!r}."
         )
 
     d = transition_scores.sort_values(["scenario", "to_level"]).copy()
-    x = d["delta_contextual_deservingness_index_mean"].to_numpy(dtype=float)
+    x = d["delta_outcome_blinded_contextual_score_mean"].to_numpy(dtype=float)
     y = d["observed_delta_B_pp"].to_numpy(dtype=float)
-    xerr = d["delta_contextual_deservingness_index_sd"].fillna(0).to_numpy(dtype=float)
+    xerr = d["delta_outcome_blinded_contextual_score_sd"].fillna(0).to_numpy(dtype=float)
 
-    # Panel A is intentionally much wider/taller than before. The larger physical
-    # grid cells increase visual separation in the central cloud while preserving
-    # every exact x/y coordinate and error bar.
-    fig, (ax_a, ax_b) = plt.subplots(
-        1,
-        2,
-        figsize=(20.8, 9.2),
-        gridspec_kw={"width_ratios": [1.90, 1.0]},
-    )
-
-    # Panel A: equal-weight contextual score.
+    scale = 0.84 if compact else 1.0
     base_color = plt.rcParams["axes.prop_cycle"].by_key()["color"][0]
     transition_styles = [
         ("L1→L2", "o"),
@@ -1662,33 +1663,31 @@ def figure3_context_coding(
     ]
     transition_marker = dict(transition_styles)
 
-    # Ten distinct scenario colours for the optional alternative rendering.
-    scenario_ids = sorted(int(s) for s in d["scenario"].unique())
+    scenario_ids = sorted(int(v) for v in d["scenario"].unique())
     tab10 = plt.get_cmap("tab10")
-    scenario_colours = {s: tab10((s - 1) % 10) for s in scenario_ids}
+    scenario_colours = {scenario: tab10((scenario - 1) % 10) for scenario in scenario_ids}
 
-    if panel_a_colour_mode == "single":
+    if colour_mode == "single":
         for transition_label, marker in transition_styles:
             mask = (d["transition"] == transition_label).to_numpy()
             if not mask.any():
                 continue
-            ax_a.errorbar(
+            ax.errorbar(
                 x[mask],
                 y[mask],
                 xerr=xerr[mask],
                 fmt=marker,
-                markersize=5.8,
-                markeredgewidth=0.7,
-                capsize=2,
-                elinewidth=0.9,
-                linewidth=0.9,
+                markersize=7.0 * scale,
+                markeredgewidth=0.8 * scale,
+                capsize=2.5 * scale,
+                elinewidth=1.0 * scale,
+                linewidth=1.0 * scale,
                 linestyle="none",
                 color=base_color,
-                alpha=0.80,
+                alpha=0.82,
                 zorder=3,
             )
     else:
-        # Scenario-coloured alternative: colour = scenario, shape = transition stage.
         for scenario in scenario_ids:
             for transition_label, marker in transition_styles:
                 mask = (
@@ -1697,124 +1696,126 @@ def figure3_context_coding(
                 ).to_numpy()
                 if not mask.any():
                     continue
-                ax_a.errorbar(
+                ax.errorbar(
                     x[mask],
                     y[mask],
                     xerr=xerr[mask],
                     fmt=marker,
-                    markersize=5.8,
-                    markeredgewidth=0.7,
-                    capsize=2,
-                    elinewidth=0.9,
-                    linewidth=0.9,
+                    markersize=7.0 * scale,
+                    markeredgewidth=0.8 * scale,
+                    capsize=2.5 * scale,
+                    elinewidth=1.0 * scale,
+                    linewidth=1.0 * scale,
                     linestyle="none",
                     color=scenario_colours[scenario],
-                    alpha=0.82,
+                    alpha=0.84,
                     zorder=3,
                 )
 
-    ax_a.axhline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
-    ax_a.axvline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
+    ax.axhline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
+    ax.axvline(0, linestyle="--", linewidth=0.9, color="0.45", zorder=1)
 
-    # Red solid least-squares line is a visual trend only; the reported statistic is
-    # Spearman's rank correlation.
+    # Visual linear trend only; inference/reporting uses Spearman rank correlation.
     if np.unique(x).size > 1:
         slope, intercept = np.polyfit(x, y, 1)
         xx = np.linspace(float(np.min(x)), float(np.max(x)), 200)
-        ax_a.plot(
+        ax.plot(
             xx,
             intercept + slope * xx,
-            linewidth=1.55,
+            linewidth=1.6 * scale,
             linestyle="-",
             color="red",
             zorder=2,
         )
 
     primary = associations.loc[associations["primary"] == True].iloc[0]
-    ax_a.text(
+    ax.text(
         0.02,
         0.98,
         f"Spearman ρ = {primary['spearman_rho']:.2f}\n"
         f"scenario-cluster bootstrap 95% CI "
         f"[{primary['scenario_cluster_bootstrap_ci95_low']:.2f}, "
         f"{primary['scenario_cluster_bootstrap_ci95_high']:.2f}]",
-        transform=ax_a.transAxes,
+        transform=ax.transAxes,
         ha="left",
         va="top",
-        fontsize=9.4,
+        fontsize=10.2 * scale,
     )
 
     # Label only the three coder-consensus directional mismatches discussed in text.
-    # Painkiller addiction is deliberately placed in the open upper-left area, above
-    # the illegal-gambling-debts label, so the two near-overlapping observations can
-    # be distinguished without shifting their plotted coordinates.
     mismatch_offsets = {
         "Illegal gambling debts": (-132, 38),
         "Painkiller addiction": (-132, 92),
         "Years of smoking": (18, -56),
     }
+    if compact:
+        mismatch_offsets = {
+            cue: (int(dx * 0.92), int(dy * 0.92))
+            for cue, (dx, dy) in mismatch_offsets.items()
+        }
     for cue, offset in mismatch_offsets.items():
         hit = d.loc[d["new_information"] == cue]
         if len(hit) != 1:
             continue
         r = hit.iloc[0]
-        ax_a.annotate(
+        ax.annotate(
             f"S{int(r['scenario'])} {r['transition']}\n{cue.lower()}",
             xy=(
-                float(r["delta_contextual_deservingness_index_mean"]),
+                float(r["delta_outcome_blinded_contextual_score_mean"]),
                 float(r["observed_delta_B_pp"]),
             ),
             xytext=offset,
             textcoords="offset points",
             ha="left",
             va="center",
-            fontsize=8.4,
+            fontsize=9.0 * scale,
             arrowprops={"arrowstyle": "-", "linewidth": 0.8, "color": "0.35"},
             zorder=5,
         )
 
-    ax_a.set_xlabel("Change in blinded theory-guided contextual score (ΔD)")
-    ax_a.set_ylabel("Observed change in allocation to Person B (percentage points)")
-    ax_a.set_title("A. Equal-weight contextual score")
+    ax.set_xlabel(
+        r"Change in outcome-blinded contextual score ($\Delta\widetilde{D}$)",
+        fontsize=10.8 * scale,
+    )
+    ax.set_ylabel(
+        "Observed change in allocation to Person B (percentage points)",
+        fontsize=10.8 * scale,
+    )
+    if panel_title:
+        ax.set_title(panel_title, fontsize=12.2 * scale)
 
-    # Fixed major-grid spacing, combined with the larger physical axes, keeps the
-    # cloud open and makes individual markers easier to distinguish.
-    ax_a.xaxis.set_major_locator(MultipleLocator(1.0))
-    ax_a.yaxis.set_major_locator(MultipleLocator(5.0))
-    ax_a.grid(which="major", alpha=0.13, linewidth=0.8)
+    ax.xaxis.set_major_locator(MultipleLocator(1.0))
+    ax.yaxis.set_major_locator(MultipleLocator(5.0))
+    ax.grid(which="major", alpha=0.13, linewidth=0.8)
 
-    # Retain all observations and error bars while allowing modest whitespace for
-    # annotations and the visually enlarged plotting region.
     x_left = float(np.nanmin(x - xerr)) - 0.20
     x_right = float(np.nanmax(x + xerr)) + 0.34
     y_span = float(np.nanmax(y) - np.nanmin(y))
     y_pad = max(1.4, 0.04 * y_span)
-    ax_a.set_xlim(x_left, x_right)
-    ax_a.set_ylim(float(np.nanmin(y)) - y_pad, float(np.nanmax(y)) + y_pad)
+    ax.set_xlim(x_left, x_right)
+    ax.set_ylim(float(np.nanmin(y)) - y_pad, float(np.nanmax(y)) + y_pad)
 
-    # Boxed transition-stage legend. In the scenario-coloured version, neutral grey
-    # marker faces prevent the stage legend from competing with the scenario colours.
-    stage_face = base_color if panel_a_colour_mode == "single" else "0.45"
+    stage_face = base_color if colour_mode == "single" else "0.45"
     stage_handles = [
         Line2D(
             [0],
             [0],
             marker=transition_marker[label],
             linestyle="none",
-            markersize=6.0,
+            markersize=7.0 * scale,
             markerfacecolor=stage_face,
             markeredgecolor=stage_face,
             label=label,
         )
         for label, _ in transition_styles
     ]
-    stage_legend = ax_a.legend(
+    stage_legend = ax.legend(
         handles=stage_handles,
         title="Transition stage",
         loc="lower right",
         ncol=2,
-        fontsize=8.3,
-        title_fontsize=8.8,
+        fontsize=9.0 * scale,
+        title_fontsize=9.4 * scale,
         frameon=True,
         fancybox=False,
         framealpha=1.0,
@@ -1826,30 +1827,28 @@ def figure3_context_coding(
     )
     stage_legend.get_frame().set_linewidth(0.9)
 
-    if panel_a_colour_mode == "scenario":
-        # A separate boxed scenario key sits below Panel A so the colour information
-        # is available without covering observations in the main plotting region.
+    if colour_mode == "scenario":
         scenario_handles = [
             Line2D(
                 [0],
                 [0],
                 marker="o",
                 linestyle="none",
-                markersize=5.8,
-                markerfacecolor=scenario_colours[s],
-                markeredgecolor=scenario_colours[s],
-                label=f"S{s}",
+                markersize=6.4 * scale,
+                markerfacecolor=scenario_colours[scenario],
+                markeredgecolor=scenario_colours[scenario],
+                label=f"S{scenario}",
             )
-            for s in scenario_ids
+            for scenario in scenario_ids
         ]
-        scenario_legend = ax_a.legend(
+        scenario_legend = ax.legend(
             handles=scenario_handles,
             title="Scenario",
             loc="upper center",
             bbox_to_anchor=(0.5, -0.12),
             ncol=5,
-            fontsize=8.1,
-            title_fontsize=8.7,
+            fontsize=8.7 * scale,
+            title_fontsize=9.2 * scale,
             frameon=True,
             fancybox=False,
             framealpha=1.0,
@@ -1860,11 +1859,13 @@ def figure3_context_coding(
             handletextpad=0.45,
         )
         scenario_legend.get_frame().set_linewidth(0.9)
-        ax_a.add_artist(stage_legend)
+        ax.add_artist(stage_legend)
 
-    # Panel B: overall index plus correlations for each coded dimension.
+
+def _component_association_frame(associations: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, str]]:
+    """Return the ordered composite/component rows used in Figure 3B / Figure 4."""
     component_order = [
-        "Primary equal-weight five-component index",
+        "Five-component contextual score (ΔD̃)",
         "Externality/luck (reverse responsibility)",
         "Need / vulnerability",
         "External constraint / coercion",
@@ -1872,7 +1873,7 @@ def figure3_context_coding(
         "Corrective / prosocial effort",
     ]
     component_labels = {
-        "Primary equal-weight five-component index": "Five-component index",
+        "Five-component contextual score (ΔD̃)": "Five-component contextual score\n($\\Delta\\widetilde{D}$)",
         "Externality/luck (reverse responsibility)": "Externality/luck\n(reverse responsibility)",
         "Need / vulnerability": "Need / vulnerability",
         "External constraint / coercion": "External constraint /\ncoercion",
@@ -1885,21 +1886,43 @@ def figure3_context_coding(
         .loc[component_order]
         .reset_index()
     )
+    return assoc, component_labels
+
+
+def _draw_context_component_association_panel(
+    ax,
+    associations: pd.DataFrame,
+    compact: bool = False,
+    panel_title: str | None = None,
+) -> None:
+    """Draw the composite/component Spearman forest plot on an existing axis."""
+    assoc, component_labels = _component_association_frame(associations)
+    scale = 0.88 if compact else 1.0
+
     yy = np.arange(len(assoc))
     rho = assoc["spearman_rho"].to_numpy(dtype=float)
     lo = assoc["scenario_cluster_bootstrap_ci95_low"].to_numpy(dtype=float)
     hi = assoc["scenario_cluster_bootstrap_ci95_high"].to_numpy(dtype=float)
-    xerr_b = np.vstack([rho - lo, hi - rho])
+    xerr = np.vstack([rho - lo, hi - rho])
 
-    ax_b.errorbar(rho, yy, xerr=xerr_b, fmt="o", capsize=3, linewidth=1.2)
-    ax_b.axvline(0, linestyle="--", linewidth=0.9, color="0.45")
-    ax_b.set_yticks(yy)
-    ax_b.set_yticklabels([component_labels[a] for a in assoc["analysis"]], fontsize=8.8)
-    ax_b.invert_yaxis()
-    ax_b.set_xlabel("Spearman ρ with observed reallocation")
-    ax_b.set_title("B. Index and component associations")
-    ax_b.xaxis.set_major_locator(MultipleLocator(0.2))
-    ax_b.grid(axis="x", alpha=0.13, linewidth=0.8)
+    ax.errorbar(
+        rho,
+        yy,
+        xerr=xerr,
+        fmt="o",
+        markersize=7.0 * scale,
+        capsize=3.5 * scale,
+        linewidth=1.35 * scale,
+    )
+    ax.axvline(0, linestyle="--", linewidth=0.9, color="0.45")
+    ax.set_yticks(yy)
+    ax.set_yticklabels([component_labels[a] for a in assoc["analysis"]], fontsize=10.0 * scale)
+    ax.invert_yaxis()
+    ax.set_xlabel(r"Spearman $\rho$ with observed reallocation ($\Delta B$)", fontsize=10.8 * scale)
+    if panel_title:
+        ax.set_title(panel_title, fontsize=12.2 * scale)
+    ax.xaxis.set_major_locator(MultipleLocator(0.2))
+    ax.grid(axis="x", alpha=0.13, linewidth=0.8)
 
     span = (
         float(np.nanmax(hi) - np.nanmin(lo))
@@ -1908,22 +1931,104 @@ def figure3_context_coding(
     )
     pad = max(0.015, 0.025 * span)
     for yi, r, upper in zip(yy, rho, hi):
-        ax_b.text(float(upper) + pad, yi, f"{r:.2f}", va="center", fontsize=8.3)
+        ax.text(float(upper) + pad, yi, f"{r:.2f}", va="center", fontsize=9.2 * scale)
 
     xmin = min(-0.30, float(np.nanmin(lo)) - 0.06)
     xmax = max(0.85, float(np.nanmax(hi)) + 0.12)
-    ax_b.set_xlim(xmin, xmax)
+    ax.set_xlim(xmin, xmax)
 
+
+def figure3_context_coding_scatter(
+    transition_scores: pd.DataFrame,
+    associations: pd.DataFrame,
+    path_png: Path,
+    path_pdf: Path,
+    colour_mode: str = "single",
+) -> None:
+    """Separate-layout Figure 3: outcome-blinded score changes versus reallocations."""
+    fig, ax = plt.subplots(figsize=(11.8, 8.5))
+    _draw_context_coding_scatter_panel(
+        ax,
+        transition_scores,
+        associations,
+        colour_mode=colour_mode,
+        compact=False,
+        panel_title="Outcome-blinded contextual-score changes and observed CRAV reallocations",
+    )
+    bottom = 0.20 if colour_mode == "scenario" else 0.10
+    fig.subplots_adjust(left=0.10, right=0.985, bottom=bottom, top=0.90)
+    fig.savefig(path_png, dpi=300, bbox_inches="tight")
+    fig.savefig(path_pdf, bbox_inches="tight")
+    plt.close(fig)
+
+
+def figure4_context_component_associations(
+    associations: pd.DataFrame,
+    path_png: Path,
+    path_pdf: Path,
+) -> None:
+    """Separate-layout Figure 4: composite and component Spearman associations."""
+    fig, ax = plt.subplots(figsize=(10.6, 6.8))
+    _draw_context_component_association_panel(
+        ax,
+        associations,
+        compact=False,
+        panel_title=(
+            "Associations between outcome-blinded contextual dimensions "
+            "and observed CRAV reallocations"
+        ),
+    )
+    fig.subplots_adjust(left=0.31, right=0.985, bottom=0.14, top=0.88)
+    fig.savefig(path_png, dpi=300, bbox_inches="tight")
+    fig.savefig(path_pdf, bbox_inches="tight")
+    plt.close(fig)
+
+
+def figure3_context_coding_combined(
+    transition_scores: pd.DataFrame,
+    associations: pd.DataFrame,
+    path_png: Path,
+    path_pdf: Path,
+    colour_mode: str = "single",
+) -> None:
+    """Combined-layout Figure 3 with scatter (A) and component associations (B)."""
+    if colour_mode not in {"single", "scenario"}:
+        raise ValueError(
+            "colour_mode must be either 'single' or 'scenario'; "
+            f"got {colour_mode!r}."
+        )
+
+    fig, (ax_a, ax_b) = plt.subplots(
+        1,
+        2,
+        figsize=(20.8, 9.2),
+        gridspec_kw={"width_ratios": [1.90, 1.0]},
+    )
+    _draw_context_coding_scatter_panel(
+        ax_a,
+        transition_scores,
+        associations,
+        colour_mode=colour_mode,
+        compact=True,
+        panel_title="A. Outcome-blinded contextual-score changes",
+    )
+    _draw_context_component_association_panel(
+        ax_b,
+        associations,
+        compact=True,
+        panel_title="B. Composite and component associations",
+    )
     fig.suptitle(
         "Outcome-blinded contextual coding and observed CRAV reallocations",
         fontsize=13.2,
         y=0.97,
     )
-    bottom = 0.17 if panel_a_colour_mode == "scenario" else 0.10
+    bottom = 0.17 if colour_mode == "scenario" else 0.10
     fig.subplots_adjust(left=0.055, right=0.988, bottom=bottom, top=0.87, wspace=0.26)
     fig.savefig(path_png, dpi=300, bbox_inches="tight")
     fig.savefig(path_pdf, bbox_inches="tight")
     plt.close(fig)
+
 
 def context_coding_summary_text(
     codings: pd.DataFrame,
@@ -2213,6 +2318,13 @@ def remove_legacy_numbering_outputs(dirs: Dict[str, Path]) -> None:
         dirs["figures"] / "figure2_context_coding_association",
         dirs["figures"] / "figure_s1_transition_effects",
         dirs["figures"] / "figure_s2_directional_switching",
+        dirs["figures"] / "figure3_context_coding_associations",
+        dirs["figures"] / "figure3_context_coding_associations_scenario_colours",
+        dirs["figures"] / "figure3_context_coding_combined",
+        dirs["figures"] / "figure3_context_coding_combined_scenario_colours",
+        dirs["figures"] / "figure3_context_coding_scatter",
+        dirs["figures"] / "figure3_context_coding_scatter_scenario_colours",
+        dirs["figures"] / "figure4_context_component_associations",
         dirs["tables"] / "table_s9_hypothesis_evidence",
         dirs["tables"] / "table_s10_transition_hypothesis_map",
         dirs["tables"] / "table_s11_blinded_coder_reliability",
@@ -2316,21 +2428,43 @@ def main() -> None:
     )
     if coding_results is not None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
-        if args.figure3_colour_mode in {"single", "both"}:
-            figure3_context_coding(
-                context_transitions,
+
+        write_combined = args.context_figure_layout in {"combined", "both"}
+        write_separate = args.context_figure_layout in {"separate", "both"}
+        colour_modes = (
+            ["single", "scenario"]
+            if args.figure3_colour_mode == "both"
+            else [args.figure3_colour_mode]
+        )
+
+        # Combined alternative: one Figure 3 with panels A (scatter) and B (forest plot).
+        if write_combined:
+            for colour_mode in colour_modes:
+                suffix = "_scenario_colours" if colour_mode == "scenario" else ""
+                figure3_context_coding_combined(
+                    context_transitions,
+                    coding_associations,
+                    dirs["figures"] / f"figure3_context_coding_combined{suffix}.png",
+                    dirs["figures"] / f"figure3_context_coding_combined{suffix}.pdf",
+                    colour_mode=colour_mode,
+                )
+
+        # Separate alternative: Figure 3 scatter (both colour variants by default)
+        # plus a standalone Figure 4 component-association forest plot.
+        if write_separate:
+            for colour_mode in colour_modes:
+                suffix = "_scenario_colours" if colour_mode == "scenario" else ""
+                figure3_context_coding_scatter(
+                    context_transitions,
+                    coding_associations,
+                    dirs["figures"] / f"figure3_context_coding_scatter{suffix}.png",
+                    dirs["figures"] / f"figure3_context_coding_scatter{suffix}.pdf",
+                    colour_mode=colour_mode,
+                )
+            figure4_context_component_associations(
                 coding_associations,
-                dirs["figures"] / "figure3_context_coding_associations.png",
-                dirs["figures"] / "figure3_context_coding_associations.pdf",
-                panel_a_colour_mode="single",
-            )
-        if args.figure3_colour_mode in {"scenario", "both"}:
-            figure3_context_coding(
-                context_transitions,
-                coding_associations,
-                dirs["figures"] / "figure3_context_coding_associations_scenario_colours.png",
-                dirs["figures"] / "figure3_context_coding_associations_scenario_colours.pdf",
-                panel_a_colour_mode="scenario",
+                dirs["figures"] / "figure4_context_component_associations.png",
+                dirs["figures"] / "figure4_context_component_associations.pdf",
             )
 
     figure_s1_switching(
@@ -2344,7 +2478,7 @@ def main() -> None:
         codings, reliability, state_scores, coder_deltas, context_transitions, coding_associations = coding_results
         summary_text += context_coding_summary_text(codings, reliability, context_transitions, coding_associations)
     else:
-        summary_text += "\nBlinded contextual coding\nNo coding file found; coding-based Figure 3 and Tables S9-S11 were not generated.\n"
+        summary_text += "\nBlinded contextual coding\nNo coding file found; coding-based context figures and Tables S9-S11 were not generated.\n"
     (dirs["checks"] / "manuscript_numbers_check.txt").write_text(summary_text, encoding="utf-8")
     write_metadata(df, files, dirs["checks"] / "analysis_metadata.json")
     if coding_results is not None:
@@ -2361,6 +2495,8 @@ def main() -> None:
             "all_dimensions_pass_gate": bool(reliability["passes_0_667_gate"].all()),
             "direction_consensus_fraction": CODING_DIRECTION_CONSENSUS,
             "cluster_bootstrap_replicates": CODING_BOOTSTRAP_REPS,
+            "context_figure_layout": args.context_figure_layout,
+            "figure3_colour_mode": args.figure3_colour_mode,
         }
         (dirs["checks"] / "context_coding_analysis_metadata.json").write_text(
             json.dumps(coding_meta, indent=2), encoding="utf-8"
