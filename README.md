@@ -50,9 +50,13 @@ Because hosted model implementations are stochastic and can change over time, th
 │
 ├── figures/
 │   ├── figure1_crav_trajectories.pdf/.png
-│   ├── figure2_context_coding_association.pdf/.png             # if coding is run
-│   ├── figure_s1_transition_effects.pdf/.png
-│   └── figure_s2_directional_switching.pdf/.png
+│   ├── figure_2_transition_effects.pdf/.png
+│   ├── figure3_context_coding_combined.pdf/.png                       # if coding is run and using default script calling
+│   ├── figure3_context_coding_combined_scenario_colours.pdf/.png      # if coding is run and using default script calling
+│   ├── figure3_context_coding_scatter.pdf/.png                        # if coding is run and using default script calling 
+│   ├── figure3_context_coding_scatter_scenario_colours.pdf/.png       # if coding is run and using default script calling 
+│   ├── figure4_context_component.pdf/.png                             # if coding is run and using default script calling 
+│   └── figure_s1_directional_switching.pdf/.png
 │
 ├── tables/
 │   ├── table1_scenario_dynamics.csv/.md
@@ -64,11 +68,11 @@ Because hosted model implementations are stochastic and can change over time, th
 │   ├── table_s6_model_fit_comparisons.csv/.md
 │   ├── table_s7_temperature_robustness.csv/.md
 │   ├── table_s8_trajectory_switching.csv/.md
-│   ├── table_s9_hypothesis_evidence.csv/.md
-│   ├── table_s10_transition_hypothesis_map.csv/.md
-│   ├── table_s11_blinded_coder_reliability.csv/.md             # if coding is run
-│   ├── table_s12_context_coding_transition_map.csv/.md          # if coding is run
-│   └── table_s13_context_coding_associations.csv/.md            # if coding is run
+│   ├── table_s9_blinded_coder_reliability.csv/.md              # if coding is run
+│   ├── table_s10_context_coding_transition_map.csv/.md         # if coding is run
+│   ├── table_s11_context_coding_associations.csv/.md           # if coding is run
+│   ├── table_s12_hypothesis_evidence.csv/.md      
+│   └── table_s13_transition_hypothesis_map.csv/.md            
 │
 └── checks/
     ├── analysis_metadata.json

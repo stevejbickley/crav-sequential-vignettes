@@ -1,4 +1,4 @@
-coder_id,provider,model,scenario,scenario_name,from_level,to_level,transition,new_information,delta_externality_luck_score,delta_need_vulnerability,delta_external_constraint_coercion,delta_mitigating_circumstances_motive,delta_corrective_prosocial_effort,delta_contextual_deservingness_index
+coder_id,provider,model,scenario,scenario_name,from_level,to_level,transition,new_information,delta_externality_luck_score,delta_need_vulnerability,delta_external_constraint_coercion,delta_mitigating_circumstances_motive,delta_corrective_prosocial_effort,delta_outcome_blinded_contextual_score
 anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,1,2,L1→L2,Criminal activity,-2.0,1.0,0.0,0.0,0.0,-0.20000000000000018
 anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,2,3,L2→L3,Forced gang membership,3.0,0.0,4.0,4.0,0.0,2.2
 anthropic:claude-opus-5-5,anthropic,claude-opus-5-5,1,Mobility impairment / criminal activity,3,4,L3→L4,Illegal gambling debts,-1.0,0.0,0.0,-1.0,0.0,-0.40000000000000036
